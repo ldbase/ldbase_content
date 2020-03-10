@@ -1,0 +1,5 @@
+description: 'Import pre-definied taxonomy terms into a freshly deployed LDbase instance.'
+options: {}
+arguments: {}
+messages:
+    success: 'Taxonomy terms imported.'

@@ -1,0 +1,6 @@
+services:
+  ldbase_content.ldbase_importterms:
+    class: Drupal\ldbase_content\Command\LDbaseTermImporterCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }

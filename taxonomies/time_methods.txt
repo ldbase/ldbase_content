@@ -1,0 +1,8 @@
+Cohort Sequential
+Cross-sectional
+Longitudinal
+Microgenic
+Panel
+Time Series
+Time Series: Continuous
+Time Series: Discrete

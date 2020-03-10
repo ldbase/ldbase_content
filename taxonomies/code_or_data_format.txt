@@ -1,0 +1,21 @@
+ASCII
+Dat
+dBase
+Delimited
+Eprime
+Excel
+GIS
+HTML
+JASP
+Matlab
+Mplus
+Mx
+Other
+Python
+R
+SAS
+SPSS
+SQL
+Stata
+Text
+Variable length

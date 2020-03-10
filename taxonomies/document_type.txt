@@ -1,0 +1,9 @@
+Book
+Codebook
+Conference Contribution
+Figure
+Journal Contribution
+Poster
+Preprint
+Presentation
+Thesis
