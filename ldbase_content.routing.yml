@@ -1,0 +1,15 @@
+ldbase.about:
+  path: '/about'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::about'
+    _title: 'About LDbase'
+  requirements:
+    _permission: 'access content'
+
+ldbase.policies:
+  path: '/policies'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::policies'
+    _title: 'Policies'
+  requirements:
+    _permission: 'access content'

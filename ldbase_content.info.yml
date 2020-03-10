@@ -1,0 +1,5 @@
+name: LDbase Content
+type: module
+description: 'Programmatically creates core content for LDbase.'
+package: LDbase 
+core: 8.x

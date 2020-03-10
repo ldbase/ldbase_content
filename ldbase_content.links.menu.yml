@@ -1,0 +1,9 @@
+ldbase.about:
+  title: About LDbase 
+  route_name: ldbase.about 
+  expanded: TRUE
+
+ldbase.policies:
+  title: Policies 
+  route_name: ldbase.policies
+  expanded: TRUE
