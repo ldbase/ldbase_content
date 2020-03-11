@@ -13,3 +13,25 @@ ldbase.policies:
     _title: 'Policies'
   requirements:
     _permission: 'access content'
+
+ldbase.access_denied:
+  path: '/access-denied'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::access_denied'
+    _title: 'Access Denied'
+  requirements:
+    _permission: 'access content'
+
+ldbase.not_found:
+  path: '/not-found'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::not_found'
+    _title: 'Not Found'
+  requirements:
+    _permission: 'access content'
+
+
+
+
+
+

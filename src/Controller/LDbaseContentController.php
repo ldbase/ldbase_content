@@ -24,5 +24,16 @@ class LDbaseContentController extends ControllerBase {
     ];
   }
 
+  public function access_denied() {
+    return [
+      '#markup' => '<p>' . $this->t('This is the 403 (Access Denied) page. Users will see it when they try to go to something they don\'t have access to.') . '</p>',
+    ];
+  }
+
+  public function not_found() {
+    return [
+      '#markup' => '<p>' . $this->t('This is the 404 (Not Found) page. Users will see it when they try to go to something that doesn\'t exist.') . '</p>',
+    ];
+  }
 
 }

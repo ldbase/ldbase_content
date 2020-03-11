@@ -7,3 +7,13 @@ ldbase.policies:
   title: Policies 
   route_name: ldbase.policies
   expanded: TRUE
+
+ldbase.access_denied:
+  title: Access Denied 
+  route_name: ldbase.access_denied
+  expanded: TRUE
+
+ldbase.not_found:
+  title: Not Found 
+  route_name: ldbase.not_found
+  expanded: TRUE
