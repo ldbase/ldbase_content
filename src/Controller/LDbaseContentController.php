@@ -13,26 +13,26 @@ class LDbaseContentController extends ControllerBase {
 
   public function about() {
     return [
-      '#markup' => '<p>' . $this->t('This is the about page. Text about LDbase goes here.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the about page. Text About LDbase goes here.') . '</p>',
     ];
   }
 
 
   public function policies() {
     return [
-      '#markup' => '<p>' . $this->t('This is the policies page. Text about LDbase policies go here.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the Policies page. Text about LDbase policies go here.') . '</p>',
     ];
   }
 
   public function access_denied() {
     return [
-      '#markup' => '<p>' . $this->t('This is the 403 (Access Denied) page. Users will see it when they try to go to something they don\'t have access to.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the Access Denied (403) page. Users will see it when they try to go to something they don\'t have access to.') . '</p>',
     ];
   }
 
   public function not_found() {
     return [
-      '#markup' => '<p>' . $this->t('This is the 404 (Not Found) page. Users will see it when they try to go to something that doesn\'t exist.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the Not Found (404) page. Users will see it when they try to go to something that doesn\'t exist.') . '</p>',
     ];
   }
 
