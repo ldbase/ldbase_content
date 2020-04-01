@@ -1,0 +1,31 @@
+<?php
+ 
+/**
+* @file
+* Install, update and uninstall functions for the ldbase_content module.
+*/
+
+use Drupal\user\Entity\User;
+
+/**
+* Implements hook_install().
+*/
+function ldbase_content_install() {
+
+  // Create user object.
+  $user = User::create();
+
+  //  Mandatory settings
+  $user->setPassword("tester");
+  $user->enforceIsNew();
+  $user->setEmail("test@test.com");
+  $user->setUsername("ldbase_tester"); //This username must be unique and accept only a-Z,0-9, - _ @ .
+  //$user->addRole('authenticated'); //Authenticated and anonymous are assigned automatically
+
+  // Optional settings
+  // $user->set("field_machine_name", 'value');  
+  $user->activate();
+
+  // Save user
+  $result = $user->save();
+} 
