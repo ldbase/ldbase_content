@@ -33,6 +33,7 @@ class NodeAnalyticsBlock extends BlockBase {
       }
       else {
         $nid = \Drupal::routeMatch()->getParameter('node')->id();
+        $matomo_url = str_replace(':9999', '', $matomo_url);
         $request_url = $matomo_url . "index.php?module=API&method=LDbaseReports.getNodeUsage&idSite={$matomo_id}&idNode={$nid}";
         $response = simplexml_load_string(file_get_contents($request_url));
         $views = (int) $response->row->views; 
