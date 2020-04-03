@@ -33,22 +33,27 @@ class NodeAnalyticsBlock extends BlockBase {
       }
       else {
         $nid = \Drupal::routeMatch()->getParameter('node')->id();
+        $current_date = date('Y-m-d', time());
+        $date_range = "1992-01-01,{$current_date}";
         $matomo_url = str_replace(':9999', '', $matomo_url);
-        $request_url = $matomo_url . "index.php?module=API&method=LDbaseReports.getNodeUsage&idSite={$matomo_id}&idNode={$nid}";
+
+        $request_url = $matomo_url . "index.php?module=API&method=Actions.get&idSite={$matomo_id}&period=range&date={$date_range}&format=xml&segment=customVariablePageValue1=={$nid}";
         $response = simplexml_load_string(file_get_contents($request_url));
-        $views = (int) $response->row->views; 
-        $downloads = (int) $response->row->downloads; 
-        if ($views > 0) {
-          $views_row = <<<EOS
-<span id='node_analytics_block_views' class='node_analytics_block node_analytics_block_row'>
-<span id='node_analytics_block_views_label' class='node_analytics_block node_analytics_block_label'><strong>Views:</strong> 
-<span id='node_analytics_block_views_value' class='node_analytics_block node_analytics_block_value'>{$views}</span> 
+        $pageviews = (int) $response->nb_pageviews;
+        $downloads = (int) $response->nb_downloads;
+
+        if ($pageviews > 0) {
+          $pageviews_row = <<<EOS
+<span id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
+<span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
+<span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>{$pageviews}</span> 
 </span><br>
 EOS;
         }
         else {
-          $views_row = '';
+          $pageviews_row = '';
         }
+
         if ($downloads > 0) {
           $downloads_row = <<<EOS
 <span id='node_analytics_block_downloads' class='node_analytics_block node_analytics_block_row'>
@@ -60,12 +65,14 @@ EOS;
         else {
           $downloads_row = '';
         }
+
         $content = "<div id='node_analytics_block_wrapper' class='node_analtyics_block'><br>";
-        $content .= $views_row;
+        $content .= $pageviews_row;
         $content .= $downloads_row;
         $content .= "</div>";
       }
     }
+
     return [
       '#markup' => Markup::create($content),
     ];
