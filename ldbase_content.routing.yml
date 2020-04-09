@@ -30,6 +30,15 @@ ldbase.not_found:
   requirements:
     _permission: 'access content'
 
+ldbase.project_tree:
+  path: '/projects/{project_uuid}/tree'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbaseProjectTreeController::output_tree'
+    _title: 'Project Tree View'
+  requirements:
+    _permission: 'access content'
+
+
 
 
 

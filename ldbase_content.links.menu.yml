@@ -17,3 +17,8 @@ ldbase.not_found:
   title: Not Found 
   route_name: ldbase.not_found
   expanded: TRUE
+
+ldbase.project_tree:
+  title: Project Tree View
+  route_name: ldbase.project_tree
+  expanded: TRUE
