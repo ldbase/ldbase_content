@@ -12,20 +12,22 @@ use Drupal\user\Entity\User;
 */
 function ldbase_content_install() {
 
-  // Create user object.
-  $user = User::create();
+  // Create ldbase_tester user 
+  $test_user = User::create();
+  $test_user->setPassword("tester");
+  $test_user->enforceIsNew();
+  $test_user->setEmail("test@test.com");
+  $test_user->setUsername("ldbase_tester");
+  $test_user->activate();
+  $result = $test_user->save();
 
-  //  Mandatory settings
-  $user->setPassword("tester");
-  $user->enforceIsNew();
-  $user->setEmail("test@test.com");
-  $user->setUsername("ldbase_tester"); //This username must be unique and accept only a-Z,0-9, - _ @ .
-  //$user->addRole('authenticated'); //Authenticated and anonymous are assigned automatically
+  // Create ldbase_admin user 
+  $admin_user = User::create();
+  $admin_user->setPassword("ldbase_admin");
+  $admin_user->enforceIsNew();
+  $admin_user->setEmail("admin@test.com");
+  $admin_user->setUsername("ldbase_admin");
+  $admin_user->activate();
+  $result = $admin_user->save();
 
-  // Optional settings
-  // $user->set("field_machine_name", 'value');  
-  $user->activate();
-
-  // Save user
-  $result = $user->save();
 } 
