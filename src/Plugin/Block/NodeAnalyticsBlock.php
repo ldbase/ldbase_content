@@ -32,7 +32,9 @@ class NodeAnalyticsBlock extends BlockBase {
         $content = 'Matomo not configured';
       }
       else {
-        $nid = \Drupal::routeMatch()->getParameter('node')->id();
+        $node = \Drupal::routeMatch()->getParameter('node');
+        $ctype = $node->getType();
+        $nid = $node->id();
         $current_date = date('Y-m-d', time());
         $date_range = "1992-01-01,{$current_date}";
         $matomo_url = str_replace(':9999', '', $matomo_url);
@@ -54,7 +56,8 @@ EOS;
           $pageviews_row = '';
         }
 
-        if ($downloads > 0) {
+        $downloadable_ctypes = ['dataset', 'code', 'document'];
+        if ($downloads > 0 && in_array($ctype, $downloadable_ctypes)) {
           $downloads_row = <<<EOS
 <span id='node_analytics_block_downloads' class='node_analytics_block node_analytics_block_row'>
 <span id='node_analytics_block_downloads_label' class='node_analytics_block node_analytics_block_label'><strong>Downloads:</strong> 
