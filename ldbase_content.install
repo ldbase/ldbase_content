@@ -14,9 +14,9 @@ function ldbase_content_install() {
 
   // Create ldbase_tester user 
   $test_user = User::create();
-  $test_user->setPassword("tester");
+  $test_user->setPassword("ldbase_tester");
   $test_user->enforceIsNew();
-  $test_user->setEmail("test@test.com");
+  $test_user->setEmail("tester@test.com");
   $test_user->setUsername("ldbase_tester");
   $test_user->activate();
   $result = $test_user->save();
@@ -27,6 +27,7 @@ function ldbase_content_install() {
   $admin_user->enforceIsNew();
   $admin_user->setEmail("admin@test.com");
   $admin_user->setUsername("ldbase_admin");
+  $admin_user->addRole('content_administrator');
   $admin_user->activate();
   $result = $admin_user->save();
 
