@@ -1,35 +1,3 @@
-ldbase.about:
-  path: '/about'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::about'
-    _title: 'About LDbase'
-  requirements:
-    _permission: 'access content'
-
-ldbase.policies:
-  path: '/policies'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::policies'
-    _title: 'Policies'
-  requirements:
-    _permission: 'access content'
-
-ldbase.access_denied:
-  path: '/access-denied'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::access_denied'
-    _title: 'Access Denied'
-  requirements:
-    _permission: 'access content'
-
-ldbase.not_found:
-  path: '/not-found'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbaseContentController::not_found'
-    _title: 'Not Found'
-  requirements:
-    _permission: 'access content'
-
 ldbase.project_tree:
   path: '/projects/{project_uuid}/tree'
   defaults:
@@ -38,9 +6,146 @@ ldbase.project_tree:
   requirements:
     _permission: 'access content'
 
+ldbase.access_denied:
+  path: '/access-denied'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::access_denied'
+    _title: 'Access Denied'
+  requirements:
+    _permission: 'access content'
 
+ldbase.not_found:
+  path: '/not-found'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::not_found'
+    _title: 'Not Found'
+  requirements:
+    _permission: 'access content'
 
+ldbase.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::home'
+    _title: 'Home'
+  requirements:
+    _permission: 'access content'
 
+ldbase.about:
+  path: '/about'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::about'
+    _title: 'About'
+  requirements:
+    _permission: 'access content'
 
+ldbase.about_ldbase:
+  path: '/about_ldbase'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::about_ldbase'
+    _title: 'About LDbase'
+  requirements:
+    _permission: 'access content'
 
+ldbase.why_share_behavioral_data:
+  path: '/why-share-behavioral-data'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::why_share_behavioral_data'
+    _title: 'Why share behavioral data'
+  requirements:
+    _permission: 'access content'
 
+ldbase.who_might_want_to_use_ldbase:
+  path: '/who-might-want-to-use-ldbase'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::who_might_want_to_use_ldbase'
+    _title: 'Who might want to use LDbase'
+  requirements:
+    _permission: 'access content'
+
+ldbase.ldbase_team:
+  path: '/ldbase-team'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::ldbase_team'
+    _title: 'LDbase Team'
+  requirements:
+    _permission: 'access content'
+
+ldbase.contact:
+  path: '/contact'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::contact'
+    _title: 'Contact'
+  requirements:
+    _permission: 'access content'
+
+ldbase.resources:
+  path: '/resources'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::resources'
+    _title: 'Resources'
+  requirements:
+    _permission: 'access content'
+
+ldbase.general_user_agreement:
+  path: '/general-user-agreement'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::general_user_agreement'
+    _title: 'General user agreement'
+  requirements:
+    _permission: 'access content'
+
+ldbase.user_guide:
+  path: '/user-guide'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::user_guide'
+    _title: 'User guide'
+  requirements:
+    _permission: 'access content'
+
+ldbase.faq:
+  path: '/faq'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::faq'
+    _title: 'FAQ'
+  requirements:
+    _permission: 'access content'
+
+ldbase.best_practices:
+  path: '/best-practices'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::best_practices'
+    _title: 'Best practices'
+  requirements:
+    _permission: 'access content'
+
+ldbase.templates:
+  path: '/templates'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::templates'
+    _title: 'Templates'
+  requirements:
+    _permission: 'access content'
+
+ldbase.community:
+  path: '/community'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::community'
+    _title: 'Community'
+  requirements:
+    _permission: 'access content'
+
+ldbase.users:
+  path: '/users'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::users'
+    _title: 'Users'
+  requirements:
+    _permission: 'access content'
+
+ldbase.institutions:
+  path: '/institutions'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::institutions'
+    _title: 'Institutions'
+  requirements:
+    _permission: 'access content'
