@@ -1,24 +1,113 @@
-ldbase.about:
-  title: About LDbase 
-  route_name: ldbase.about 
-  expanded: TRUE
-
-ldbase.policies:
-  title: Policies 
-  route_name: ldbase.policies
-  expanded: TRUE
+ldbase.project_tree:
+  title: Project Tree View
+  route_name: ldbase.project_tree
 
 ldbase.access_denied:
   title: Access Denied 
   route_name: ldbase.access_denied
-  expanded: TRUE
 
 ldbase.not_found:
   title: Not Found 
   route_name: ldbase.not_found
-  expanded: TRUE
 
-ldbase.project_tree:
-  title: Project Tree View
-  route_name: ldbase.project_tree
-  expanded: TRUE
+ldbase.about:
+  title: About
+  route_name: ldbase.about
+  menu_name: main
+  weight: 1
+
+ldbase.resources:
+  title: Resources 
+  route_name: ldbase.resources
+  menu_name: main
+  weight: 2
+
+ldbase.community:
+  title: Community 
+  route_name: ldbase.community
+  menu_name: main
+  weight: 3
+
+ldbase.about_ldbase:
+  title: About LDbase
+  route_name: ldbase.about_ldbase
+  menu_name: main
+  parent: ldbase.about
+  weight: 1
+
+ldbase.why_share_behavioral_data:
+  title: Why Share Behavioral Data
+  route_name: ldbase.why_share_behavioral_data
+  menu_name: main
+  parent: ldbase.about
+  weight: 2
+
+ldbase.who_might_want_to_use_ldbase:
+  title: Who Might Want To Use LDbase
+  route_name: ldbase.who_might_want_to_use_ldbase
+  menu_name: main
+  parent: ldbase.about
+  weight: 3
+
+ldbase.ldbase_team:
+  title: LDbase Team
+  route_name: ldbase.ldbase_team
+  menu_name: main
+  parent: ldbase.about
+  weight: 4
+
+ldbase.contact:
+  title: Contact
+  route_name: ldbase.contact
+  menu_name: main
+  parent: ldbase.about
+  weight: 5
+
+ldbase.general_user_agreement:
+  title: General User Agreement
+  route_name: ldbase.general_user_agreement
+  menu_name: main
+  parent: ldbase.resources
+  weight: 1
+
+ldbase.user_guide:
+  title: User Guide
+  route_name: ldbase.user_guide
+  menu_name: main
+  parent: ldbase.resources
+  weight: 2
+
+ldbase.faq:
+  title: FAQ
+  route_name: ldbase.faq
+  menu_name: main
+  parent: ldbase.resources
+  weight: 3
+
+ldbase.best_practices:
+  title: Best Practices
+  route_name: ldbase.best_practices
+  menu_name: main
+  parent: ldbase.resources
+  weight: 4
+
+ldbase.templates:
+  title: Templates
+  route_name: ldbase.templates
+  menu_name: main
+  parent: ldbase.resources
+  weight: 5
+
+ldbase.users:
+  title: Users
+  route_name: ldbase.users
+  menu_name: main
+  parent: ldbase.community
+  weight: 1
+
+ldbase.institutions:
+  title: Institutions
+  route_name: ldbase.institutions
+  menu_name: main
+  parent: ldbase.community
+  weight: 2

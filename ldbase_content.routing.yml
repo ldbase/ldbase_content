@@ -50,7 +50,7 @@ ldbase.why_share_behavioral_data:
   path: '/why-share-behavioral-data'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::why_share_behavioral_data'
-    _title: 'Why share behavioral data'
+    _title: 'Why Share Behavioral Data'
   requirements:
     _permission: 'access content'
 
@@ -58,7 +58,7 @@ ldbase.who_might_want_to_use_ldbase:
   path: '/who-might-want-to-use-ldbase'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::who_might_want_to_use_ldbase'
-    _title: 'Who might want to use LDbase'
+    _title: 'Who Might Want To Use LDbase'
   requirements:
     _permission: 'access content'
 
@@ -90,7 +90,7 @@ ldbase.general_user_agreement:
   path: '/general-user-agreement'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::general_user_agreement'
-    _title: 'General user agreement'
+    _title: 'General User Agreement'
   requirements:
     _permission: 'access content'
 
@@ -98,7 +98,7 @@ ldbase.user_guide:
   path: '/user-guide'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::user_guide'
-    _title: 'User guide'
+    _title: 'User Guide'
   requirements:
     _permission: 'access content'
 
@@ -114,7 +114,7 @@ ldbase.best_practices:
   path: '/best-practices'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::best_practices'
-    _title: 'Best practices'
+    _title: 'Best Practices'
   requirements:
     _permission: 'access content'
 

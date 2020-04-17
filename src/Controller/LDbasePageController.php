@@ -44,19 +44,19 @@ class LDbasePageController extends ControllerBase {
 
   public function why_share_behavioral_data() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "Why share behavioral data" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "Why Share Behavioral Data" page.') . '</p>',
     ];
   }
 
   public function who_might_want_to_use_ldbase() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "Who might want to use LDbase" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "Who Might Want To Use LDbase" page.') . '</p>',
     ];
   }
 
   public function ldbase_team() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "LDbase team" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "LDbase Team" page.') . '</p>',
     ];
   }
 
@@ -68,19 +68,19 @@ class LDbasePageController extends ControllerBase {
 
   public function resources() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "resources" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "Resources" page.') . '</p>',
     ];
   }
 
   public function general_user_agreement() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "General user agreement" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "General User Agreement" page.') . '</p>',
     ];
   }
 
   public function user_guide() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "User guide" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "User Guide" page.') . '</p>',
     ];
   }
 
@@ -92,7 +92,7 @@ class LDbasePageController extends ControllerBase {
 
   public function best_practices() {
     return [
-      '#markup' => '<p>' . $this->t('This is the "Best practices" page.') . '</p>',
+      '#markup' => '<p>' . $this->t('This is the "Best Practices" page.') . '</p>',
     ];
   }
 
