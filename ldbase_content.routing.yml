@@ -39,7 +39,7 @@ ldbase.about:
     _permission: 'access content'
 
 ldbase.about_ldbase:
-  path: '/about_ldbase'
+  path: '/about/about_ldbase'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::about_ldbase'
     _title: 'About LDbase'
@@ -47,7 +47,7 @@ ldbase.about_ldbase:
     _permission: 'access content'
 
 ldbase.why_share_behavioral_data:
-  path: '/why-share-behavioral-data'
+  path: '/about/why-share-behavioral-data'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::why_share_behavioral_data'
     _title: 'Why Share Behavioral Data'
@@ -55,7 +55,7 @@ ldbase.why_share_behavioral_data:
     _permission: 'access content'
 
 ldbase.who_might_want_to_use_ldbase:
-  path: '/who-might-want-to-use-ldbase'
+  path: '/about/who-might-want-to-use-ldbase'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::who_might_want_to_use_ldbase'
     _title: 'Who Might Want To Use LDbase'
@@ -63,7 +63,7 @@ ldbase.who_might_want_to_use_ldbase:
     _permission: 'access content'
 
 ldbase.ldbase_team:
-  path: '/ldbase-team'
+  path: '/about/ldbase-team'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::ldbase_team'
     _title: 'LDbase Team'
@@ -71,7 +71,7 @@ ldbase.ldbase_team:
     _permission: 'access content'
 
 ldbase.contact:
-  path: '/contact'
+  path: '/about/contact'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::contact'
     _title: 'Contact'
@@ -87,7 +87,7 @@ ldbase.resources:
     _permission: 'access content'
 
 ldbase.general_user_agreement:
-  path: '/general-user-agreement'
+  path: '/resources/general-user-agreement'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::general_user_agreement'
     _title: 'General User Agreement'
@@ -95,7 +95,7 @@ ldbase.general_user_agreement:
     _permission: 'access content'
 
 ldbase.user_guide:
-  path: '/user-guide'
+  path: '/resources/user-guide'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::user_guide'
     _title: 'User Guide'
@@ -103,7 +103,7 @@ ldbase.user_guide:
     _permission: 'access content'
 
 ldbase.faq:
-  path: '/faq'
+  path: '/resources/faq'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::faq'
     _title: 'FAQ'
@@ -111,7 +111,7 @@ ldbase.faq:
     _permission: 'access content'
 
 ldbase.best_practices:
-  path: '/best-practices'
+  path: '/resources/best-practices'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::best_practices'
     _title: 'Best Practices'
@@ -119,7 +119,7 @@ ldbase.best_practices:
     _permission: 'access content'
 
 ldbase.templates:
-  path: '/templates'
+  path: '/resources/templates'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::templates'
     _title: 'Templates'
@@ -135,7 +135,7 @@ ldbase.community:
     _permission: 'access content'
 
 ldbase.users:
-  path: '/users'
+  path: '/community/users'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::users'
     _title: 'Users'
@@ -143,7 +143,7 @@ ldbase.users:
     _permission: 'access content'
 
 ldbase.institutions:
-  path: '/institutions'
+  path: '/community/institutions'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::institutions'
     _title: 'Institutions'
