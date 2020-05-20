@@ -17,7 +17,7 @@ class LDbaseProjectTreeController extends ControllerBase {
 
     $project = $this->getProjectByUuid($node_uuid);
 
-    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li id='project-tree-view-root-item project-tree-view-item-link' class='project-tree-view'>Project: <a href='/projects/{$project->uuid()}'>{$project->getTitle()}<a/>";
+    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li id='project-tree-view-root-item project-tree-view-item-link' class='project-tree-view'><strong>Project:</strong> <a href='/projects/{$project->uuid()}'>{$project->getTitle()}<a/>";
 
     $tree .= $this->getAffiliatedChildrenAsHtmlList($project->id());
 
@@ -38,7 +38,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $datasets_result = $datasets_query->execute();
     foreach ($datasets_result as $result) {
       $node = node_load($result);
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'>Dataset: <a href='/datasets/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'><strong>Dataset:</strong> <a href='/datasets/{$node->uuid()}'>{$node->getTitle()}</a>";
       $list .= $this->getAffiliatedChildrenAsHtmlList($node->id());
       $list .= "</li>";
     }
@@ -49,7 +49,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $code_result = $code_query->execute();
     foreach ($code_result as $result) {
       $node = node_load($result);
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'>Code: <a href='/code/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'><strong>Code:</strong> <a href='/code/{$node->uuid()}'>{$node->getTitle()}</a>";
       $list .= $this->getAffiliatedChildrenAsHtmlList($node->id());
       $list .= "</li>";
     }
@@ -61,7 +61,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $documents_result = $documents_query->execute();
     foreach ($documents_result as $result) {
       $node = node_load($result);
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'>Document: <a href='/documents/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link'><strong>Document:</strong> <a href='/documents/{$node->uuid()}'>{$node->getTitle()}</a>";
       $list .= $this->getAffiliatedChildrenAsHtmlList($node->id());
       $list .= "</li>";
     }
