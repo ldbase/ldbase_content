@@ -1,10 +1,14 @@
 ldbase.project_tree:
-  path: '/projects/{project_uuid}/tree'
+  path: '/projects/{node_uuid}/tree'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbaseProjectTreeController::output_tree'
     _title: 'Project Tree View'
   requirements:
     _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
 
 ldbase.access_denied:
   path: '/access-denied'
