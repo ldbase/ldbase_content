@@ -1,9 +1,16 @@
+ldbase.project_overview:
+  class: Drupal\ldbase_content\Plugin\Menu\ProjectNavMenu
+  title: Project Overview 
+  route_name: ldbase.project_overview
+  menu_name: project-navigation
+  weight: 0
+
 ldbase.project_tree:
   class: Drupal\ldbase_content\Plugin\Menu\ProjectNavMenu
   title: Project Tree View
   route_name: ldbase.project_tree
   menu_name: project-navigation
-  weight: 0
+  weight: 1
 
 ldbase.access_denied:
   title: Access Denied 

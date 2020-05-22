@@ -1,3 +1,14 @@
+ldbase.project_overview:
+  path: '/projects/{project_uuid}'
+  defaults:
+    _title: 'Project Tree View'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
+
 ldbase.project_tree:
   path: '/projects/{project_uuid}/tree'
   defaults:
