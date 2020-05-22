@@ -13,7 +13,6 @@ class LDbaseObjectBreadcrumbBuilder implements BreadcrumbBuilderInterface {
   public function applies(RouteMatchInterface $route_match) {
     $url = \Drupal::request()->getRequestUri();
     $ldbase_object_uuid = \Drupal::service('ldbase.object_service')->isUrlAnLdbaseObjectUrl($url);
-    dsm($ldbase_object_uuid);
     if ($ldbase_object_uuid) {
       return TRUE;
     }
