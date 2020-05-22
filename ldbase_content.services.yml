@@ -5,3 +5,8 @@ services:
   ldbase.object_service:
     class: Drupal\ldbase_content\LDbaseObjectService
     arguments: []
+  ldbase.breadcrumbs:
+    class: Drupal\ldbase_content\Breadcrumb\LDbaseObjectBreadcrumbBuilder
+    arguments: []
+    tags:
+      - { name: breadcrumb_builder, priority: 100 }

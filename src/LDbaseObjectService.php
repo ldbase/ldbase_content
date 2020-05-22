@@ -52,4 +52,19 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     return $parent_nid;
   }
 
+  public function getBreadcrumbTrailToLdbaseObject($link_data) {
+    $entity = entity_load('node', $link_data[0]['nid']);
+    $bundle = $entity->bundle();
+    if ($bundle == 'project') {
+      return $link_data;
+    }   
+    else {
+      $parent_nid = \Drupal::service('ldbase.object_service')->getLdbaseObjectParent($link_data[0]['nid']); 
+      $node = node_load($parent_nid);
+      array_unshift($link_data, array('title' => $node->getTitle(), 'nid' => $node->id()));
+      return \Drupal::service('ldbase.object_service')->getBreadcrumbTrailToLdbaseObject($link_data);
+    }   
+  }
+
+
 }
