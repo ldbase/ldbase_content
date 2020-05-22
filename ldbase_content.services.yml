@@ -1,0 +1,7 @@
+services:
+  logger.channel.ldbase:
+    parent: logger.channel_base
+    arguments: ['ldbase']
+  ldbase.object_service:
+    class: Drupal\ldbase_content\LDbaseObjectService
+    arguments: []

@@ -13,9 +13,10 @@ use Drupal\Core\Render\Markup;
 class LDbaseProjectTreeController extends ControllerBase {
 
 
-  public function output_tree($node_uuid) {
+  public function output_tree($project_uuid) {
 
-    $project = $this->getProjectByUuid($node_uuid);
+    $node = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($project_uuid);
+    $project = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
 
     $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li id='project-tree-view-root-item project-tree-view-item-link' class='project-tree-view'><strong>Project:</strong> <a href='/projects/{$project->uuid()}'>{$project->getTitle()}<a/>";
 
@@ -69,15 +70,6 @@ class LDbaseProjectTreeController extends ControllerBase {
     $list .= "</ul>";
 
     return $list;
-  }
-
-  public function getProjectByUuid($uuid) {
-    $query = \Drupal::entityQuery('node')
-      ->condition('type','project')
-      ->condition('uuid', $uuid);
-    $result = $query->execute();
-    $node = node_load(reset($result));
-    return $node;
   }
 
 }
