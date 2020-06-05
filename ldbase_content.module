@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains ldbase_content.module.
+ */
+
+/**
+ * Implements hook_node_view().
+ */
+function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  $hierarchichal_ctypes = array('project', 'dataset', 'code', 'document');
+  if (in_array($entity->bundle(), $hierarchichal_ctypes)) {
+    $build['#attached']['library'][] = 'ldbase_content/breadcrumb-current-page-prefixer';
+  }
+}

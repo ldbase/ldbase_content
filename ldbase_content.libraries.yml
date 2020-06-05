@@ -1,0 +1,7 @@
+breadcrumb-current-page-prefixer:
+  version: 1.x
+  js:
+    js/breadcrumb-current-page-prefixer.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
