@@ -10,7 +10,15 @@
  */
 function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
   $hierarchichal_ctypes = array('project', 'dataset', 'code', 'document');
-  if (in_array($entity->bundle(), $hierarchichal_ctypes)) {
+  $ldbase_ctypes = array('project', 'dataset', 'code', 'document', 'person', 'organization');
+  $ctype = $entity->bundle();
+  if (in_array($ctype, $hierarchichal_ctypes)) {
     $build['#attached']['library'][] = 'ldbase_content/breadcrumb-current-page-prefixer';
   }
+  if (in_array($ctype, $ldbase_ctypes)) {
+    $title = $build['title'][0]['#context']['value'];
+    $prefixed_title = t('@ctype: @title', ['@ctype' => ucfirst($ctype), '@title' => $title]);
+    $build['title'][0]['#context']['value'] = $prefixed_title;
+  }
 }
+ 
