@@ -1,7 +1,7 @@
 ldbase.project_overview:
   path: '/projects/{project_uuid}'
   defaults:
-    _title: 'Project Tree View'
+    _title: 'Project Overview'
   requirements:
     _permission: 'access content'
   options:
