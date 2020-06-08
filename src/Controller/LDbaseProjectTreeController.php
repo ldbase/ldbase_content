@@ -26,7 +26,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $project = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($project_node->id());
     $current_object_class = ($project->id() == $current_object_id ? ' project-tree-view-item-current' : '');
 
-    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li class='project-tree-view-root-item project-tree-view-item-link{$current_object_class}' class='project-tree-view'><strong>Project:</strong> <a href='/projects/{$project->uuid()}'>{$project->getTitle()}<a/>";
+    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li class='project-tree-view-root-item project-tree-view-item-link{$current_object_class}' class='project-tree-view'><strong>Project:</strong> <a href='/projects/{$project->uuid()}'>{$project->getTitle()}</a>";
 
     $tree .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($project->id(), $current_object_id);
 
