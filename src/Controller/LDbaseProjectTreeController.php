@@ -26,7 +26,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $project = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($project_node->id());
     $current_object_class = ($project->id() == $current_object_id ? ' project-tree-view-item-current' : '');
 
-    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li class='project-tree-view-root-item project-tree-view-item-link{$current_object_class}' class='project-tree-view'><strong>Project:</strong> <a href='/projects/{$project->uuid()}'>{$project->getTitle()}</a>";
+    $tree = "<div id='project-tree-view-wrapper' class='project-tree-view'><ul id='project-tree-view-list-root' class='project-tree-view'><li class='project-tree-view project-tree-view-root-item project-tree-view-item-link{$current_object_class}'><a href='/projects/{$project->uuid()}'>Project: {$project->getTitle()}</a>";
 
     $tree .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($project->id(), $current_object_id);
 
@@ -48,7 +48,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     foreach ($datasets_result as $result) {
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><strong>Dataset:</strong> <a href='/datasets/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/datasets/{$node->uuid()}'>Dataset: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
       $list .= "</li>";
     }
@@ -60,7 +60,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     foreach ($code_result as $result) {
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><strong>Code:</strong> <a href='/code/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/code/{$node->uuid()}'>Code: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
       $list .= "</li>";
     }
@@ -73,7 +73,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     foreach ($documents_result as $result) {
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><strong>Document:</strong> <a href='/documents/{$node->uuid()}'>{$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/documents/{$node->uuid()}'>Document: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
       $list .= "</li>";
     }
