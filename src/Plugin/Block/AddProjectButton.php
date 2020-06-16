@@ -19,8 +19,9 @@ class AddProjectButton extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $form_url = '/add-project';
     return [
-      '#markup' => $this->t('<div><a class="button button-action" href="/forms/project">Add Project</a></div>'),
+      '#markup' => $this->t("<div><a class=\"button button-action\" href=\"{$form_url}\">Add Project</a></div>"),
     ];
   }
 }
