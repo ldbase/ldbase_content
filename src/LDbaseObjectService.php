@@ -17,7 +17,14 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     $ldbase_objects = array('projects', 'datasets', 'code', 'documents');
     $url_bits = explode('/', $url);
     if (in_array($url_bits[1], $ldbase_objects)) {
-      $answer = $url_bits[2];
+      $uuid = $url_bits[2];
+      $object = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($uuid);
+      if (is_null($object) OR !in_array($object->bundle(), $ldbase_objects)) {
+        $answer = FALSE;
+      }
+      else {
+        $answer = $uuid; 
+      }
     }
     else {
       $answer = FALSE;
@@ -27,7 +34,13 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
 
   public function getLdbaseObjectFromUuid($uuid) {
     $query = \Drupal::entityQuery('node')->condition('uuid', $uuid)->execute();
-    $node = node_load(reset($query));
+    $results = reset($query);
+    if (!empty($results)) {
+      $node = node_load($results);
+    }
+    else {
+      $node = NULL;
+    }
     return $node;
   }
 
