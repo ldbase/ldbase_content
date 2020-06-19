@@ -19,7 +19,7 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     if (in_array($url_bits[1], $ldbase_objects)) {
       $uuid = $url_bits[2];
       $object = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($uuid);
-      if (is_null($object) OR !in_array($object->bundle(), $ldbase_objects)) {
+      if (is_null($object) || !in_array("{$object->bundle()}s", $ldbase_objects)) {
         $answer = FALSE;
       }
       else {
