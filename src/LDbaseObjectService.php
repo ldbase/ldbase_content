@@ -14,12 +14,13 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
   }
 
   public function isUrlAnLdbaseObjectUrl($url) {
-    $ldbase_objects = array('projects', 'datasets', 'code', 'documents');
+    $ldbase_objects_singular = array('project', 'dataset', 'code', 'document');
+    $ldbase_objects_plural = array('projects', 'datasets', 'code', 'documents');
     $url_bits = explode('/', $url);
-    if (in_array($url_bits[1], $ldbase_objects)) {
+    if (in_array($url_bits[1], $ldbase_objects_plural)) {
       $uuid = $url_bits[2];
       $object = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($uuid);
-      if (is_null($object) || !in_array("{$object->bundle()}s", $ldbase_objects)) {
+      if (is_null($object) || !in_array($object->bundle(), $ldbase_objects_singular)) {
         $answer = FALSE;
       }
       else {
