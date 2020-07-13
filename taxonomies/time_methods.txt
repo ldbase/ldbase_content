@@ -2,6 +2,7 @@ Cohort Sequential
 Cross-sectional
 Longitudinal
 Microgenic
+Other
 Panel
 Time Series
 Time Series: Continuous
