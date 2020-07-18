@@ -107,3 +107,12 @@ ldbase.institutions:
   menu_name: main
   parent: ldbase.community
   weight: 2
+
+# Links Associated with Project Navigation Menu
+
+ldbase.all_project_datasets:
+  class: Drupal\ldbase_content\Plugin\Menu\ProjectNavMenu
+  menu_name: project-navigation
+  title: 'Project Datasets'
+  route_name: ldbase.all_project_datasets
+  weight: 0

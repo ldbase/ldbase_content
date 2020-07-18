@@ -27,7 +27,7 @@ class ProjectNavMenu extends MenuLinkDefault {
     if ($ldbase_object_uuid) {
       $node = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($ldbase_object_uuid);
       $parent_project_node = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
-      return ['project_uuid' => $parent_project_node->uuid()];
+      return ['project_uuid' => $parent_project_node->uuid(), 'node' => $parent_project_node->id()];
     }
 
   }

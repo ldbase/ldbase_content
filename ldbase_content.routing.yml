@@ -141,3 +141,11 @@ ldbase.institutions:
     _title: 'Institutions'
   requirements:
     _permission: 'access content'
+
+# Routes Associated with Project Navigation Menu
+ldbase.all_project_datasets:
+  path: '/all-datasets-for-project/{node}'
+  defaults:
+    _title: 'All Datasets for Project'
+  requirements:
+    _permission: 'access content'
