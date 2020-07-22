@@ -111,8 +111,13 @@ ldbase.institutions:
 # Links Associated with Project Navigation Menu
 
 ldbase.all_project_datasets:
-  class: Drupal\ldbase_content\Plugin\Menu\ProjectNavMenu
+  class: Drupal\ldbase_content\Plugin\Menu\ProjectNavDatasetsMenuLink
   menu_name: project-navigation
-  title: 'Project Datasets'
   route_name: ldbase.all_project_datasets
+  weight: 0
+
+ldbase.all_project_documents:
+  class: Drupal\ldbase_content\Plugin\Menu\ProjectNavDocumentsMenuLink
+  menu_name: project-navigation
+  route_name: ldbase.all_project_documents
   weight: 0

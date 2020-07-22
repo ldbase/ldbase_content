@@ -144,8 +144,15 @@ ldbase.institutions:
 
 # Routes Associated with Project Navigation Menu
 ldbase.all_project_datasets:
-  path: '/all-datasets-for-project/{node}'
+  path: '/projects/{project_uuid}/all-datasets-for-project/{node}'
   defaults:
     _title: 'All Datasets for Project'
+  requirements:
+    _permission: 'access content'
+
+ldbase.all_project_documents:
+  path: '/projects/{project_uuid}/all-documents-for-project/{node}'
+  defaults:
+    _title: 'All Documents for Project'
   requirements:
     _permission: 'access content'
