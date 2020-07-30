@@ -5,7 +5,7 @@ services:
   ldbase.object_service:
     class: Drupal\ldbase_content\LDbaseObjectService
     arguments: []
-  ldbase.breadcrumbs:
+  ldbase_content.breadcrumbs:
     class: Drupal\ldbase_content\Breadcrumb\LDbaseObjectBreadcrumbBuilder
     arguments: []
     tags:
