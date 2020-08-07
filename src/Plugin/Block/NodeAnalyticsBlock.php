@@ -33,16 +33,16 @@ class NodeAnalyticsBlock extends BlockBase {
       }
       else {
         $node = \Drupal::routeMatch()->getParameter('node');
+        $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $node->id()])->toString();
+        global $base_url;
+        $current_page_url = $base_url . $path;
         $ctype = $node->getType();
-        $nid = $node->id();
         $current_date = date('Y-m-d', time());
-        $date_range = "1992-01-01,{$current_date}";
+        $date_range = "2000-01-01,{$current_date}";
         $matomo_url = str_replace(':9999', '', $matomo_url);
-
-        $request_url = $matomo_url . "index.php?module=API&method=Actions.get&idSite={$matomo_id}&period=range&date={$date_range}&format=xml&segment=customVariablePageValue1=={$nid}";
-        $response = simplexml_load_string(file_get_contents($request_url));
-        $pageviews = (int) $response->nb_pageviews;
-        $downloads = (int) $response->nb_downloads;
+        $request_url = $matomo_url . "index.php?module=API&method=Actions.getPageUrl&pageUrl={$current_page_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json";
+        $response = json_decode(file_get_contents($request_url), TRUE);
+        $pageviews = (int) $response[0]['nb_hits'];
 
         if ($pageviews > 0) {
           $pageviews_row = <<<EOS
@@ -57,11 +57,56 @@ EOS;
         }
 
         $downloadable_ctypes = ['dataset', 'code', 'document'];
-        if ($downloads > 0 && in_array($ctype, $downloadable_ctypes)) {
+        if (in_array($ctype, $downloadable_ctypes)) {
+          $download_file_urls = array();
+          switch ($ctype) {
+            case 'dataset':
+              $files = [];
+              foreach ($node->field_dataset_version as $delta => $file_metadata_paragraph) {
+                $p = $file_metadata_paragraph->entity;
+                $file_id = $p->field_file_upload->entity->id();
+                $file = file_load($file_id);
+                $file_uri = $file->getFileUri();
+                $file_url = file_create_url($file_uri);
+                $download_file_urls[] = $file_url;
+              }
+              break;
+            case 'code':
+              $code_file = $node->field_code_file->entity;
+              $code_file_id = !empty($code_file) ? $code_file->id() : NULL;
+              if (!is_null($code_file_id)) {
+                $file = file_load($code_file_id);
+                $file_uri = $file->getFileUri();
+                $file_url = file_create_url($file_uri);
+                $download_file_urls[] = $file_url;
+              }
+              break;
+            case 'document':
+              $document_file = $node->field_document_file->entity;
+              $document_file_id = !empty($document_file) ? $document_file->id() : NULL;
+              if (!is_null($document_file_id)) {
+                $file = file_load($document_file_id);
+                $file_uri = $file->getFileUri();
+                $file_url = file_create_url($file_uri);
+                $download_file_urls[] = $file_url;
+              }
+              break; 
+          }
+        }
+
+        $total_downloads = 0;
+        foreach ($download_file_urls as $file_url) {
+          // http://localhost:9999/matomo/index.php?module=API&method=Actions.getDownload&downloadUrl=http://localhost:9999/system/files/documents/2020-08/test.txt&idSite=1&period=range&date=2000-01-01,2020-12-12&format=JSON
+          $request_url = $matomo_url . "index.php?module=API&method=Actions.getDownload&downloadUrl={$file_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json";
+          $response = json_decode(file_get_contents($request_url), TRUE);
+          $file_downloads = (int) $response[0]['nb_hits'];
+          $total_downloads = $total_downloads + $file_downloads;
+        }
+        if ($total_downloads > 0) {
           $downloads_row = <<<EOS
 <span id='node_analytics_block_downloads' class='node_analytics_block node_analytics_block_row'>
 <span id='node_analytics_block_downloads_label' class='node_analytics_block node_analytics_block_label'><strong>Downloads:</strong> 
-<span id='node_analytics_block_downloads_value' class='node_analytics_block node_analytics_block_value'>{$downloads}</span> 
+<span id='node_analytics_block_downloads_value' class='node_analytics_block node_analytics_block_value'>{$total_downloads}</span> 
 </span><br>
 EOS;
         }
