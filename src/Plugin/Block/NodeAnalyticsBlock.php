@@ -28,8 +28,12 @@ class NodeAnalyticsBlock extends BlockBase {
       $matomo_config = \Drupal::config('matomo.settings');
       $matomo_url = $matomo_config->get('url_http');
       $matomo_id = $matomo_config->get('site_id');
+      $matomo_token = \Drupal::config('ldbase.settings')->get('ldbase_matomo_user_token');
       if ($matomo_url == '' || $matomo_id == '') {
         $content = 'Matomo not configured';
+      }
+      if ($matomo_token == '') {
+        $content = "Matomo user token not set";
       }
       else {
         $node = \Drupal::routeMatch()->getParameter('node');
@@ -40,7 +44,7 @@ class NodeAnalyticsBlock extends BlockBase {
         $current_date = date('Y-m-d', time());
         $date_range = "2000-01-01,{$current_date}";
         $matomo_url = str_replace(':9999', '', $matomo_url);
-        $request_url = $matomo_url . "index.php?module=API&method=Actions.getPageUrl&pageUrl={$current_page_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json";
+        $request_url = $matomo_url . "index.php?module=API&method=Actions.getPageUrl&pageUrl={$current_page_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json&token_auth={$matomo_token}";
         $response = json_decode(file_get_contents($request_url), TRUE);
         if (empty($response)) {
           $pageviews_row = <<<EOS
@@ -51,13 +55,18 @@ class NodeAnalyticsBlock extends BlockBase {
 EOS;
         }
         else {
-          $pageviews = (int) $response[0]['nb_hits'];
-          $pageviews_row = <<<EOS
+          if ($response['result'] == 'error') {
+            $pageviews_row = "Error: Can't authenticate to Matomo server";
+          }
+          else {
+            $pageviews = (int) $response[0]['nb_hits'];
+            $pageviews_row = <<<EOS
 <div id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
 <span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
 <span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>{$pageviews}</span> 
 </div><br>
 EOS;
+          }
         }
 
         $downloadable_ctypes = ['dataset', 'code', 'document'];
@@ -103,8 +112,7 @@ EOS;
 
         $total_downloads = 0;
         foreach ($download_file_urls as $file_url) {
-          // http://localhost:9999/matomo/index.php?module=API&method=Actions.getDownload&downloadUrl=http://localhost:9999/system/files/documents/2020-08/test.txt&idSite=1&period=range&date=2000-01-01,2020-12-12&format=JSON
-          $request_url = $matomo_url . "index.php?module=API&method=Actions.getDownload&downloadUrl={$file_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json";
+          $request_url = $matomo_url . "index.php?module=API&method=Actions.getDownload&downloadUrl={$file_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json&token_auth={$matomo_token}";
           $response = json_decode(file_get_contents($request_url), TRUE);
           if (empty($response)) {
             $file_downloads = 0;
