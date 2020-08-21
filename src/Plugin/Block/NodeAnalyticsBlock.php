@@ -106,7 +106,12 @@ EOS;
           // http://localhost:9999/matomo/index.php?module=API&method=Actions.getDownload&downloadUrl=http://localhost:9999/system/files/documents/2020-08/test.txt&idSite=1&period=range&date=2000-01-01,2020-12-12&format=JSON
           $request_url = $matomo_url . "index.php?module=API&method=Actions.getDownload&downloadUrl={$file_url}&idSite={$matomo_id}&period=range&date={$date_range}&format=json";
           $response = json_decode(file_get_contents($request_url), TRUE);
-          $file_downloads = (int) $response[0]['nb_hits'];
+          if (empty($response)) {
+            $file_downloads = 0;
+          }
+          else {
+            $file_downloads = (int) $response[0]['nb_hits'];
+          }
           $total_downloads = $total_downloads + $file_downloads;
         }
         if ($total_downloads > 0) {
