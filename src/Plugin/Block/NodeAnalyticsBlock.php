@@ -44,19 +44,19 @@ class NodeAnalyticsBlock extends BlockBase {
         $response = json_decode(file_get_contents($request_url), TRUE);
         if (empty($response)) {
           $pageviews_row = <<<EOS
-<span id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
+<div id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
 <span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
 <span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>Pending</span> 
-</span><br>
+</div><br>
 EOS;
         }
         else {
           $pageviews = (int) $response[0]['nb_hits'];
           $pageviews_row = <<<EOS
-<span id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
+<div id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
 <span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
 <span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>{$pageviews}</span> 
-</span><br>
+</div><br>
 EOS;
         }
 
