@@ -24,7 +24,7 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
         $answer = FALSE;
       }
       else {
-        $answer = $uuid; 
+        $answer = $uuid;
       }
     }
     else {
@@ -71,14 +71,30 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     $bundle = $entity->bundle();
     if ($bundle == 'project') {
       return $link_data;
-    }   
+    }
     else {
-      $parent_nid = \Drupal::service('ldbase.object_service')->getLdbaseObjectParent($link_data[0]['nid']); 
+      $parent_nid = \Drupal::service('ldbase.object_service')->getLdbaseObjectParent($link_data[0]['nid']);
       $node = node_load($parent_nid);
       array_unshift($link_data, array('title' => $node->getTitle(), 'nid' => $node->id()));
       return \Drupal::service('ldbase.object_service')->getBreadcrumbTrailToLdbaseObject($link_data);
-    }   
+    }
   }
 
+  public function isLdbaseCodebook($uuid) {
+    $object = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($uuid);
+    if (is_null($object) || $object->bundle() != 'document') {
+      return FALSE;
+    }
+    else {
+      $document_type = $object->get('field_document_type')->target_id;
+      $document_type_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($document_type)->getName();
+      if ($document_type_term === 'Codebook') {
+        return TRUE;
+      }
+      else {
+        return FALSE;
+      }
+    }
+  }
 
 }
