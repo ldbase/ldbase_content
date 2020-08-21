@@ -9,9 +9,9 @@
  * Implements hook_node_view().
  */
 function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
-  $hierarchichal_ctypes = array('project', 'dataset', 'code', 'document');
-  $ldbase_ctypes = array('project', 'dataset', 'code', 'document', 'person', 'organization');
-  $ctype = $entity->bundle();
+  $hierarchichal_ctypes = array('project', 'dataset', 'code', 'document', 'codebook');
+  $ldbase_ctypes = array('project', 'dataset', 'code', 'document', 'person', 'organization', 'codebook');
+  $ctype = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($entity->uuid()) ? 'codebook' : $entity->bundle();
   if (in_array($ctype, $hierarchichal_ctypes)) {
     $build['#attached']['library'][] = 'ldbase_content/breadcrumb-current-page-prefixer';
   }
@@ -21,4 +21,4 @@ function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInter
     $build['title'][0]['#context']['value'] = $prefixed_title;
   }
 }
- 
+

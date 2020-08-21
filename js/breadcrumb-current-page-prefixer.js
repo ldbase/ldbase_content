@@ -14,8 +14,11 @@
       }
       if (body_classes.contains("page-node-type-document")) {
         var current_page_ctype = 'Document';
+        if (document.getElementsByClassName("field--name-field-document-type")[0].getElementsByTagName('a')[0].innerText == 'Codebook') {
+          var current_page_ctype = 'Codebook';
+        }
       }
-      var breadcrumb_list = document.getElementsByClassName('breadcrumb__item'); 
+      var breadcrumb_list = document.getElementsByClassName('breadcrumb__item');
       var current_page_breadcrumb = breadcrumb_list[breadcrumb_list.length - 1];
       var current_page_breadcrumb_span = current_page_breadcrumb.children[1];
       var current_page_breadcrumb_text = current_page_breadcrumb_span.innerHTML;

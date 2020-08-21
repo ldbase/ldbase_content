@@ -28,18 +28,19 @@ class LDbaseObjectBreadcrumbBuilder implements BreadcrumbBuilderInterface {
     $url = \Drupal::request()->getRequestUri();
     $ldbase_object_uuid = \Drupal::service('ldbase.object_service')->isUrlAnLdbaseObjectUrl($url);
     $ldbase_object = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($ldbase_object_uuid);
-    $breadcrumb_trail = \Drupal::service('ldbase.object_service')->getBreadcrumbTrailToLdbaseObject(array(array('title' => $ldbase_object->getTitle(), 'nid' => $ldbase_object->id()))); 
+    $breadcrumb_trail = \Drupal::service('ldbase.object_service')->getBreadcrumbTrailToLdbaseObject(array(array('title' => $ldbase_object->getTitle(), 'nid' => $ldbase_object->id())));
 
-    $url_bits_count = count(explode('/', $url)); 
+    $url_bits_count = count(explode('/', $url));
     if ($url_bits_count <= 3) {
       array_pop($breadcrumb_trail);
     }
 
     foreach ($breadcrumb_trail as $breadcrumb_link) {
       $entity = entity_load('node', $breadcrumb_link['nid']);
-      $formatted_bundle = ucfirst($entity->bundle());
+      $bundle = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($entity->uuid()) ? 'codebook' : $entity->bundle();
+      $formatted_bundle = ucfirst($bundle);
       $formatted_title = "{$formatted_bundle}: {$breadcrumb_link['title']}";
-      $breadcrumb->addLink(Link::createFromRoute($formatted_title, 'entity.node.canonical', ['node' => $breadcrumb_link['nid']], ['absolute' => TRUE]));    
+      $breadcrumb->addLink(Link::createFromRoute($formatted_title, 'entity.node.canonical', ['node' => $breadcrumb_link['nid']], ['absolute' => TRUE]));
     }
     return $breadcrumb;
   }

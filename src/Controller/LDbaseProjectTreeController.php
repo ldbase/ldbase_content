@@ -73,7 +73,8 @@ class LDbaseProjectTreeController extends ControllerBase {
     foreach ($documents_result as $result) {
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/documents/{$node->uuid()}'>Document: {$node->getTitle()}</a>";
+      $doc_type = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/documents/{$node->uuid()}'>{$doc_type}: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
       $list .= "</li>";
     }
