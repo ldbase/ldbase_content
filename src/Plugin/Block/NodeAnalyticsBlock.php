@@ -28,7 +28,7 @@ class NodeAnalyticsBlock extends BlockBase {
       $matomo_config = \Drupal::config('matomo.settings');
       $matomo_url = $matomo_config->get('url_http');
       $matomo_id = $matomo_config->get('site_id');
-      $matomo_token = \Drupal::config('ldbase.settings')->get('ldbase_matomo_user_token');
+      $matomo_token = \Drupal::config('ldbase_admin.settings')->get('ldbase_matomo_user_token');
       if ($matomo_url == '' || $matomo_id == '') {
         $content = 'Matomo not configured';
       }
