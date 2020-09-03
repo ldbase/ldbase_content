@@ -26,16 +26,19 @@ class ProjectNavDocumentsMenuLink extends MenuLinkDefault {
     if ($ldbase_object_uuid) {
       $node = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($ldbase_object_uuid);
       $parent_project_node = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
+    
+      /* Retrieve all datasets for the project */
+      $document_query = \Drupal::entityQuery('node')
+        ->condition('type', 'document')
+        ->condition('field_affiliated_parents', $parent_project_node->id());
+      $documents = $document_query->execute();
+      
+      $count = count($documents);
+      return $this->t('View All Documents (@count)', ['@count' => $count]);
     }
-    
-    /* Retrieve all datasets for the project */
-    $document_query = \Drupal::entityQuery('node')
-      ->condition('type', 'document')
-      ->condition('field_affiliated_parents', $parent_project_node->id());
-    $documents = $document_query->execute();
-    
-    $count = count($documents);
-    return $this->t('View All Documents (@count)', ['@count' => $count]);
+    else {
+      return NULL;
+    }
   }
   
   /**

@@ -26,16 +26,19 @@ class ProjectNavDatasetsMenuLink extends MenuLinkDefault {
     if ($ldbase_object_uuid) {
       $node = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($ldbase_object_uuid);
       $parent_project_node = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
+    
+      /* Retrieve all datasets for the project */
+      $dataset_query = \Drupal::entityQuery('node')
+        ->condition('type', 'dataset')
+        ->condition('field_affiliated_parents', $parent_project_node->id());
+      $datasets = $dataset_query->execute();
+      
+      $count = count($datasets);
+      return $this->t('View All Datasets (@count)', ['@count' => $count]);
     }
-    
-    /* Retrieve all datasets for the project */
-    $dataset_query = \Drupal::entityQuery('node')
-      ->condition('type', 'dataset')
-      ->condition('field_affiliated_parents', $parent_project_node->id());
-    $datasets = $dataset_query->execute();
-    
-    $count = count($datasets);
-    return $this->t('View All Datasets (@count)', ['@count' => $count]);
+    else {
+      return NULL;
+    }
   }
   
   /**
