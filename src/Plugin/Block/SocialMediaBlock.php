@@ -29,7 +29,7 @@ class SocialMediaBlock extends BlockBase {
     $current_page_url = $base_url . $path;
     $encoded_current_page_url = urlencode($current_page_url);
 
-    $message = "LDbase {$type}: {$title} {$current_page_url} #ldbase";
+    $message = "#LDbase {$type}: {$title} {$current_page_url}";
     $encoded_message = urlencode($message);
 
     $subject = "LDbase {$type}: {$title}";
