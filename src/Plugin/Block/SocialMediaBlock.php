@@ -75,4 +75,8 @@ EOM;
     ];
   }
 
+  public function getCacheMaxAge() {
+    return 0;
+  }
+
 }
