@@ -15,7 +15,6 @@ Interview
 Meta-analysis
 Neuroimaging
 Neuroscience
-Other
 Protocol analysis
 Psychometrics
 Psychophysiological
