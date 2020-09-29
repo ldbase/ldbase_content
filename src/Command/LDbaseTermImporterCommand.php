@@ -43,11 +43,11 @@ class LDbaseTermImporterCommand extends ContainerAwareCommand {
   /**
    * {@inheritdoc}
    */
-  
+
   protected function execute(InputInterface $input, OutputInterface $output) {
     $this->getIo()->info("Beginning taxonomy term import...");
     $ldbase_content_path = DRUPAL_ROOT . "/" . drupal_get_path('module', 'ldbase_content');
-    $ldbase_content_taxonomies_path = $ldbase_content_path . "/taxonomies/"; 
+    $ldbase_content_taxonomies_path = $ldbase_content_path . "/taxonomies/";
     $ldbase_taxonomy_terms_lists = scandir($ldbase_content_taxonomies_path);
     $dot_dir_filter = ['.', '..'];
     $taxonomies_filtered = array_diff($ldbase_taxonomy_terms_lists, $dot_dir_filter);
@@ -60,12 +60,23 @@ class LDbaseTermImporterCommand extends ContainerAwareCommand {
       while(!feof($file)) {
         $line = fgets($file);
         $line = trim($line);
-	if (!empty($line)) {
-          $term = Term::create(array(
+	      if (!empty($line)) {
+          $name = trim(explode('|', $line)[0]);
+          $new_term = array(
             'parent' => array(),
             'vid' => $taxonomy_name,
-	    'name' => $line            
-          ))->save();
+            'name' => $name
+          );
+          $added_field_values = trim(explode('|', $line)[1]);
+          if (!empty($added_field_values) && $taxonomy_name == 'licenses') {
+            $added_field_values = explode(',', $added_field_values);
+            $field_valid_for = [];
+            foreach ($added_field_values as $value) {
+              array_push($field_valid_for, ['target_id' => $value]);
+            }
+            $new_term['field_valid_for'] = $field_valid_for;
+          }
+          $term = Term::create($new_term)->save();
         }
       }
       fclose($file);

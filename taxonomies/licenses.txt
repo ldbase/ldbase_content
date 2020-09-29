@@ -1,13 +1,8 @@
-Apache License 2.0
-CC BY (Attribution)
-CC BY-NC (Attribution-Non-Commercial)
-CC BY-NC-ND (Attribution-NonCommercial-ShareAlike-NoDerivatives)
-CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)
-CC BY-ND (Attribution-No-Derivatives)
-CC BY-SA (Attribution-Share-Alike)
-CC0 (No Rights Reserved)
-GNU Affero General Public License v3.0
-GNU General Public License v3.0
-GNU Lesser General Public License v3.0
-MIT License
-Mozilla Public License 2.0
+CC BY (Attribution)|document,code
+CC BY-NC (Attribution-Non-Commercial)|document,code
+CC BY-NC-ND (Attribution-NonCommercial-ShareAlike-NoDerivatives)|document,code
+CC BY-NC-SA (Attribution-NonCommercial-ShareAlike)|document,code
+CC BY-ND (Attribution-No-Derivatives)|document,code
+CC BY-SA (Attribution-Share-Alike)|document,code
+CC0 (No Rights Reserved)|document,code
+Open Data Commons Attribution License (ODC-By)|dataset
