@@ -1,9 +1,14 @@
+Application
+Assessment Materials
 Book
 Codebook
 Conference Contribution
+Experiment Files
 Figure
 Journal Contribution
+Lab Procedures
 Poster
 Preprint
 Presentation
 Thesis
+Other
