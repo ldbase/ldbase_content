@@ -1,16 +1,16 @@
 504
 AAC
-Academic Knowledge
-ADHD
+Academic Knowledge [AK]
+Attention-deficit/hyperactivity disorder [ADHD]
 Affective Domain
 Age
 Algebra
 Alphabets
 Aptitude
 Arithmetic
-ASD
+Autism Spectrum Disorder [ASD]
 Aspiration
-Assistive Technology
+Assistive Technology [AT]
 Attention
 Attention Control
 Attention Span
@@ -64,7 +64,6 @@ Deaf or Hard of Hearing
 Decoding
 Demographics
 Depression And Suicide
-Developmental Delay
 Developmental Delays
 Dialect
 Dictation
@@ -77,11 +76,11 @@ Dyscalculia
 Dysgraphia
 Dyslexia
 Early Reading
-EB
+Emotional Behavior Disorder [EBD]
 Encoding
-English Language Proficiency (ELLs)
+English Language Proficiency
 Environmental Print
-Executive Function
+Executive Function [EF]
 Explicit Vs Implicit Home Activities
 Expository
 Expressive Language
@@ -122,7 +121,7 @@ Individualized Reading
 Information Processing
 Initial Teaching Alphabet
 Inner Speech (Subvocal)
-Intellectual Disability
+Intellectual Disability [ID]
 Intelligence
 Intention
 Interest
@@ -142,7 +141,7 @@ Language Learning
 Language Processing
 Language Skills
 Language Typology
-Learning Disabilities
+Learning Disabilities [LD]
 Learning Motivation
 Learning Processes
 Letters (Alphabet)
@@ -225,7 +224,7 @@ Prosody
 Psycholinguistics
 Quantitative Skills
 Race
-Rapid Naming
+Rapid Naming [RAN]
 Reader Response
 Reader Text Relation
 Reading Ability
@@ -259,7 +258,7 @@ Reciprocal Teaching
 Recognition
 Recreational Reading
 Remedial Reading
-Response To Intervention
+Response To Intervention [RTI]
 Retention
 Rewards
 Rhyming
@@ -283,7 +282,7 @@ Sight Vocabulary
 Sign Language
 Silent Reading
 Sisters
-SLI
+Specific Language Impairment [SLI]
 Small Group
 Social Cognition
 Social Desirability Effects
@@ -292,7 +291,7 @@ Special education class vs general education
 Special Needs Students
 Speech
 Speech Communication
-Speech Impaired
+Speech Impairment
 Speech Skills
 Spelling
 Standardized Tests
@@ -307,7 +306,7 @@ Success
 Sustained Silent Reading
 Syllables
 Syntax
-TBI
+Traumatic Brain Injury [TBI]
 Teacher Attitudes
 Test Anxiety
 Text Structure

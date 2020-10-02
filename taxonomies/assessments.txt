@@ -4,6 +4,7 @@ Achenbach System of Empirically Based Assessment [2015 Update]
 Adaptive Behavior Assessment System
 Adolescent Substance Abuse Subtle Screening Inventory-A2
 Ages & Stages Questionnaires¨: Social-Emotional
+AIMSweb
 Attention Deficit Disorder Evaluation Scale--Fourth Edition
 Attention-Deficit/Hyperactivity Disorder Test-Second Edition
 Auditory Phoneme Sequencing Test
@@ -27,7 +28,22 @@ Checklist for Autism Spectrum Disorder
 Child and Adolescent Memory Profile
 Classroom Assessment Scoring System Infant
 Classroom Assessment Scoring System Toddler
-Clinical Evaluation of Language Fundamentals-Fifth Edition
+Clinical Evaluation of Language Fundamentals-Fifth Edition [CELF]
+Clinical Evaluation of Language Fundamentals: Sentence Comprehension
+Clinical Evaluation of Language Fundamentals: Linguistic Concepts
+Clinical Evaluation of Language Fundamentals: Word Structure
+Clinical Evaluation of Language Fundamentals: Word Classes
+Clinical Evaluation of Language Fundamentals: Following Directions
+Clinical Evaluation of Language Fundamentals: Formulated Sentences
+Clinical Evaluation of Language Fundamentals: Recalling Sentences
+Clinical Evaluation of Language Fundamentals: Understanding Spoken Paragraphs
+Clinical Evaluation of Language Fundamentals: Word Definitions
+Clinical Evaluation of Language Fundamentals: Sentence Assembly
+Clinical Evaluation of Language Fundamentals: Semantic Relationships
+Clinical Evaluation of Language Fundamentals: Pragmatics Profile
+Clinical Evaluation of Language Fundamentals: Reading Comprehension
+Clinical Evaluation of Language Fundamentals: Structured Writing
+Clinical Evaluation of Language Fundamentals: Pragmatics Activities Checklist
 Clinical Evaluation of Language Fundamentals-Fifth Edition Metalinguistics
 Clinical Evaluation of Language Fundamentals-Fifth Edition Screening Test
 CNS Vital Signs Computerized Cognitive Battery
@@ -39,9 +55,22 @@ Cognitrax
 College Survival and Success Scale
 Comprehensive Addictions And Psychological Evaluation-5
 Comprehensive Aphasia Test
+Comprehensive Reading Assessment Battery [CRAB]
 Comprehensive Receptive and Expressive Vocabulary Test-Third Edition
 Comprehensive Test of Nonverbal Intelligence-Second Edition
-Comprehensive Test of Phonological Processing-Second Edition
+Comprehensive Test of Phonological Processing-Second Edition [CTOPP]
+Comprehensive Test of Phonological Processing: Elision
+Comprehensive Test of Phonological Processing: Blending Words
+Comprehensive Test of Phonological Processing: Sound Matching
+Comprehensive Test of Phonological Processing: Phoneme Isolation
+Comprehensive Test of Phonological Processing: Blending Nonwords
+Comprehensive Test of Phonological Processing: Segmenting Nonwords
+Comprehensive Test of Phonological Processing: Memory for Digits
+Comprehensive Test of Phonological Processing: Nonword Repetition
+Comprehensive Test of Phonological Processing: Rapid Digit Naming
+Comprehensive Test of Phonological Processing: Rapid Letter Naming
+Comprehensive Test of Phonological Processing: Rapid Color Naming
+Comprehensive Test of Phonological Processing: Rapid Object Naming
 Concussion Vital Signs
 Conners Continuous Auditory Test of Attention
 Conners Continuous Performance Test 3rd Edition
@@ -57,8 +86,15 @@ Developmental Test of Visual Perception-Third Edition
 Devereux Student Strengths Assessment-mini
 Diagnostic Achievement Battery-Fourth Edition
 Diagnostic Achievement Battery-Intermediate
+Dynamic Indicators of Basic Early Literacy Skills [DIBELS]
+Dynamic Indicators of Basic Early Literacy Skills: First Sound Fluency [FSF]
+Dynamic Indicators of Basic Early Literacy Skills: Letter Naming Fluency [LNF]
+Dynamic Indicators of Basic Early Literacy Skills: Maze
+Dynamic Indicators of Basic Early Literacy Skills: Nonsense Word Fluency [NWF]
+Dynamic Indicators of Basic Early Literacy Skills: Oral Reading Fluency [ORF]
+Dynamic Indicators of Basic Early Literacy Skills: Phoneme Segmentation Fluency [PSF]
 Early Childhood Environment Rating Scale
-Early Reading Assessment
+Early Reading Assessment [ERA]
 EARS Evaluation of Auditory Responses to Speech
 easyCBM
 Emergenetics Profile
@@ -67,15 +103,19 @@ Emotional Intelligence Questionnaire
 Employability Skills Inventory
 English Placement Test [Forms D
 Expression
+Expressive One-Word Picture Vocabulary Test–Fourth Edition [EOWPVT]
 FACES IV (Family Adaptability and Cohesion Evaluation Scale)
 Family Child Care Environment Rating Scale
 FIRO Business¨ [Fundamental Interpersonal Relations Orientation]
+Gates-MacGinitie Reading Tests [GMRT]
 GED¨ Test [2014 Series]
+Get Ready to Read–Revised [GRTR]
 Gifted and Talented Evaluation Scales-Second Edition
 Gilliam Autism Rating Scale--Third Edition
 Goal-Oriented Assessment of Lifeskills
 Goldman-Fristoe Test of Articulation
-Gray Oral Reading Tests-Fifth Edition
+Gray Oral Reading Tests-Fifth Edition [GORT]
+Group Reading Assessment and Diagnostic Evaluation [GRADE]
 HCR-20 V3: Assessing Risk for Violence
 HOPE Teacher Rating Scale
 i-Ready K-12 Diagnostic and K-8 Instruction
@@ -84,7 +124,7 @@ Integrative Child Temperament Inventory
 International Teaching Assistant Speaking Assessment
 Investigator Created
 Iowa Assessments(TM)
-Kaufman Test of Educational Achievement
+Kaufman Test of Educational Achievement [KTEA]
 Khan-Lewis Phonological Analysis
 Kindergarten Essential Skills Assessment
 Kindergarten Readiness Test
@@ -92,7 +132,7 @@ Leadership Judgement Indicator (2nd Edition)
 Leadership Potential Indicator
 Leiter International Performance Scale-Third Edition
 Light's Retention Scale
-MacArthur Competence Assessment Tool-Criminal Adjudication (The)
+MacArthur Competence Assessment Tool-Criminal Adjudication
 Management and Leadership Questionnaire [2015 Manual]
 Matching Assistive Technology to Child-Augmentative Communication Evaluation Simplified
 McGhee-Mangrum Inventory of School Adjustment
@@ -112,13 +152,17 @@ Parenting Interactions with Children: Checklist of Observations Linked to Outcom
 PAT: Punctuation and Grammar
 PATH Personality Questionnaire [Version 2.0]
 PEDS Tools [Parents' Evaluation of Developmental Status]
+Peabody Picture Vocabulary Test [PPVT]
 Phelps Kindergarten Readiness Scale [2012 Restandardization]
 Phonological and Print Awareness Scale
+Phonological Awareness Literacy Screening [PALS]
 Practical Adolescent Dual Diagnostic Interview-5
 Pragmatic Language Observation Scale
 PREPARE/ENRICH: Online Customized Version
+Preschool Early Numeracy Scale [PENS]
 Program Administration Scale
 PTSD and Suicide Screener
+Qualitative Reading Inventory [QRI]
 Revised IDEA Feedback for Administrators System
 Revised IDEA Feedback for Department Chairs System
 Revised NEO Personality Inventory (U.K. Edition)
@@ -151,6 +195,7 @@ Teamwork Skills Inventory
 Test for Auditory Comprehension of Language--Fourth Edition
 Test for Reception of Grammar Version 2
 Test of Early Communication and Emerging Language
+Test of Early Mathematics Ability– Third Edition [TEMA]
 Test of Early Written Language-Third Edition
 Test of Expressive Language
 Test of General Reasoning Ability
@@ -158,14 +203,19 @@ Test of Integrated Language and Literacy Skills
 Test of Language Development-Intermediate: Fourth Edition
 Test of Language Development-Primary: Fourth Edition
 Test of Mathematical Abilities-Third Edition
+Test of Nonverbal Intelligence [TONI]
 Test of Orthographic Competence
 Test of Pragmatic Language-Second Edition
+Test of Preschool Early Literacy [TOPEL]
 Test of Preschool Vocabulary
 Test of Reading Comprehension-Fourth Edition
-Test of Silent Contextual Reading Fluency-Second Edition
-Test of Silent Word Reading Fluency-Second Edition
+Test of Silent Contextual Reading Fluency-Second Edition [TOSCRF]
+Test of Silent Reading Efficiency and Comprehension [TOSREC]
+Test of Silent Word Reading Fluency-Second Edition [TOSWRF]
 Test of Word Finding-Third Edition
-Test of Word Reading Efficiency-Second Edition
+Test of Word Reading Efficiency-Second Edition [TOWRE]
+Test of Word Reading Efficiency: Sight Word Efficiency [SWE]
+Test of Word Reading Efficiency: Phonemic Decoding Efficiency [PDE]
 Test of Written Language-Fourth Edition
 Test of Written Spelling-Fifth Edition
 Thomas-Kilmann Conflict Mode Instrument [2007 Normative Update]
@@ -178,11 +228,88 @@ Verbal Behavior Milestones Assessment and Placement Program
 Versant (TM) English Test
 Versant(TM) English Placement Test
 Vocabulary Assessment Scales-Expressive/Vocabulary Assessment Scales-Receptive
-Wechsler Intelligence Scale for Children--Fifth Edition
-Wechsler Intelligence Scale for Children-Fifth Edition
-Woodcock-Johnson¨ III
-Woodcock-Johnson¨ IV
+Wechsler Abbreviated Scale of Intelligence [WASI]
+Wechsler Abbreviated Scale of Intelligence: Vocabulary
+Wechsler Abbreviated Scale of Intelligence: Similarities
+Wechsler Abbreviated Scale of Intelligence: Block Design
+Wechsler Abbreviated Scale of Intelligence: Matrix Reasoning
+Wechsler Individual Achievement Test [WIAT]
+Wechsler Intelligence Scale for Children-Fifth Edition [WISC]
+Woodcock-Johnson III Tests of Achievement [WJ3]
+Woodcock-Johnson III Tests of Achievement: Test 1: Letter-Word Identification [WID]
+Woodcock-Johnson III Tests of Achievement: Test 2: Reading Fluency
+Woodcock-Johnson III Tests of Achievement: Test 3: Story Recall
+Woodcock-Johnson III Tests of Achievement: Test 4: Understanding Directions
+Woodcock-Johnson III Tests of Achievement: Test 5: Calculation
+Woodcock-Johnson III Tests of Achievement: Test 6: Math Fluency
+Woodcock-Johnson III Tests of Achievement: Test 7: Spelling
+Woodcock-Johnson III Tests of Achievement: Test 8: Writing Fluency
+Woodcock-Johnson III Tests of Achievement: Test 9: Passage Comprehension [PC]
+Woodcock-Johnson III Tests of Achievement: Test 10: Applied Problems
+Woodcock-Johnson III Tests of Achievement: Test 11: Writing Samples
+Woodcock-Johnson III Tests of Achievement: Test 12: Story Recall-Delayed
+Woodcock-Johnson III Tests of Achievement: Test 13: Word Attack [WA]
+Woodcock-Johnson III Tests of Achievement: Test 14: Picture Vocabulary [PV]
+Woodcock-Johnson III Tests of Achievement: Test 15: Oral Comprehension
+Woodcock-Johnson III Tests of Achievement: Test 16: Editing
+Woodcock-Johnson III Tests of Achievement: Test 17: Reading Vocabulary
+Woodcock-Johnson III Tests of Achievement: Test 18: Quantitative Concepts
+Woodcock-Johnson III Tests of Achievement: Test 19: Academic Knowledge
+Woodcock-Johnson III Tests of Achievement: Test 20: Spelling of Sounds
+Woodcock-Johnson III Tests of Achievement: Test 21: Sound Awareness
+Woodcock-Johnson III Tests of Achievement: Test 22: Punctuation and Capitalization
+Woodcock-Johnson IV Tests of Achievement [WJ4]
+Woodcock-Johnson IV Tests of Achievement: Test 1: Letter-Word Identification [WID]
+Woodcock-Johnson IV Tests of Achievement: Test 2: Applied Problems
+Woodcock-Johnson IV Tests of Achievement: Test 3: Spelling
+Woodcock-Johnson IV Tests of Achievement: Test 4: Passage Comprehension [PC]
+Woodcock-Johnson IV Tests of Achievement: Test 5: Calculation
+Woodcock-Johnson IV Tests of Achievement: Test 6: Writing Samples
+Woodcock-Johnson IV Tests of Achievement: Test 7: Word Attack [WA]
+Woodcock-Johnson IV Tests of Achievement: Test 8: Oral Reading
+Woodcock-Johnson IV Tests of Achievement: Test 9: Sentence Reading Fluency
+Woodcock-Johnson IV Tests of Achievement: Test 10: Math Facts Fluency
+Woodcock-Johnson IV Tests of Achievement: Test 11: Writing Fluency
+Woodcock-Johnson IV Tests of Achievement: Test 12: Reading Recall
+Woodcock-Johnson IV Tests of Achievement: Test 13: Number Matrices
+Woodcock-Johnson IV Tests of Achievement: Test 14: Editing
+Woodcock-Johnson IV Tests of Achievement: Test 15: Word Reading Fluency
+Woodcock-Johnson IV Tests of Achievement: Test 16: Spelling of Sounds
+Woodcock-Johnson IV Tests of Achievement: Test 17: Reading Vocabulary
+Woodcock-Johnson IV Tests of Achievement: Test 18: Science
+Woodcock-Johnson IV Tests of Achievement: Test 19: Social Studies
+Woodcock-Johnson IV Tests of Achievement: Test 20: Humanities
+Woodcock-Johnson IV Tests of Cognitive Abilities
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 1: Oral Vocabulary
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 2: Number Series
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 3: Verbal Attention
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 4: Letter-Pattern Matching
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 5: Phonological Processing
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 6: Story Recall
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 7: Visualization
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 8: General Information
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 9: Concept Formation
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 10: Numbers Reversed
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 11: Number-Pattern Matching
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 12: Nonword Repetition
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 13: Visual-Auditory Learning
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 14: Picture Recognition
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 15: Analysis-Synthesis
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 16: Object-Number Sequencing
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 17: Pair Cancellation
+Woodcock-Johnson IV Tests of Cognitive Abilities: Test 18: Memory for Words
+Woodcock-Johnson IV Tests of Oral Language
 Woodcock-Johnson¨ IV Tests of Early Cognitive and Academic Development
+Woodcock Reading Mastery Test [WRMT]
+Woodcock Reading Mastery Test-III: Listening Comprehension
+Woodcock Reading Mastery Test-III: Oral Reading Fluency
+Woodcock Reading Mastery Test-III: Phonological Awareness
+Woodcock Reading Mastery Test-III: Rapid Automatic Naming
+Woodcock Reading Mastery Test-III: Letter Identification
+Woodcock Reading Mastery Test-III: Word Identification
+Woodcock Reading Mastery Test-III: Word Attack
+Woodcock Reading Mastery Test-III: Word Comprehension
+Woodcock Reading Mastery Test-III: Passage Comprehension
 Work Personality Index (2nd Edition)
 Work Personality Inventory [Edition 1.0]
 Work Personality Survey

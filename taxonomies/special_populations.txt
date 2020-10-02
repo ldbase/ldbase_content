@@ -1,17 +1,20 @@
-Attention Deficit/Hyperactivity Disorder
-Autism Spectrum Disorder
-Behavioral Impairment
+Attention Deficit/Hyperactivity Disorder [ADHD]
+Autism Spectrum Disorder [ASD]
+Behavioral Impairment [BI]
 Deaf/Hard of Hearing
-Dual Language Learners
-Emotional Impairment
-English Language Learners
+Dual Language Learners [DLL]
+Emotional Impairment [EI]
+English Language Learners [ELL]
 Immigrants
 Incarcerated
-Intellectual Disabilities
+Intellectual Disabilities [ID]
 Language Disabilities
-Math Disabilities
+Learning Disabilities [LD]
+Math Disabilities [MD][MLD]
+Other Health Impairments [OHI]
 Physical Disabilities
-Reading Disabilities
-Second Language Learners
-Speech Impaired
-Vision Impaired
+Reading Disabilities [Dyslexia] [RD]
+Second Language Learners [SLL]
+Speech Impairment
+Traumatic Brain Injury [TBI]
+Vision Impairment

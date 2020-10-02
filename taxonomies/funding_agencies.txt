@@ -4,19 +4,18 @@ British Academy, Arts & Humanities Council
 Campbell collaboration
 Dell Foundation
 Department of Health and Human Services
-Department of Justice
+Department of Justice [DoJ]
 Duke Energy
-Economic and Social Research Council
+Economic and Social Research Council [ESRC]
 Education Endowment Foundation
-European Research Council
+European Research Council [ERC]
 Foundation for Child Development
 Foundation for Early Childhood
 Gates Foundation
 Global Challenges Research Fund
 Heising-Simons Foundation
-Heising-Simons Foundation
 Hewlett Foundation
-Institute of Educational Sciences
+Institute of Educational Sciences [IES]
 Jacobs Foundation
 James S. McDonnell Foundation
 John Templeton Foundation
@@ -25,18 +24,18 @@ Kellogg Foundation
 Leverhulme Trust
 Martha Holden Jennings Foundation
 McDonnell Foundation
-National Institutes of Health
+National Institutes of Health [NIH]
 National Research Foundation Singapore
-National Science Foundation
+National Science Foundation [NSF]
 Norwegian Research Council
 Nuffield
-Office of Special Education Programs
+Office of Special Education Programs [OSEP]
 Organization for Autism Research
 Spencer Foundation
 Templeton Foundation
-The Chan Zuckerberg Initiative
+The Chan Zuckerberg Initiative [CZI]
 Toyota
-United States Department of Defense
+United States Department of Defense [DoD]
 UNESCO
 Wellcome Trust
 William T. Grant Foundation
