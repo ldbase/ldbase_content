@@ -22,3 +22,15 @@ function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInter
   }
 }
 
+/**
+ * Implements hook_form_alter().
+ */
+function ldbase_content_form_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    // change username label to Email Address
+    $form['name']['#title'] = t('Email Address');
+    $form['name']['#description'] = t('Enter your LDbase account email address.');
+
+    $form['pass']['#description'] = t('Enter the password that accompanies your LDbase account.');
+  }
+}
