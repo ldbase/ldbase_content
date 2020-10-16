@@ -23,7 +23,7 @@ class LDbaseMinimalObjectSearchLinkBlock extends BlockBase {
     $content = <<<markup
 <form action="/search" method="get" id="search-block-form" accept-charset="UTF-8">
   <input data-drupal-selector="edit-keys" type="search" id="edit-keys" name="search_api_fulltext" value="" class="search form-text" placeholder="Search..."/>
-  <input type="submit" class="global-search-submit-button" value="Go!">
+  <input type="submit" class="global-search-submit-button" value="Search">
 </form>
 markup;
     return [
