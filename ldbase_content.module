@@ -33,4 +33,8 @@ function ldbase_content_form_alter(&$form, Drupal\Core\Form\FormStateInterface $
 
     $form['pass']['#description'] = t('Enter the password that accompanies your LDbase account.');
   }
+
+  if ($form_id == 'user_pass') {
+    $form['name']['#title'] = t('Email Address');
+  }
 }
