@@ -108,6 +108,12 @@ ldbase.institutions:
   parent: ldbase.community
   weight: 2
 
+ldbase.search:
+  title: Search
+  menu_name: main
+  url: internal:/search?search_api_fulltext=&search_api_full_text_1
+  weight: 6
+
 # Links Associated with Project Navigation Menu
 
 ldbase.all_project_datasets:
