@@ -32,12 +32,4 @@ function ldbase_content_install() {
   $admin_user->activate();
   $result = $admin_user->save();
 
-  // Add search link to main_menu
-  $search_link = MenuLinkContent::create([
-    'title' => 'Search',
-    'link' => ['uri' =>'internal:/search?search_api_fulltext=&'],
-    'menu_name' => 'main',
-    'weight' => 20,
-  ]);
-  $search_link->save();
 } 
