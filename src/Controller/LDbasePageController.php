@@ -30,6 +30,12 @@ class LDbasePageController extends ControllerBase {
     ];
   }
 
+  public function contact() {
+    return [
+      '#markup' => '<p>' . $this->t('This is the "Contact" page.') . '</p>',
+    ];
+  }
+
   public function about() {
     return [
       '#markup' => '<p>' . $this->t('This is the "About" page.') . '</p>',
@@ -100,7 +106,7 @@ EOM;
 EOM;
     return [
       '#markup' => $why_share_behavioral_data_content,
-      '#allowed_tags' => ['script', 'div', 'ol', 'li', 'h2', 'p'],
+      '#allowed_tags' => ['script', 'iframe', 'div', 'ol', 'li', 'h2', 'p', 'a'],
     ];
   }
 
@@ -252,12 +258,6 @@ EOM;
     ];
   }
 
-  public function contact() {
-    return [
-      '#markup' => '<p>' . $this->t('This is the "Contact" page.') . '</p>',
-    ];
-  }
-
   public function resources() {
     return [
       '#markup' => '<p>' . $this->t('This is the "Resources" page.') . '</p>',
@@ -265,32 +265,128 @@ EOM;
   }
 
   public function general_user_agreement() {
+    $general_user_agreement_content = <<<EOM
+<p>Coming soon!</p>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "General User Agreement" page.') . '</p>',
+      '#markup' => $general_user_agreement_content,
     ];
   }
 
   public function user_guide() {
+    $user_guide_content = <<<EOM
+<p>Coming soon!</p>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "User Guide" page.') . '</p>',
+      '#markup' => $user_guide_content,
     ];
   }
 
   public function faq() {
+    $faq_content = <<<EOM
+<p>Coming soon!</p>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "FAQ" page.') . '</p>',
+      '#markup' => $faq_content,
     ];
   }
 
+
   public function best_practices() {
+    $best_practices_content = <<<EOM
+<div id="best-practices-page-wrapper" class="best-practices-page">
+  <ol>
+    <li>
+      <h2>Working with your IRB</h2>
+      <p>Do you want to know more about IRB considerations for data sharing? See this white paper on thinking about informed consent language and data use agreements.</p>
+      <iframe src="https://widgets.figshare.com/articles/13215305/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by Shero & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Working_with_your_IRB_Obtaining_consent_for_open_data_sharing_through_consent_forms_and_data_use_agreements/13215305">https://figshare.com/articles/preprint/Working_with_your_IRB_Obtaining_consent_for_open_data_sharing_through_consent_forms_and_data_use_agreements/13215305</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>General data management guidelines</h2>
+      <p>Data sharing starts with good data management. See this document for some general best tips for good data management practices.</p>
+      <iframe src="https://widgets.figshare.com/articles/13215350/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by Reynolds & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350">https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>Data De-Identification</h2>
+	    <p>Are you ready to make sure your data are deidentified? First, work through these steps:</p>
+	    <script src="https://venngage.net/js/embed/v1/embed.js" data-vg-id="5p6yjaAGTSs" data-title="5 Things to check for data deidentification" data-w="816" data-h="2200" data-multipage="true"></script>
+	    <p>Now, do your final checks:</p>
+      <iframe src="https://widgets.figshare.com/articles/13228664/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Edwards, A. & Schatschneider, C. (2020). 5 things to check for data de-identification. Available at <a href="https://venngage.net/ps/5p6yjaAGTSs/new-5-things-to-check-for-data-deidentification">https://venngage.net/ps/5p6yjaAGTSs/new-5-things-to-check-for-data-deidentification</a>. Reuse available under a CC BY 4.0 license.</p>
+      <p>Paper by Edwards & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/De-Identification_Guide/13228664">https://figshare.com/articles/preprint/De-Identification_Guide/13228664</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>License types</h2>
+      <p>Licenses allow you to choose how your data and documents can be reused.</p>
+      <p>For data we recommend Open Data Commons Attribution License (ODC-by) which allows others to use, modify, and share your data but must cite your data when doing so (i.e., if someone uses your data for an analysis in a publication, they must cite your data).</p>
+      <p>For accompanying documentation, we recommend you examine the <a href="https://creativecommons.org/licenses/">Creative Commons Licences</a> to choose which is most appropriate for you. For a great summary of what they all mean, check out <a href="https://creativecommons.org/licenses/">https://foter.com/blog/how-to-attribute-creative-commons-photos/</a>.</p>
+    </li>
+    <li>
+      <h2>Citing LDbase products</h2>
+      <p>Each product on LDbase includes a suggested citation, please use that when citing to give credit to the original authors who shared their product with you!</p>
+      <p>As LDbase was created through NIH funding, we would very much appreciate you citing LDbase in your work. To do so, you may use:</p>
+      <p>Hart, S.A., Schatschneider, T.R. Reynolds, F.E. Calvo, B. J. Brown, B. Arsenault, M.R.K. Hall, W. van Dijk, A.A. Edwards, J.A. Shero, R. Smart & J.S. Phillips (2020). <em>LDbase</em>. <a href="http://doi.org/10.33009/ldbase">http://doi.org/10.33009/ldbase</a>.</p>
+    </li>
+    <li>
+      <h2>Combining data</h2>
+      <p>For some research questions, it is better to have large sample sizes. Instead of going out to collect these samples, researchers can combine data from existing studies. There are two main ways to combine existing data: through meta-analysis of summary statistics, and through Integrative Data Analysis using individual participant data. See this white paper for more information and suggested readings for both.</p>
+	    <iframe src="https://widgets.figshare.com/articles/13215356/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by van Dijk & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/Combining_Data/13215356">https://figshare.com/articles/preprint/Combining_Data/13215356</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>Open Science</h2>
+      <p>Are you interested to know more about open science practices? Here is a brief review to get you started.</p>
+	    <iframe src="https://widgets.figshare.com/articles/13215392/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by van Dijk & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Open_Science/13215392">https://figshare.com/articles/preprint/Open_Science/13215392</a> under a CC By 4.0 license.</p>
+    </li>
+  </ol>
+</div>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "Best Practices" page.') . '</p>',
+      '#markup' => $best_practices_content,
+      '#allowed_tags' => ['script', 'iframe', 'div', 'ol', 'li', 'h2', 'p', 'a'],
     ];
   }
 
   public function templates() {
+    $templates_content = <<<EOM
+<div id="templates-page-wrapper" class="templates-page">
+  <ol>
+    <li>
+      <h2>IRB Application</h2>
+      <p>A template of a typical US IRB protocol which including data sharing.</p>
+      <iframe src="https://widgets.figshare.com/articles/13218797/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by Shero & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/IRB_Protocol_Template/13218797">https://figshare.com/articles/preprint/IRB_Protocol_Template/13218797</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>Informed consent language</h2>
+	    <p>A template of a typical informed consent with the anticipation of data sharing.</p>
+	    <iframe src="https://widgets.figshare.com/articles/13218773/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by Shero & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Informed_Consent_Template/13218773">https://figshare.com/articles/preprint/Informed_Consent_Template/13218773</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>Data use agreement</h2>
+	    <p>Coming soon!</p>
+    </li>
+    <li>
+      <h2>Data management plan</h2>
+	    <p>An example of a data management plan.</p>
+	    <iframe src="https://widgets.figshare.com/articles/13218743/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+      <p>Paper by Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Example_of_a_Data_Management_Plan/13218743">https://figshare.com/articles/preprint/Example_of_a_Data_Management_Plan/13218743</a> under a CC By 4.0 license.</p>
+    </li>
+    <li>
+      <h2>Preregistrations using secondary data analysis</h2>
+      <p>The Center for Open Science has brought together a team to create a useful template for secondary data analysis preregistrations. Check it out here <a href="https://osf.io/x4gzt/">https://osf.io/x4gzt/</a> and cite:</p>
+      <p>Weston, S. J., Mellor, D. T., Bakker, M., Van den Akker, O., Campbell, L., Ritchie, S. J., … DeHaven, A. C. (2020, September 22). Secondary Data Preregistration. Retrieved from <a href="https://osf.io/x4gzt/">osf.io/x4gzt</a></p> 
+    </li>
+  </ol>
+</div>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "Templates" page.') . '</p>',
+      '#markup' => $templates_content,
+      '#allowed_tags' => ['script', 'iframe', 'div', 'ol', 'li', 'h2', 'p', 'a'],
     ];
   }
 
