@@ -34,5 +34,4 @@ class LDbaseSubfooterBlock extends BlockBase {
   public function getCacheMaxAge() {
     return 0;
   }
-
 }
