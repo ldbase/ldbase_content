@@ -38,11 +38,11 @@ ldbase.about_ldbase:
   requirements:
     _permission: 'access content'
 
-ldbase.why_share_behavioral_data:
-  path: '/about/why-share-behavioral-data'
+ldbase.why_share_data:
+  path: '/about/why-share-data'
   defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::why_share_behavioral_data'
-    _title: 'Why Share Behavioral Data'
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::why_share_data'
+    _title: 'Why Share Data'
   requirements:
     _permission: 'access content'
 
@@ -59,14 +59,6 @@ ldbase.ldbase_team:
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::ldbase_team'
     _title: 'LDbase Team'
-  requirements:
-    _permission: 'access content'
-
-ldbase.contact:
-  path: '/about/contact'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::contact'
-    _title: 'Contact'
   requirements:
     _permission: 'access content'
 

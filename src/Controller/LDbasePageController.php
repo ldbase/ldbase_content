@@ -30,12 +30,6 @@ class LDbasePageController extends ControllerBase {
     ];
   }
 
-  public function contact() {
-    return [
-      '#markup' => '<p>' . $this->t('This is the "Contact" page.') . '</p>',
-    ];
-  }
-
   public function about() {
     return [
       '#markup' => '<p>' . $this->t('This is the "About" page.') . '</p>',
@@ -55,11 +49,11 @@ EOM;
     ];
   }
 
-  public function why_share_behavioral_data() {
-    $why_share_behavioral_data_content = <<<EOM
-<div id="why-share-behavioral-data-page-wrapper" class="why-share-behavioral-data-page">
+  public function why_share_data() {
+    $why_share_data_content = <<<EOM
+<div id="why-share-data-page-wrapper" class="why-share-data-page">
   <script src="https://venngage.net/js/embed/v1/embed.js" data-vg-id="Uz65vsS6hI" data-title="10 BENEFITS OF DATA SHARING" data-w="816" data-h="2250" data-multipage="true"></script>
-  <ol id="why-share-behavioral-data-page-list" class="why-share-behavioral-data-page">
+  <ol id="why-share-data-page-list" class="why-share-data-page">
     <li>
       <h2>Engage in Open Science</h2>
       <p>Sharing data is one of the most important elements of Open Science.</p>
@@ -101,11 +95,11 @@ EOM;
       <p>Your funder might require you to share your data</p>
     </li>
   </ol>
-  <p class="why-share-behavioral-data-page">Edwards, A., van Dijk, W., & Hart, S.A. (2020). 10 benefits of data sharing. Available <a href="https://venngage.net/ps/Uz65vsS6hI/new-10-benefits-of-data-sharing">https://venngage.net/ps/Uz65vsS6hI/new-10-benefits-of-data-sharing</>. Reuse available under a CC BY 4.0 license.</p>
+  <p class="why-share-data-page">Edwards, A., van Dijk, W., & Hart, S.A. (2020). 10 benefits of data sharing. Available <a href="https://venngage.net/ps/Uz65vsS6hI/new-10-benefits-of-data-sharing">https://venngage.net/ps/Uz65vsS6hI/new-10-benefits-of-data-sharing</a>. Reuse available under a CC BY 4.0 license.</p>
 </div>
 EOM;
     return [
-      '#markup' => $why_share_behavioral_data_content,
+      '#markup' => $why_share_data_content,
       '#allowed_tags' => ['script', 'iframe', 'div', 'ol', 'li', 'h2', 'p', 'a'],
     ];
   }
@@ -379,7 +373,7 @@ EOM;
     <li>
       <h2>Preregistrations using secondary data analysis</h2>
       <p>The Center for Open Science has brought together a team to create a useful template for secondary data analysis preregistrations. Check it out here <a href="https://osf.io/x4gzt/">https://osf.io/x4gzt/</a> and cite:</p>
-      <p>Weston, S. J., Mellor, D. T., Bakker, M., Van den Akker, O., Campbell, L., Ritchie, S. J., … DeHaven, A. C. (2020, September 22). Secondary Data Preregistration. Retrieved from <a href="https://osf.io/x4gzt/">osf.io/x4gzt</a></p> 
+      <p>Weston, S. J., Mellor, D. T., Bakker, M., Van den Akker, O., Campbell, L., Ritchie, S. J., … DeHaven, A. C. (2020, September 22). Secondary Data Preregistration. Retrieved from <a href="https://osf.io/x4gzt/">osf.io/x4gzt</a></p>
     </li>
   </ol>
 </div>

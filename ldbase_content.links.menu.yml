@@ -1,9 +1,9 @@
 ldbase.access_denied:
-  title: Access Denied 
+  title: Access Denied
   route_name: ldbase.access_denied
 
 ldbase.not_found:
-  title: Not Found 
+  title: Not Found
   route_name: ldbase.not_found
 
 ldbase.about:
@@ -13,13 +13,13 @@ ldbase.about:
   weight: 1
 
 ldbase.resources:
-  title: Resources 
+  title: Resources
   route_name: ldbase.resources
   menu_name: main
   weight: 2
 
 ldbase.community:
-  title: Community 
+  title: Community
   route_name: ldbase.community
   menu_name: main
   weight: 3
@@ -31,9 +31,9 @@ ldbase.about_ldbase:
   parent: ldbase.about
   weight: 1
 
-ldbase.why_share_behavioral_data:
-  title: Why Share Behavioral Data
-  route_name: ldbase.why_share_behavioral_data
+ldbase.why_share_data:
+  title: Why Share Data
+  route_name: ldbase.why_share_data
   menu_name: main
   parent: ldbase.about
   weight: 2
@@ -51,13 +51,6 @@ ldbase.ldbase_team:
   menu_name: main
   parent: ldbase.about
   weight: 4
-
-ldbase.contact:
-  title: Contact
-  route_name: ldbase.contact
-  menu_name: main
-  parent: ldbase.about
-  weight: 5
 
 ldbase.general_user_agreement:
   title: General User Agreement
