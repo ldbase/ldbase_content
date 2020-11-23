@@ -78,6 +78,14 @@ ldbase.general_user_agreement:
   requirements:
     _permission: 'access content'
 
+ldbase.data_upload_user_agreement:
+  path: '/data-upload-user-agreement'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::data_upload_user_agreement'
+    _title: 'Data Upload User Agreement'
+  requirements:
+    _permission: 'access content'
+
 ldbase.user_guide:
   path: '/resources/user-guide'
   defaults:

@@ -302,6 +302,23 @@ EOM;
     ];
   }
 
+  public function data_upload_user_agreement() {
+    $best_practices_link = Link::fromTextAndUrl('recommended additional checks', Url::fromRoute('ldbase.best_practices', array(), ['fragment' => 'data-de-identification']))->toString();
+    $data_upload_user_agreement_content = <<<EOM
+<div id= "data-upload-user-agreement-page-wrapper" class="data-upload-user-agreement-page">
+  <ol id="data-upload-user-agreement-list" class="data-upload-user-agreement-page">
+    <li>I have permission to share these data.</li>
+    <li>All data are accurate and complete.</li>
+    <li>The data have no personally identifiable information, and I have done the $best_practices_link to ensure that all identifiable data have been removed.</li>
+    <li>All data uploaded may be accessed and used by any user of the LDbase repository, unless an embargo has been placed on the data.</li>
+  </ol>
+</div>
+EOM;
+    return [
+      '#markup' => $data_upload_user_agreement_content,
+    ];
+  }
+
   public function user_guide() {
     $user_guide_content = <<<EOM
 <p>Coming soon!</p>
@@ -338,7 +355,7 @@ EOM;
       <p>Paper by Reynolds & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350">https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350</a> under a CC By 4.0 license.</p>
     </li>
     <li>
-      <h2>Data De-Identification</h2>
+      <h2 id="data-de-identification">Data De-Identification</h2>
 	    <p>Are you ready to make sure your data are deidentified? First, work through these steps:</p>
 	    <script src="https://venngage.net/js/embed/v1/embed.js" data-vg-id="5p6yjaAGTSs" data-title="5 Things to check for data deidentification" data-w="816" data-h="2200" data-multipage="true"></script>
 	    <p>Now, do your final checks:</p>
