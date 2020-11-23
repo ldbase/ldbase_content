@@ -6,6 +6,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Controller routines for page example routes.
@@ -31,8 +33,23 @@ class LDbasePageController extends ControllerBase {
   }
 
   public function about() {
+    $about_ldbase_link = Link::fromTextAndUrl('About LDbase', Url::fromRoute('ldbase.about_ldbase'))->toString();
+    $why_share_data_link = Link::fromTextAndUrl('Why Share Data', Url::fromRoute('ldbase.why_share_data'))->toString();
+    $who_might_link = Link::fromTextAndUrl('Who Might Want To Use LDbase', Url::fromRoute('ldbase.who_might_want_to_use_ldbase'))->toString();
+    $ldbase_team_link = Link::fromTextAndUrl('LDbase Team', Url::fromRoute('ldbase.ldbase_team'))->toString();
+
+    $about_content = <<<EOM
+<div id= "about-page-wrapper" class="about-page">
+  <ul id="about-page-list" class="about-page">
+    <li>$about_ldbase_link</li>
+    <li>$why_share_data_link</li>
+    <li>$who_might_link</li>
+    <li>$ldbase_team_link</li>
+  </ul>
+</div>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "About" page.') . '</p>',
+      '#markup' => $about_content,
     ];
   }
 
@@ -253,8 +270,26 @@ EOM;
   }
 
   public function resources() {
+    $general_user_agreement_link = Link::fromTextAndUrl('General User Agreement', Url::fromRoute('ldbase.general_user_agreement'))->toString();
+    $user_guide_link = Link::fromTextAndUrl('User Guide', Url::fromRoute('ldbase.user_guide'))->toString();
+    $faq_link = Link::fromTextAndUrl('FAQ', Url::fromRoute('ldbase.faq'))->toString();
+    $best_practices_link = Link::fromTextAndUrl('Best Practices', Url::fromRoute('ldbase.best_practices'))->toString();
+    $templates_link = Link::fromTextAndUrl('Templates', Url::fromRoute('ldbase.templates'))->toString();
+
+    $resources_content = <<<EOM
+<div id= "resources-page-wrapper" class="resources-page">
+  <ul id="resources-page-list" class="resources-page">
+    <li>$general_user_agreement_link</li>
+    <li>$user_guide_link</li>
+    <li>$faq_link</li>
+    <li>$best_practices_link</li>
+    <li>$templates_link</li>
+  </ul>
+</div>
+EOM;
+
     return [
-      '#markup' => '<p>' . $this->t('This is the "Resources" page.') . '</p>',
+      '#markup' => $resources_content,
     ];
   }
 
@@ -385,8 +420,19 @@ EOM;
   }
 
   public function community() {
+    $community_users_link = Link::fromTextAndUrl('Users', Url::fromRoute('ldbase.users'))->toString();
+    $community_institutions_link = Link::fromTextAndUrl('Institutions', Url::fromRoute('ldbase.institutions'))->toString();
+
+    $community_content = <<<EOM
+<div id= "community-page-wrapper" class="community-page">
+  <ul id="community-page-list" class="community-page">
+    <li>$community_users_link</li>
+    <li>$community_institutions_link</li>
+  </ul>
+</div>
+EOM;
     return [
-      '#markup' => '<p>' . $this->t('This is the "Community" page.') . '</p>',
+      '#markup' => $community_content,
     ];
   }
 
