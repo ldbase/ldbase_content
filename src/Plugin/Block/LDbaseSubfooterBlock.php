@@ -21,9 +21,10 @@ class LDbaseSubfooterBlock extends BlockBase {
    */
   public function build() {
     $content = <<<EOM
-<div id="ldbase-footer-block-wrapper" id="ldbase-footer-block">
-  <p>This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />
-  Contact us at <a href="mailto:LDbase@fcrr.org">LDbase@fcrr.org</a>.</p>
+<div id="ldbase-subfooter-block-wrapper">
+  <p id="subfooter-disclaimer">This repository is a collaboration between the <a href="https://psy.fsu.edu/">FSU Department of Psychology</a> and the <a href="https://www.lib.fsu.edu/">FSU Libraries</a>.<br />
+  The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.<br /><br />
+  <strong>Questions or Comments?</strong> Contact us at <a href="mailto:LDbase@fcrr.org">LDbase@fcrr.org</a>.</p>
 </div>
 EOM;
 
