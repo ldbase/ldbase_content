@@ -453,16 +453,4 @@ EOM;
     ];
   }
 
-  public function users() {
-    return [
-      '#markup' => '<p>' . $this->t('This is the "Users" page.') . '</p>',
-    ];
-  }
-
-  public function institutions() {
-    return [
-      '#markup' => '<p>' . $this->t('This is the "Institutions" page.') . '</p>',
-    ];
-  }
-
 }

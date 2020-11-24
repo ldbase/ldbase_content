@@ -126,22 +126,6 @@ ldbase.community:
   requirements:
     _permission: 'access content'
 
-ldbase.users:
-  path: '/community/users'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::users'
-    _title: 'Users'
-  requirements:
-    _permission: 'access content'
-
-ldbase.institutions:
-  path: '/community/institutions'
-  defaults:
-    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::institutions'
-    _title: 'Institutions'
-  requirements:
-    _permission: 'access content'
-
 # Routes Associated with Project Navigation Menu
 ldbase.all_project_datasets:
   path: '/projects/{project_uuid}/all-datasets-for-project/{node}'

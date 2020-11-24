@@ -89,14 +89,14 @@ ldbase.templates:
 
 ldbase.users:
   title: Users
-  route_name: ldbase.users
+  route_name: view.persons.page_2
   menu_name: main
   parent: ldbase.community
   weight: 1
 
 ldbase.institutions:
   title: Institutions
-  route_name: ldbase.institutions
+  route_name: view.organizations.page_2
   menu_name: main
   parent: ldbase.community
   weight: 2
