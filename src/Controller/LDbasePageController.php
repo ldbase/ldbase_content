@@ -28,7 +28,7 @@ class LDbasePageController extends ControllerBase {
 
   public function home() {
     return [
-      '#markup' => '<p>' . $this->t('This is the front page.') . '</p>',
+      '#markup' => '',
     ];
   }
 
