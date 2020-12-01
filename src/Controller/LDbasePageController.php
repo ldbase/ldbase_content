@@ -437,8 +437,8 @@ EOM;
   }
 
   public function community() {
-    $community_users_link = Link::fromTextAndUrl('Users', Url::fromRoute('ldbase.users'))->toString();
-    $community_institutions_link = Link::fromTextAndUrl('Institutions', Url::fromRoute('ldbase.institutions'))->toString();
+    $community_users_link = Link::fromTextAndUrl('Users', Url::fromRoute('view.persons.page_2'))->toString();
+    $community_institutions_link = Link::fromTextAndUrl('Institutions', Url::fromRoute('view.organizations.page_2'))->toString();
 
     $community_content = <<<EOM
 <div id= "community-page-wrapper" class="community-page">
