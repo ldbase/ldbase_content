@@ -131,7 +131,7 @@ EOM;
       <ol type="a">
         <li>
           <h3>For Grants</h3>
-          <p>Many granting agencies now require investigators of a funded project to deposit their data into a repository by a predetermined time. Investigators may attach lab members/staff to their projects within LDbase and can choose the level of access they wish for every dataset, document or code they store in LDbase. LDbase meets all known federal and community requirements, including meeting the FAIR principles, HIPPA and FERPA privacy laws, and GDRP regulations.</p>
+          <p>Many granting agencies now require investigators of a funded project to deposit their data into a repository by a predetermined time. Investigators may attach lab members/staff to their projects within LDbase and can choose the level of access they wish for every dataset, document or code they store in LDbase. LDbase meets all known federal and community requirements, including meeting the FAIR principles, HIPAA and FERPA privacy laws, and GDRP regulations.</p>
         </li>
         <li>
           <h3>For Journals</h3>
