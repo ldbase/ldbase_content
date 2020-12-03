@@ -110,11 +110,107 @@ ldbase.best_practices:
   requirements:
     _permission: 'access content'
 
+ldbase.working_with_your_irb:
+  path: '/resources/best-practices/working-with-your-irb'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::working_with_your_irb'
+    _title: 'Working with your IRB'
+  requirements:
+    _permission: 'access content'
+
+ldbase.general_data_management_guidelines:
+  path: '/resources/best-practices/general-data-management-guidelines'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::general_data_management_guidelines'
+    _title: 'General data management guidelines'
+  requirements:
+    _permission: 'access content'
+
+ldbase.data_de_identification:
+  path: '/resources/best-practices/data-de-identification'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::data_de_identification'
+    _title: 'Data De-Identification'
+  requirements:
+    _permission: 'access content'
+
+ldbase.license_types:
+  path: '/resources/best-practices/license-types'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::license_types'
+    _title: 'License types'
+  requirements:
+    _permission: 'access content'
+
+ldbase.citing_ldbase_products:
+  path: '/resources/best-practices/citing-ldbase-products'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::citing_ldbase_products'
+    _title: 'Citing LDbase products'
+  requirements:
+    _permission: 'access content'
+
+ldbase.combining_data:
+  path: '/resources/best-practices/combining-data'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::combining_data'
+    _title: 'Combining data'
+  requirements:
+    _permission: 'access content'
+
+ldbase.open_science:
+  path: '/resources/best-practices/open-science'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::open_science'
+    _title: 'Open Science'
+  requirements:
+    _permission: 'access content'
+
 ldbase.templates:
   path: '/resources/templates'
   defaults:
     _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::templates'
     _title: 'Templates'
+  requirements:
+    _permission: 'access content'
+
+ldbase.irb_application:
+  path: '/resources/templates/irb-application'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::irb_application'
+    _title: 'IRB Application'
+  requirements:
+    _permission: 'access content'
+
+ldbase.informed_consent_language:
+  path: '/resources/templates/informed-consent-language'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::informed_consent_language'
+    _title: 'Informed consent language'
+  requirements:
+    _permission: 'access content'
+
+ldbase.data_use_agreement:
+  path: '/resources/templates/data-use-agreement'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::data_use_agreement'
+    _title: 'Data use agreement'
+  requirements:
+    _permission: 'access content'
+
+ldbase.data_management_plan:
+  path: '/resources/templates/data-management-plan'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::data_management_plan'
+    _title: 'Data management plan'
+  requirements:
+    _permission: 'access content'
+
+ldbase.preregistrations_using_secondary_data_analysis:
+  path: '/resources/templates/preregistrations-using-secondary-data-analysis'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::preregistrations_using_secondary_data_analysis'
+    _title: 'Preregistrations using secondary data analysis'
   requirements:
     _permission: 'access content'
 
