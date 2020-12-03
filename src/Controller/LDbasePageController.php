@@ -303,7 +303,7 @@ EOM;
   }
 
   public function data_upload_user_agreement() {
-    $best_practices_link = Link::fromTextAndUrl('recommended additional checks', Url::fromRoute('ldbase.best_practices', array(), ['fragment' => 'data-de-identification']))->toString();
+    $best_practices_link = Link::fromTextAndUrl('recommended additional checks', Url::fromRoute('ldbase.data_de_identification'))->toString();
     $data_upload_user_agreement_content = <<<EOM
 <div id= "data-upload-user-agreement-page-wrapper" class="data-upload-user-agreement-page">
   <ol id="data-upload-user-agreement-list" class="data-upload-user-agreement-page">
