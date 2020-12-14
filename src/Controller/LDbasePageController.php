@@ -430,7 +430,7 @@ EOM;
 <div id="citing-ldbase-products-wrapper" class="citing-ldbase-products-page">
   <p>Each product on LDbase includes a suggested citation, please use that when citing to give credit to the original authors who shared their product with you!</p>
   <p>As LDbase was created through NIH funding, we would very much appreciate you citing LDbase in your work. To do so, you may use:</p>
-  <p>Hart, S.A., Schatschneider, T.R. Reynolds, F.E. Calvo, B. J. Brown, B. Arsenault, M.R.K. Hall, W. van Dijk, A.A. Edwards, J.A. Shero, R. Smart & J.S. Phillips (2020). <em>LDbase</em>. <a href="http://doi.org/10.33009/ldbase">http://doi.org/10.33009/ldbase</a>.</p>
+  <p>Hart, S.A., Schatschneider, S., Reynolds, T.R., Calvo, F.E., Brown, B.J., Arsenault, B., Hall, M.R.K., van Dijk, W., Edwards, A.A., Shero, J.A., Smart, R. & Phillips, J.S. (2020). <em>LDbase</em>. <a href="http://doi.org/10.33009/ldbase">http://doi.org/10.33009/ldbase</a>.</p>
 </div>
 EOM;
     return [
