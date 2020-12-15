@@ -22,8 +22,8 @@ class LDbaseSubfooterBlock extends BlockBase {
   public function build() {
     $content = <<<EOM
 <div id="ldbase-subfooter-block-wrapper">
-  <p id="subfooter-disclaimer">This repository is a collaboration between the <a href="https://psy.fsu.edu/">FSU Department of Psychology</a> and the <a href="https://www.lib.fsu.edu/">FSU Libraries</a>.<br />
-  The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.<br /><br />
+  <p id="subfooter-disclaimer">This repository is a collaboration between the <a href="https://psy.fsu.edu/">FSU Department of Psychology</a>, the <a href="https://fcrr.org">Florida Center for Reading Research</a>,
+  and the <a href="https://www.lib.fsu.edu/">FSU Libraries</a>. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.<br /><br />
   <strong>Questions or Comments?</strong> Contact us at <a href="mailto:LDbase@fcrr.org">LDbase@fcrr.org</a>.</p>
 </div>
 EOM;

@@ -371,7 +371,7 @@ EOM;
 <div id="working-with-your-irb-wrapper" class="working-with-your-irb-page">
   <p>Do you want to know more about IRB considerations for data sharing? See this white paper on thinking about informed consent language and data use agreements.</p>
   <iframe src="https://widgets.figshare.com/articles/13215305/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
-  <p>Paper by Shero & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Working_with_your_IRB_Obtaining_consent_for_open_data_sharing_through_consent_forms_and_data_use_agreements/13215305">https://figshare.com/articles/preprint/Working_with_your_IRB_Obtaining_consent_for_open_data_sharing_through_consent_forms_and_data_use_agreements/13215305</a> under a CC By 4.0 license.</p>
+  <p><a href="https://figshare.com/articles/preprint/Working_with_your_IRB_Obtaining_consent_for_open_data_sharing_through_consent_forms_and_data_use_agreements/13215305">Paper by Shero & Hart</a>, 2020, available under a CC By 4.0 license.</p>
 </div>
 EOM;
     return [
@@ -385,7 +385,7 @@ EOM;
 <div id="general-data-management-guidelines-wrapper" class="general-data-management-guidelines-page">
     <p>Data sharing starts with good data management. See this document for some general best tips for good data management practices.</p>
     <iframe src="https://widgets.figshare.com/articles/13215350/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
-    <p>Paper by Reynolds & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350">https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350</a> under a CC By 4.0 license.</p>
+    <p><a href="https://figshare.com/articles/preprint/The_Basics_of_Data_Management/13215350">Paper by Reynolds & Schatschneider</a>, 2020, available under a CC By 4.0 license.</p>
 </div>
 EOM;
     return [
@@ -401,8 +401,8 @@ EOM;
     <script src="https://venngage.net/js/embed/v1/embed.js" data-vg-id="5p6yjaAGTSs" data-title="5 Things to check for data deidentification" data-w="816" data-h="2200" data-multipage="true"></script>
     <p>Now, do your final checks:</p>
     <iframe src="https://widgets.figshare.com/articles/13228664/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
+    <p><a href="https://figshare.com/articles/preprint/De-Identification_Guide/13228664">Paper by Edwards & Schatschneider</a>, 2020, available under a CC By 4.0 license.</p>
     <p>Edwards, A. & Schatschneider, C. (2020). 5 things to check for data de-identification. Available at <a href="https://venngage.net/ps/5p6yjaAGTSs/new-5-things-to-check-for-data-deidentification">https://venngage.net/ps/5p6yjaAGTSs/new-5-things-to-check-for-data-deidentification</a>. Reuse available under a CC BY 4.0 license.</p>
-    <p>Paper by Edwards & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/De-Identification_Guide/13228664">https://figshare.com/articles/preprint/De-Identification_Guide/13228664</a> under a CC By 4.0 license.</p>
 </div>
 EOM;
     return [
@@ -444,7 +444,7 @@ EOM;
 <div id="combining-data-wrapper" class="combining-data-page">
   <p>For some research questions, it is better to have large sample sizes. Instead of going out to collect these samples, researchers can combine data from existing studies. There are two main ways to combine existing data: through meta-analysis of summary statistics, and through Integrative Data Analysis using individual participant data. See this white paper for more information and suggested readings for both.</p>
   <iframe src="https://widgets.figshare.com/articles/13215356/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
-  <p>Paper by van Dijk & Schatschneider, 2020, available at <a href="https://figshare.com/articles/preprint/Combining_Data/13215356">https://figshare.com/articles/preprint/Combining_Data/13215356</a> under a CC By 4.0 license.</p>
+  <p><a href="https://figshare.com/articles/preprint/Combining_Data/13215356">Paper by van Dijk & Schatschneider</a>, 2020, available under a CC By 4.0 license.</p>
 </div>
 EOM;
     return [
@@ -458,7 +458,7 @@ EOM;
 <div id="open-science-wrapper" class="open-science-page">
   <p>Are you interested to know more about open science practices? Here is a brief review to get you started.</p>
   <iframe src="https://widgets.figshare.com/articles/13215392/embed?show_title=1" width="568" height="351" allowfullscreen frameborder="0"></iframe>
-  <p>Paper by van Dijk & Hart, 2020, available at <a href="https://figshare.com/articles/preprint/Open_Science/13215392">https://figshare.com/articles/preprint/Open_Science/13215392</a> under a CC By 4.0 license.</p>
+  <p><a href="https://figshare.com/articles/preprint/Open_Science/13215392">Paper by van Dijk & Hart</a>, 2020, available under a CC By 4.0 license.</p>
 </div>
 EOM;
     return [
