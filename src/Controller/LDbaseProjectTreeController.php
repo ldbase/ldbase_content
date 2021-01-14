@@ -93,6 +93,7 @@ class LDbaseProjectTreeController extends ControllerBase {
   }
 
   public static function getAffiliatedChildrenAsOptionArray($parent_project_id, $current_object_id = NULL, $option_prefix = NULL) {
+    $options = [];
     // indent for select options
     $option_prefix = empty($option_prefix) ? '--' : $option_prefix . '--';
 
