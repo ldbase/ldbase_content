@@ -186,7 +186,7 @@ EOM;
   </div>
 
   <div class="ldbase-team-page ldbase-team-page-member-wrapper">
-    <h2>Christopher Schatshneider</h2>
+    <h2>Christopher Schatschneider</h2>
     <span class="ldbase-team-page ldbase-team-page-member-line">Principal Investigator</span><br/>
     <span class="ldbase-team-page ldbase-team-page-member-line">Professor of Psychology</span><br/>
     <span class="ldbase-team-page ldbase-team-page-member-line">Associate Director of the Florida Center for Reading Research</span><br/>
