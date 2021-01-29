@@ -32,10 +32,32 @@ function ldbase_content_form_alter(&$form, Drupal\Core\Form\FormStateInterface $
     $form['name']['#description'] = t('Enter your LDbase account email address.');
 
     $form['pass']['#description'] = t('Enter the password that accompanies your LDbase account.');
+
   }
 
   if ($form_id == 'user_pass') {
     $form['name']['#title'] = t('Email Address');
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ *
+ * @param $variables
+ */
+function ldbase_content_preprocess_status_messages(&$variables) {
+  // modify error message for login from home and user.login
+  $change_login_error_messages = ['ldbase.home','user.login'];
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  if (in_array($current_route, $change_login_error_messages)) {
+    if(isset($variables['message_list']['error'])){
+      $status_messages = $variables['message_list']['error'];
+      foreach($status_messages as $delta => $message) {
+        if (strpos((string) $message, '1 error has been found') !== FALSE) {
+          $variables['message_list']['error'][$delta] = "Unrecognized username or password.";
+        }
+      }
+    }
   }
 }
 
