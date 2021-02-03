@@ -67,14 +67,16 @@ class LDbaseTermImporterCommand extends ContainerAwareCommand {
             'vid' => $taxonomy_name,
             'name' => $name
           );
-          $added_field_values = trim(explode('|', $line)[1]);
-          if (!empty($added_field_values) && $taxonomy_name == 'licenses') {
-            $added_field_values = explode(',', $added_field_values);
-            $field_valid_for = [];
-            foreach ($added_field_values as $value) {
-              array_push($field_valid_for, ['target_id' => $value]);
+          if (array_key_exists('1',explode('|',$line))) {
+            $added_field_values = trim(explode('|', $line)[1]);
+            if (!empty($added_field_values) && $taxonomy_name == 'licenses') {
+              $added_field_values = explode(',', $added_field_values);
+              $field_valid_for = [];
+              foreach ($added_field_values as $value) {
+                array_push($field_valid_for, ['target_id' => $value]);
+              }
+              $new_term['field_valid_for'] = $field_valid_for;
             }
-            $new_term['field_valid_for'] = $field_valid_for;
           }
           $term = Term::create($new_term)->save();
         }
