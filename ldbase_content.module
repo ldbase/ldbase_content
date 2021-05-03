@@ -69,3 +69,18 @@ function ldbase_content_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcru
     $breadcrumb->addCacheableDependency($node);
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function ldbase_content_theme($existing, $type, $theme, $path) {
+  return [
+    'ldbase_content_browse_vocabularies' => [
+      'template' => 'ldbase-content-browse-vocabularies',
+      'variables' => [
+        'count' => NULL,
+        'vocabulary_links' => [],
+      ],
+    ]
+  ];
+}

@@ -1,0 +1,16 @@
+{#
+  /**
+   * @file
+   * Formats list of vocabulary links.
+   *
+   * Available variables:
+   * - 'count': the number of links
+   * - 'vocabulary_links': an array of links to view all terms of a vocabulary.
+   */
+#}
+
+<ul id="ldbase-content-browse-vocabularies ldbase-content-browse-vocabularies-list">
+{% for link in vocabulary_links %}
+  <li>{{ link.link }}</li>
+{% endfor %}
+</ul>
