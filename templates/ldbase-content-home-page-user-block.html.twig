@@ -1,0 +1,36 @@
+{#
+  /**
+   * @file
+   * Provides home page user block for LDbase
+   *
+   * Available variables:
+   * - 'person_name': Person name
+   * - 'person_orcid': Person ORCID
+   * - 'person_email': user's email address.
+   * - 'person_related_organizations': string of person's orgs
+   * - 'person_professional_titles': array from field_professional_titles
+   * - 'dashboard_link': link to user's full dashboard
+   * - 'messages_link': link to user's messages page
+   * - 'contributions_link': link to user's contributions page
+   * - 'profile_edit_link': link to edit user profile
+   */
+#}
+
+<div class="ldbase-home-page-user-block row">
+  <div class="ldbase-user-info col-sm-6">
+    <div class="person-name"><strong>{{ person_name }}</strong></div>
+    {% for title in person_professional_titles %}
+      <div class="professional-title title-{{ loop.index }}">{{ title.value }}</div>
+    {% endfor %}
+    <div class="person-orcid">{{ person_orcid }}</div>
+    <div class="person-email">{{ person_email }}</div>
+    <div class="person-related-organizations">{{ person_related_organizations }}</div>
+  </div>
+  <div class="ldbase-user-links col-sm-6">
+    <div class="dashboard-link">{{ dashboard_link }}</div>
+    <div class="messages-link">{{ messages_link }}</div>
+    <div class="contributions-link">{{ contributions_link }}</div>
+    <div class="profile-edit-link">{{ profile_edit_link }}</div>
+  </div>
+</div>
+

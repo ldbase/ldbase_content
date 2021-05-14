@@ -81,6 +81,20 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
         'count' => NULL,
         'vocabulary_links' => [],
       ],
+    ],
+    'ldbase_content_home_page_user_block' => [
+      'template' => 'ldbase-content-home-page-user-block',
+      'variables' => [
+        'person_name' => NULL,
+        'person_orcid' => NULL,
+        'person_email' => NULL,
+        'person_related_organizations' => NULL,
+        'person_professional_titles' => [],
+        'dashboard_link' => NULL,
+        'messages_link' => NULL,
+        'contributions_link' => NULL,
+        'profile_edit_link' => NULL,
+      ],
     ]
   ];
 }
