@@ -26,6 +26,7 @@ use Drupal\Core\Url;
     $messages_route = 'view.my_messages.page_1';
     $contributions_route = 'entity.node.canonical';
     $profile_edit_route = 'ldbase_handlers.edit_person';
+    $taxonomy_review_route = 'ldbase_handlers.review_taxonomy_terms';
 
     $ldbase_person_id = \Drupal::entityQuery('node')
       ->condition('type', 'person')
@@ -59,6 +60,14 @@ use Drupal\Core\Url;
       $contributions_link = Link::fromTextAndUrl(t('View Contributions'), $contributions_url)->toRenderable();
       $profile_edit_url = Url::fromRoute($profile_edit_route, ['node' => $ldbase_person->uuid()]);
       $profile_edit_link = Link::fromTextAndUrl(t('Edit your Profle'), $profile_edit_url)->toRenderable();
+      $taxonomy_review_url = Url::fromRoute($taxonomy_review_route);
+      if ($taxonomy_review_url->access($current_user)) {
+        $taxonomy_review_link = Link::fromTextAndUrl(t('Review Taxonomy Terms'), $taxonomy_review_url)->toRenderable();
+      }
+      else {
+        $taxonomy_review_link = NULL;
+      }
+
 
       $cache_tags = [
           "node:{$ldbase_person->id()}",
@@ -75,6 +84,7 @@ use Drupal\Core\Url;
         '#messages_link' => $messages_link,
         '#contributions_link' => $contributions_link,
         '#profile_edit_link' => $profile_edit_link,
+        '#taxonomy_review_link' => $taxonomy_review_link,
         '#cache' => [
           'tags' => $cache_tags,
           'context' => ['user'],

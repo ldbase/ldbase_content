@@ -13,6 +13,7 @@
    * - 'messages_link': link to user's messages page
    * - 'contributions_link': link to user's contributions page
    * - 'profile_edit_link': link to edit user profile
+   * - 'taxonomy_review_link': admin link to review new taxonomy terms
    */
 #}
 
@@ -31,6 +32,9 @@
     <div class="messages-link">{{ messages_link }}</div>
     <div class="contributions-link">{{ contributions_link }}</div>
     <div class="profile-edit-link">{{ profile_edit_link }}</div>
+    {% if taxonomy_review_link %}
+    <div class="taxonomy-review-link">{{ taxonomy_review_link }}</div>
+    {% endif %}
   </div>
 </div>
 
