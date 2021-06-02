@@ -87,7 +87,7 @@ use Drupal\Core\Url;
         '#taxonomy_review_link' => $taxonomy_review_link,
         '#cache' => [
           'tags' => $cache_tags,
-          'context' => ['user'],
+          'contexts' => ['user'],
         ],
       ];
 
