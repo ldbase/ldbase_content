@@ -34,7 +34,7 @@ use Drupal\Core\Url;
       ->execute();
 
     if (!empty($ldbase_person_id)) {
-      $ldbase_person = $entity_type_manager->getStorage('node')->load(key($ldbase_person_id));
+      $ldbase_person = $entity_type_manager->getStorage('node')->load(array_values($ldbase_person_id)[0]);
 
       $person_first_name = $ldbase_person->field_first_name->value;
       $person_middle_name = $ldbase_person->field_middle_name->value;
