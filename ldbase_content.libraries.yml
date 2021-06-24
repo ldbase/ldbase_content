@@ -8,6 +8,9 @@ breadcrumb-current-page-prefixer:
 
 d3:
   version: 4.x
+  css:
+    theme:
+      css/d3_visualizations.css: {}
   js:
     js/d3/d3.min.js: {}
   dependencies:
@@ -26,9 +29,6 @@ d3_contributions_src:
 
 d3_content_count_src:
   version: 1.x
-  css:
-    theme:
-      css/d3_visualizations.css: {}
   js:
     js/d3_content_count_src.js: {}
   dependencies:
