@@ -5,3 +5,35 @@ breadcrumb-current-page-prefixer:
   dependencies:
     - core/jquery
     - core/jquery.once
+
+d3:
+  version: 4.x
+  js:
+    js/d3/d3.min.js: {}
+  dependencies:
+  - core/jquery
+
+d3_contributions_src:
+  version: 1.x
+  js:
+    js/d3_contributions_src.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - ldbase_content/d3
+
+d3_content_count_src:
+  version: 1.x
+  css:
+    theme:
+      css/d3_visualizations.css: {}
+  js:
+    js/d3_content_count_src.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings
+    - ldbase_content/d3

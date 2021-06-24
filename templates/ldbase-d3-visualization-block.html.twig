@@ -1,0 +1,21 @@
+{#
+  /**
+   * @file
+   * Provides a container for a d3 visualization.
+   */
+#}
+
+<div{{ attributes }}>
+  {{title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  {% if description %}
+  {{ description }}
+  {% endif %}
+  {% block content %}
+    {{ content }}
+    <div id="ldbase-d3-visualization-container" />
+  {% endblock %}
+</div>

@@ -96,6 +96,18 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
         'profile_edit_link' => NULL,
         'taxonomy_review_link' => NULL,
       ],
+    ],
+    'ldbase_d3_contributions_block' => [
+      'template' => 'ldbase-d3-visualization-block',
+      'variables' => [
+        'description' => NULL,
+      ],
+    ],
+    'ldbase_d3_content_count_block' => [
+      'template' => 'ldbase-d3-visualization-block',
+      'variables' => [
+        'description' => NULL,
+      ],
     ]
   ];
 }
