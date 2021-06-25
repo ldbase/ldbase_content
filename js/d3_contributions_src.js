@@ -21,6 +21,12 @@
         .defer(d3.json, 'persons/contributions-api')
         .await(function(error, nodes, links) {
 
+          // create link url
+          nodes.forEach(function (d) {
+            d.content_type = (d.group != 'Code') ? d.group.toLowerCase() + 's' : d.group.toLowerCase();
+            d.url = d.content_type + "/" + d.uuid;
+          });
+
           var link = svg.append("g")
             .attr("class", "links")
             .selectAll("line")
@@ -32,7 +38,10 @@
           var node = svg.append("g")
             .selectAll("circle")
             .data(nodes)
-            .enter().append("circle")
+            .enter().append("svg:a")
+            .attr("class", "link")
+            .attr("xlink:href", function (d) { return d.url })
+            .append("circle")
             // make person nodes bigger
             .attr("r", function (d) {return d.group == 'Person'? 7 : 5; })
             .attr("class", function (d) { return d.group + "-fill nodes"; })

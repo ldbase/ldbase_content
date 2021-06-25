@@ -33,20 +33,25 @@
           // format the data
           data.forEach(function (d) {
             d.value = +d.value;
+            d.formatted_name = (d.name != 'Code') ? d.name + 's' : d.name;
           });
 
           // Scale the range of the data in the domains
           x.domain([0, d3.max(data, function (d) { return d.value; })])
-          y.domain(data.map(function (d) { return d.name; }));
+          y.domain(data.map(function (d) { return d.formatted_name; }));
 
           // append the rectangles for the bar chart
           svg.selectAll(".bar")
             .data(data)
-            .enter().append("rect")
+            .enter().append('svg:a')
+            .attr("class", "link")
+            .attr("xlink:href", function (d) { return "/" + d.formatted_name.toLowerCase() })
+            .append("rect")
             .attr("class", function (d) { return d.name + "-fill"; })
             .attr("width", function (d) { return x(d.value); })
-            .attr("y", function (d) { return y(d.name); })
-            .attr("height", y.bandwidth());
+            .attr("y", function (d) { return y(d.formatted_name); })
+            .attr("height", y.bandwidth())
+            .append("title").text( function (d) { return d.value + ' ' + d.formatted_name; });
 
           // add the x Axis
           svg.append("g")
