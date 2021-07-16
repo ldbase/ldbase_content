@@ -48,6 +48,12 @@ class LDbaseExploreRow extends BlockBase {
   <h3 class="link-block-header">Add Data</h3>
   <p>Add your project to LDbase</p>
   </div>
+</a><a class="link-div" href="/resources/first-time-storing-data">
+  <div class="link-block" id="block-5">
+  <img src="/modules/custom/ldbase_content/images/life-preserver.svg" alt="life preserver icon">
+  <h3 class="link-block-header">First Time Storing Data?</h3>
+  <p>Find help here</p>
+  </div>
 </a>
 </div>
 EOM;
