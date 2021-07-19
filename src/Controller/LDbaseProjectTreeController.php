@@ -37,14 +37,15 @@ class LDbaseProjectTreeController extends ControllerBase {
   }
 
   public static function getAffiliatedChildrenAsHtmlList($parent_project_id, $current_object_id = NULL) {
-
-    $list = "<ul class='project-tree-view project-tree-view-list'>";
+    // only add surrounding ul if results are found
+    $add_ul = false;
 
     $datasets_query = \Drupal::entityQuery('node')
       ->condition('type','dataset')
       ->condition('field_affiliated_parents', $parent_project_id);
     $datasets_result = $datasets_query->execute();
     foreach ($datasets_result as $result) {
+      $add_ul = true;
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/datasets/{$node->uuid()}'>Dataset: {$node->getTitle()}</a>";
@@ -57,6 +58,7 @@ class LDbaseProjectTreeController extends ControllerBase {
       ->condition('field_affiliated_parents', $parent_project_id);
     $code_result = $code_query->execute();
     foreach ($code_result as $result) {
+      $add_ul = true;
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/code/{$node->uuid()}'>Code: {$node->getTitle()}</a>";
@@ -70,6 +72,7 @@ class LDbaseProjectTreeController extends ControllerBase {
       ->condition('field_affiliated_parents', $parent_project_id);
     $documents_result = $documents_query->execute();
     foreach ($documents_result as $result) {
+      $add_ul = true;
       $node = node_load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $doc_type = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
@@ -78,7 +81,12 @@ class LDbaseProjectTreeController extends ControllerBase {
       $list .= "</li>";
     }
 
-    $list .= "</ul>";
+    if ($add_ul) {
+      $list = "<ul class='project-tree-view project-tree-view-list'>" . $list . "</ul>";
+    }
+    else {
+      $list = "";
+    }
 
     return $list;
   }
