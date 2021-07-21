@@ -40,6 +40,8 @@ class LDbaseProjectTreeController extends ControllerBase {
     // only add surrounding ul if results are found
     $add_ul = false;
 
+    $list = "";
+
     $datasets_query = \Drupal::entityQuery('node')
       ->condition('type','dataset')
       ->condition('field_affiliated_parents', $parent_project_id);
