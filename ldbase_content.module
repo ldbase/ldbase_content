@@ -108,6 +108,13 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
       'variables' => [
         'description' => NULL,
       ],
+    ],
+    'ldbase_project_subtree' => [
+      'template' => 'ldbase-project-subtree',
+      'variables' => [
+        'subtree_title' => NULL,
+        'items' => NULL,
+      ]
     ]
   ];
 }
