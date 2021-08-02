@@ -12,15 +12,15 @@
  */
 #}
 
-{% import _self as subtree %}
-{% if subtree_title %}
-<h3>{{ subtree_title }}</h3>
-{% endif %}
-
-{{ subtree.tree_links(items, 0) }}
-{% macro tree_links(items, tree_level) %}
+{% if items %}
   {% import _self as subtree %}
-  {% if items %}
+  {% if subtree_title %}
+  <h3>{{ subtree_title }}</h3>
+  {% endif %}
+
+  {{ subtree.tree_links(items, 0) }}
+  {% macro tree_links(items, tree_level) %}
+    {% import _self as subtree %}
     <ul class='project-item-subtree-view project-item-subtree-view-list'>
     {% for item in items %}
       <li class='project-item-subtree-view project-item-subtree-view-item'>
@@ -32,8 +32,6 @@
       </li>
     {% endfor %}
     </ul>
-  {% else %}
-  This dataset has no sub-items.
-  {% endif %}
-{% endmacro %}
+  {% endmacro %}
+{% endif %}
 
