@@ -13,25 +13,27 @@
 #}
 
 {% if items %}
-  {% import _self as subtree %}
-  {% if subtree_title %}
-  <h3>{{ subtree_title }}</h3>
-  {% endif %}
-
-  {{ subtree.tree_links(items, 0) }}
-  {% macro tree_links(items, tree_level) %}
+  <div class='ldbase-subtree-container'>
     {% import _self as subtree %}
-    <ul class='project-item-subtree-view project-item-subtree-view-list'>
-    {% for item in items %}
-      <li class='project-item-subtree-view project-item-subtree-view-item'>
-        {{ item.link }}<br />
-        {{ item.description|striptags|length > 100 ? item.description|striptags|slice(0,100) ~ '...' : item.description|raw}}
-        {% if item.below %}
-          {{ subtree.tree_links(item.below, tree_level + 1) }}
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
-  {% endmacro %}
+    {% if subtree_title %}
+    <h3>{{ subtree_title }}</h3>
+    {% endif %}
+
+    {{ subtree.tree_links(items, 0) }}
+    {% macro tree_links(items, tree_level) %}
+      {% import _self as subtree %}
+      <ul class='project-item-subtree-view project-item-subtree-view-list'>
+      {% for item in items %}
+        <li class='project-item-subtree-view project-item-subtree-view-item'>
+          {{ item.link }}<br />
+          {{ item.description|striptags|length > 200 ? item.description|striptags|slice(0,200) ~ '...' : item.description|raw}}
+          {% if item.below %}
+            {{ subtree.tree_links(item.below, tree_level + 1) }}
+          {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endmacro %}
+  </div>
 {% endif %}
 
