@@ -114,6 +114,14 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
       'variables' => [
         'subtree_title' => NULL,
         'items' => NULL,
+      ],
+    ],
+    'ldbase_latest_project_items' => [
+      'template' => 'ldbase-latest-project-items',
+      'variables' => [
+        'section_prefix' => NULL,
+        'section_suffix' => NULL,
+        'block_data' => [],
       ]
     ]
   ];

@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Display the latest items for a project.
+ * Available variables:
+ *  - section_prefix: The text to display before the section item type
+ *  - section_suffix: The text to display after the section item type
+ *  - block_data: The array of items
+ *    - type: the content type (Dataset, Document, Code)
+ *    - items: array of items to display
+ *      - title: The item title.
+ *      - link: The renderable link to the item.
+ *      - description: the full item description
+ *      - changed: the Unix timestamp of the last update to the item
+ * #}
+
+<div class='ldbase-latest-items-container'>
+  {% for block in block_data %}
+    <div class='{{ "view-project-latest-" ~ block.type|lower }}'>
+      <header>
+        <h3>{{ section_prefix ~ ' ' ~ block.type ~ ' ' ~ section_suffix }}</h3>
+      </header>
+      {% if block.items %}
+        <ul class='project-latest-items-list'>
+        {% for item in block.items %}
+          <li class='project-latest-items-list-item'>
+            {{ item.link }}<br />
+            <strong>Last update:</strong> {{ item.changed|format_date() }}<br />
+            <strong>Description: </strong>{{ item.description|striptags|length > 200 ? item.description|striptags|slice(0,200) ~ '...' : item.description|raw}}
+          </li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <span>{{ "There are no " ~ block.type|lower ~ " for this project." }}<span>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
