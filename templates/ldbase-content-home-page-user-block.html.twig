@@ -14,6 +14,8 @@
    * - 'contributions_link': link to user's contributions page
    * - 'profile_edit_link': link to edit user profile
    * - 'taxonomy_review_link': admin link to review new taxonomy terms
+   * - 'email_needs_verification': true/false has user verified their email address
+   * - 'verifcation_link': link to verify email form
    */
 #}
 
@@ -24,7 +26,7 @@
       <div class="professional-title title-{{ loop.index }}">{{ title.value }}</div>
     {% endfor %}
     <div class="person-orcid">{{ person_orcid }}</div>
-    <div class="person-email">{{ person_email }}</div>
+    <div class="person-email">{{ person_email }}{% if email_needs_verification %} (Not Verified)<br/>{{ verification_link }}{% endif %}</div>
     <div class="person-related-organizations">{{ person_related_organizations }}</div>
   </div>
   <div class="ldbase-user-links col-sm-6">
