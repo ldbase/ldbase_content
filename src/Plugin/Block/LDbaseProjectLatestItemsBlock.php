@@ -96,7 +96,6 @@ class LDbaseProjectLatestItemsBlock extends BlockBase implements ContainerFactor
         $group_id = $project_group_content->getGroup()->id();
         // get all group items (includes members and top project)
         $all_group_contents = $this->entityManager->getStorage('group_content')->loadByProperties(['gid' => $group_id]);
-
         // create arrays to hold each item type
         $block_data = [];
         $allowed_types = ['dataset','document','code'];
@@ -106,7 +105,7 @@ class LDbaseProjectLatestItemsBlock extends BlockBase implements ContainerFactor
           $$type['items'] = [];
         }
         // loop over group contents
-        $do_not_use_types = ['group_memnership','project'];
+        $do_not_use_types = ['group_membership','project','embargo'];
         $nids_to_get = [];
         foreach ($all_group_contents as $group_content) {
           $group_content_type = $group_content->get('type')->target_id;
