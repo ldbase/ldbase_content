@@ -6,6 +6,9 @@
       var height = 600;
       var width = 800;
 
+      var legendRectSize = 15;
+      var legendSpacing = 4;
+
       var svg = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-container')
         .append('svg')
         .attr("viewBox", [-width / 2, -height /2 , width, height]);
@@ -60,6 +63,7 @@
           simulation.force("link")
             .links(links);
 
+
           function ticked() {
             link
               .attr("x1", function (d) { return d.source.x; })
@@ -90,6 +94,23 @@
         d.fx = null;
         d.fy = null;
       }
+
+      var ordinal = d3.scaleOrdinal()
+        .domain(["Person", "Project", "Dataset", "Document", "Code"])
+        .range(["#1f77b4", "#9467bd", "#ff7f0e", "#2ca02c", "#d62728"]);
+
+      svg.append("g")
+        .attr("class", "legendOrdinal")
+        .attr("transform", "translate(-390,-290)");
+
+      var legendOrdinal = d3.legendColor()
+        .shapeWidth(20)
+        .shapePadding(10)
+        .scale(ordinal);
+
+      svg.select(".legendOrdinal")
+        .call(legendOrdinal);
+
     });
     }
   };
