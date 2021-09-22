@@ -134,7 +134,7 @@ use Drupal\user_email_verification\UserEmailVerification;
       }
       $email_needs_verification = $this->userEmailVerification->isVerificationNeeded($uid);
       $verification_url = Url::fromRoute($email_verification_route);
-      $verification_link = Link::fromTextAndUrl(t('Resend Verification Email'), $verification_url)->toRenderable();
+      $verification_link = Link::fromTextAndUrl(t('Verify Email'), $verification_url)->toRenderable();
 
 
       $cache_tags = [
