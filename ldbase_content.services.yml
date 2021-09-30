@@ -7,6 +7,6 @@ services:
     arguments: []
   ldbase_content.breadcrumbs:
     class: Drupal\ldbase_content\Breadcrumb\LDbaseObjectBreadcrumbBuilder
-    arguments: []
+    arguments: ['@entity_type.manager', '@ldbase.object_service']
     tags:
       - { name: breadcrumb_builder, priority: 100 }
