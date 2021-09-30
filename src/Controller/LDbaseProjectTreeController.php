@@ -3,6 +3,7 @@
 namespace Drupal\ldbase_content\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\node\Entity\Node;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\examples\Utility\DescriptionTemplateTrait;
 use Drupal\Core\Render\Markup;
@@ -48,7 +49,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $datasets_result = $datasets_query->execute();
     foreach ($datasets_result as $result) {
       $add_ul = true;
-      $node = node_load($result);
+      $node = Node::load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/datasets/{$node->uuid()}'>Dataset: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
@@ -61,7 +62,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $code_result = $code_query->execute();
     foreach ($code_result as $result) {
       $add_ul = true;
-      $node = node_load($result);
+      $node = Node::load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/code/{$node->uuid()}'>Code: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
@@ -75,7 +76,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $documents_result = $documents_query->execute();
     foreach ($documents_result as $result) {
       $add_ul = true;
-      $node = node_load($result);
+      $node = Node::load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
       $doc_type = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
       $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/documents/{$node->uuid()}'>{$doc_type}: {$node->getTitle()}</a>";
@@ -112,7 +113,7 @@ class LDbaseProjectTreeController extends ControllerBase {
       ->condition('field_affiliated_parents', $parent_project_id);
     $datasets_result = $datasets_query->execute();
     foreach ($datasets_result as $result) {
-      $node = node_load($result);
+      $node = Node::load($result);
       // do not add self or children to options to prevent from becoming your own grandpa
       if ($node->id() != $current_object_id) {
         $options[$node->id()] = $option_prefix . ucfirst($node->bundle()) . ': ' . $node->getTitle();
@@ -128,7 +129,7 @@ class LDbaseProjectTreeController extends ControllerBase {
       ->condition('field_affiliated_parents', $parent_project_id);
     $code_result = $code_query->execute();
     foreach ($code_result as $result) {
-      $node = node_load($result);
+      $node = Node::load($result);
       // do not add self or children to options to prevent from becoming your own grandpa
       if ($node->id() != $current_object_id) {
         $options[$node->id()] = $option_prefix . ucfirst($node->bundle()) . ': ' . $node->getTitle();
@@ -145,7 +146,7 @@ class LDbaseProjectTreeController extends ControllerBase {
       ->condition('field_affiliated_parents', $parent_project_id);
     $documents_result = $documents_query->execute();
     foreach ($documents_result as $result) {
-      $node = node_load($result);
+      $node = Node::load($result);
       // do not add self or children to options to prevent from becoming your own grandpa
       if ($node->id() != $current_object_id) {
         $doc_type = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
