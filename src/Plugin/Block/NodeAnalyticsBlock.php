@@ -4,6 +4,7 @@ namespace Drupal\ldbase_content\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Render\Markup;
+use Drupal\file\Entity\File;
 
 /**
  * Provides a "Node Analytics" block.
@@ -49,8 +50,8 @@ class NodeAnalyticsBlock extends BlockBase {
         if (empty($response)) {
           $pageviews_row = <<<EOS
 <div id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
-<span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
-<span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>Pending</span> 
+<span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong>
+<span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>Pending</span>
 </div><br>
 EOS;
         }
@@ -62,8 +63,8 @@ EOS;
             $pageviews = (int) $response[0]['nb_hits'];
             $pageviews_row = <<<EOS
 <div id='node_analytics_block_pageviews' class='node_analytics_block node_analytics_block_row'>
-<span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong> 
-<span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>{$pageviews}</span> 
+<span id='node_analytics_block_pageviews_label' class='node_analytics_block node_analytics_block_label'><strong>Page Views:</strong>
+<span id='node_analytics_block_pageviews_value' class='node_analytics_block node_analytics_block_value'>{$pageviews}</span>
 </div><br>
 EOS;
           }
@@ -78,7 +79,7 @@ EOS;
               foreach ($node->field_dataset_version as $delta => $file_metadata_paragraph) {
                 $p = $file_metadata_paragraph->entity;
                 $file_id = $p->field_file_upload->entity->id();
-                $file = file_load($file_id);
+                $file = File::load($file_id);
                 $file_uri = $file->getFileUri();
                 $file_url = file_create_url($file_uri);
                 $download_file_urls[] = $file_url;
@@ -88,7 +89,7 @@ EOS;
               $code_file = $node->field_code_file->entity;
               $code_file_id = !empty($code_file) ? $code_file->id() : NULL;
               if (!is_null($code_file_id)) {
-                $file = file_load($code_file_id);
+                $file = File::load($code_file_id);
                 $file_uri = $file->getFileUri();
                 $file_url = file_create_url($file_uri);
                 $download_file_urls[] = $file_url;
@@ -98,12 +99,12 @@ EOS;
               $document_file = $node->field_document_file->entity;
               $document_file_id = !empty($document_file) ? $document_file->id() : NULL;
               if (!is_null($document_file_id)) {
-                $file = file_load($document_file_id);
+                $file = File::load($document_file_id);
                 $file_uri = $file->getFileUri();
                 $file_url = file_create_url($file_uri);
                 $download_file_urls[] = $file_url;
               }
-              break; 
+              break;
           }
         }
         else {
@@ -125,8 +126,8 @@ EOS;
         if ($total_downloads > 0) {
           $downloads_row = <<<EOS
 <span id='node_analytics_block_downloads' class='node_analytics_block node_analytics_block_row'>
-<span id='node_analytics_block_downloads_label' class='node_analytics_block node_analytics_block_label'><strong>Downloads:</strong> 
-<span id='node_analytics_block_downloads_value' class='node_analytics_block node_analytics_block_value'>{$total_downloads}</span> 
+<span id='node_analytics_block_downloads_label' class='node_analytics_block node_analytics_block_label'><strong>Downloads:</strong>
+<span id='node_analytics_block_downloads_value' class='node_analytics_block node_analytics_block_value'>{$total_downloads}</span>
 </span><br>
 EOS;
         }
