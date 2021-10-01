@@ -4,7 +4,7 @@ services:
     arguments: ['ldbase']
   ldbase.object_service:
     class: Drupal\ldbase_content\LDbaseObjectService
-    arguments: []
+    arguments: ['@entity_type.manager']
   ldbase_content.breadcrumbs:
     class: Drupal\ldbase_content\Breadcrumb\LDbaseObjectBreadcrumbBuilder
     arguments: ['@entity_type.manager', '@ldbase.object_service']
