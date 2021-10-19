@@ -26,7 +26,7 @@ use Drupal\Core\Url;
     $url = Url::fromRoute($route);
     $link = Link::fromTextAndUrl(t($text), $url)->toRenderable();
     $link['#attributes'] = ['class' => $class];
-    $markup .= render($link) . ' ';
+    $markup = render($link) . ' ';
 
     $block = [
       '#type' => 'markup',
