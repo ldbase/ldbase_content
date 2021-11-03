@@ -116,6 +116,7 @@ use Drupal\user_email_verification\UserEmailVerification;
         $name = $this->entityManager->getStorage('node')->load($value['target_id'])->getTitle();
         array_push($person_related_organizations, $name);
       }
+      $person_related_organizations_list = implode(', ', $person_related_organizations);
 
       $dashboard_url = Url::fromRoute($dashboard_route, ['user' => $uid]);
       $dashboard_link = Link::fromTextAndUrl(t('Go to Dashboard'), $dashboard_url)->toRenderable();
@@ -147,7 +148,7 @@ use Drupal\user_email_verification\UserEmailVerification;
         '#person_orcid' => $person_orcid,
         '#person_email' => $person_email,
         '#person_professional_titles' => $person_professional_titles,
-        '#person_related_organizations' => implode($person_related_organizations, ', '),
+        '#person_related_organizations' => $person_related_organizations_list,
         '#dashboard_link' => $dashboard_link,
         '#messages_link' => $messages_link,
         '#contributions_link' => $contributions_link,
