@@ -6,12 +6,15 @@
       var height = 600;
       var width = 800;
 
-      var legendRectSize = 15;
-      var legendSpacing = 4;
-
       var svg = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-container')
         .append('svg')
-        .attr("viewBox", [-width / 2, -height /2 , width, height]);
+        .attr("viewBox", [-width / 2, -height /2 , width, height])
+        .attr("width", width)
+        .attr("height", height)
+        .call(d3.zoom().on("zoom", function () {
+          svg.attr("transform", d3.event.transform)
+        }))
+        .append("g");
 
       var simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(d => d.id))
