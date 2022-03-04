@@ -25,7 +25,7 @@ class LDbaseSearchResourcesBlock extends BlockBase {
   <div class="form--inline clearfix">
   <div class="js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-search-api-fulltext form-item-search-api-fulltext">
       <label for="edit-search-api-fulltext">Search LDbase Resources</label>
-        <input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" size="30" maxlength="128" class="form-text">
+        <input data-drupal-selector="edit-search-api-fulltext" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" size="30" maxlength="128" class="form-text" placeholder="Search resources ...">
 
             <div id="edit-search-api-fulltext--description" class="description">
       Find helpful information about LDbase and Open Science
