@@ -39,7 +39,7 @@ class LDbaseExploreRow extends BlockBase {
   <div class="link-block" id="block-3">
   <img src="/modules/custom/ldbase_content/images/binoculars-fill.svg" alt="binoculars icon">
   <h3 class="link-block-header">Search</h3>
-  <p>Find something specific</p>
+  <p>Find projects and data</p>
   </div>
 </a>
 <a class="link-div" href="/add-project">
@@ -51,8 +51,8 @@ class LDbaseExploreRow extends BlockBase {
 </a><a class="link-div" href="/resources/first-time-storing-data">
   <div class="link-block" id="block-5">
   <img src="/modules/custom/ldbase_content/images/life-preserver.svg" alt="life preserver icon">
-  <h3 class="link-block-header">First Time Storing Data?</h3>
-  <p>Find help here</p>
+  <h3 class="link-block-header">New to LDbase?</h3>
+  <p>Find help and support here</p>
   </div>
 </a>
 </div>
