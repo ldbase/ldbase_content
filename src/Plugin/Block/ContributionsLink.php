@@ -25,7 +25,7 @@ class ContributionsLink extends BlockBase {
     if ($query_result) {
       $person = array_values($query_result)[0];
       return [
-        '#markup' => $this->t("<div><a class=\"button\" href=\"/persons/{$person->uuid()}\">View Contributions</a></div>"),
+        '#markup' => $this->t("<div><a href=\"/persons/{$person->uuid()}\">View Contributions</a></div>"),
       ];
     }
     else {
