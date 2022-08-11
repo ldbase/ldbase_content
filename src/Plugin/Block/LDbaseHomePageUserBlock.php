@@ -88,6 +88,7 @@ use Drupal\user_email_verification\UserEmailVerification;
   public function build() {
     $dashboard_route = 'entity.user.canonical';
     $messages_route = 'view.my_messages.page_1';
+    $favorites_route = 'view.my_favorites.page_1';
     $contributions_route = 'entity.node.canonical';
     $profile_edit_route = 'ldbase_handlers.edit_person';
     $taxonomy_review_route = 'ldbase_handlers.review_taxonomy_terms';
@@ -122,6 +123,8 @@ use Drupal\user_email_verification\UserEmailVerification;
       $dashboard_link = Link::fromTextAndUrl(t('Go to Dashboard'), $dashboard_url)->toRenderable();
       $messages_url = Url::fromRoute($messages_route, ['user' => $uid]);
       $messages_link = Link::fromTextAndUrl(t('View Messages'), $messages_url)->toRenderable();
+      $favorites_url = Url::fromRoute($favorites_route, ['user' => $uid]);
+      $favorites_link = Link::fromTextAndUrl(t('View Favorites'), $favorites_url)->toRenderable();
       $contributions_url = Url::fromRoute($contributions_route, ['node' => $ldbase_person->id()]);
       $contributions_link = Link::fromTextAndUrl(t('View Contributions'), $contributions_url)->toRenderable();
       $profile_edit_url = Url::fromRoute($profile_edit_route, ['node' => $ldbase_person->uuid()]);
@@ -151,6 +154,7 @@ use Drupal\user_email_verification\UserEmailVerification;
         '#person_related_organizations' => $person_related_organizations_list,
         '#dashboard_link' => $dashboard_link,
         '#messages_link' => $messages_link,
+        '#favorites_link' => $favorites_link,
         '#contributions_link' => $contributions_link,
         '#profile_edit_link' => $profile_edit_link,
         '#taxonomy_review_link' => $taxonomy_review_link,

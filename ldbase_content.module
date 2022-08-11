@@ -92,6 +92,7 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
         'person_professional_titles' => [],
         'dashboard_link' => NULL,
         'messages_link' => NULL,
+        'favorites_link' => NULL,
         'contributions_link' => NULL,
         'profile_edit_link' => NULL,
         'taxonomy_review_link' => NULL,
