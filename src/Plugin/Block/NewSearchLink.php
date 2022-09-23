@@ -19,11 +19,11 @@ use Drupal\Core\Url;
    * {@inheritdoc}
    */
   public function build() {
-    $route = 'view.search.page_1';
+    $url_input = '/search?search_api_fulltext=';
     $text = 'Start New Search';
     $class[] = 'ldbase-new-search-link';
 
-    $url = Url::fromRoute($route);
+    $url = Url::fromUserInput($url_input);
     $link = Link::fromTextAndUrl(t($text), $url)->toRenderable();
     $link['#attributes'] = ['class' => $class];
     $markup = render($link) . ' ';
