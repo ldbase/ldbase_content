@@ -20,6 +20,19 @@ function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInter
     $prefixed_title = t('@ctype: @title', ['@ctype' => ucfirst($ctype), '@title' => $title]);
     $build['title'][0]['#context']['value'] = $prefixed_title;
   }
+  if ($ctype = 'dataset') {
+    $file = [];
+    foreach ($entity->field_dataset_version as $delta => $file_metadata_paragraph) {
+      $p = $file_metadata_paragraph->entity;
+      $file[$delta]['dataset_version_id'] = $p->field_file_version_id->value;
+    }
+    if (!empty($file)) {
+      $latest_version = array_pop($file);
+      $version_suffix = ' [v.' . $latest_version['dataset_version_id'] . ']';
+      $build['title'][0]['#context']['value'] .= $version_suffix;
+    }
+
+  }
 }
 
 /**
