@@ -3,21 +3,27 @@
 }
 
 .Person-fill {
-	fill: #1f77b4;
+	/*fill: #1f77b4;*/
+	fill: #235FA4;
 }
 
 .Project-fill {
-	fill: #9467bd;
+	/*fill: #9467bd;*/
+	fill: #FF4242;
 }
 
 .Dataset-fill {
-	fill: #ff7f0e;
+	/*fill: #ff7f0e;*/
+	fill: #6FDE6E;
 }
 
 .Document-fill {
-	fill: #2ca02c;
+	/*fill: #2ca02c;*/
+	fill: #A691AE;
 }
 
 .Code-fill {
-	fill: #d62728;
+	/*fill: #d62728;*/
+	fill: #E8F086;
 }
+

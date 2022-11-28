@@ -20,7 +20,7 @@ use Drupal\Core\Block\BlockBase;
    * @{inheritdoc}
    */
   public function build() {
-    $top_text = 'The larger, blue circles represent investgators. The smaller circles represent the projects, datasets, code, and documents they have contributed. Mouseover tooltips on the circles display the type and name.';
+    $top_text = 'The blue circles represent investgators. The other symbols represent the projects, datasets, code, and documents they have contributed. Mouseover tooltips on the symbols display the type and name.';
 
     $render = [
       '#description' => $this->t($top_text),

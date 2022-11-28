@@ -8,6 +8,7 @@
 
       var svg = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-container')
         .append('svg')
+        .attr("class","contributionChart")
         .attr("viewBox", [-width / 2, -height /2 , width, height])
         .attr("width", width)
         .attr("height", height)
@@ -42,14 +43,26 @@
             .attr("stroke-width", 1);
 
           var node = svg.append("g")
-            .selectAll("circle")
+              .attr("class", "nodes")
+            .selectAll(".path")
             .data(nodes)
             .enter().append("svg:a")
             .attr("class", "link")
             .attr("xlink:href", function (d) { return d.url })
-            .append("circle")
-            // make person nodes bigger
-            .attr("r", function (d) {return d.group == 'Person'? 7 : 5; })
+            .append("path")
+            .attr('d', d3.symbol().type(function (d) {
+              if (d.group == 'Person') {
+                return d3.symbolCircle;
+              } else if (d.group == 'Project') {
+                return d3.symbolCross;
+              } else if (d.group == 'Dataset') {
+                return d3.symbolDiamond;
+              } else if (d.group == 'Document') {
+                return d3.symbolSquare;
+              } else {
+                return d3.symbolTriangle;
+              }
+            }).size(100))
             .attr("class", function (d) { return d.group + "-fill nodes"; })
             .call(d3.drag()
               .on("start", dragstarted)
@@ -75,8 +88,7 @@
               .attr("y2", function (d) { return d.target.y; });
 
             node
-              .attr("cx", function (d) { return d.x; })
-              .attr("cy", function (d) { return d.y; });
+              .attr('transform', function (d) { return 'translate(' + d.x + ',' + d.y + ')'; });
           }
         }
       );
@@ -98,22 +110,50 @@
         d.fy = null;
       }
 
-      var ordinal = d3.scaleOrdinal()
-        .domain(["Person", "Project", "Dataset", "Document", "Code"])
-        .range(["#1f77b4", "#9467bd", "#ff7f0e", "#2ca02c", "#d62728"]);
-
-      svg.append("g")
+        var legendData = [["Person", "#235FA4", "circle"], ["Project", "#FF4242", "cross"], ["Dataset", "#6FDE6E", "diamond"], ["Document", "#A691AE", "square"], ["Code", "#E8F086", "traiangleDown"]];
+        var legend = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-legend')
+        .append("svg")
         .attr("class", "legendOrdinal")
-        .attr("transform", "translate(-390,-290)");
+        .attr("height", 150)
+        .attr("width", 150)
 
-      var legendOrdinal = d3.legendColor()
-        .shapeWidth(20)
-        .shapePadding(10)
-        .scale(ordinal);
+        var legendRect = legend
+          .selectAll('g')
+          .data(legendData);
 
-      svg.select(".legendOrdinal")
-        .call(legendOrdinal);
+        var legendRectE = legendRect.enter()
+          .append("g")
+          .attr("transform", function (d, i) {
+            return 'translate(20, ' + ((i + 1) * 20) + ')';
+          });
 
+        legendRectE
+          .append('path')
+          .attr('d', d3.symbol().type(function (d, i) {
+            if (d[2] === "circle") {
+              return d3.symbolCircle;
+            } else if (d[2] === "cross") {
+              return d3.symbolCross;
+            } else if (d[2] === "diamond") {
+              return d3.symbolDiamond;
+            } else if (d[2] === "square") {
+              return d3.symbolSquare;
+            } else {
+              return d3.symbolTriangle;
+            }
+          })
+            .size(100))
+          .style("fill", function (d) {
+            return d[1];
+          });
+
+        legendRectE
+          .append("text")
+          .attr("x", 10)
+          .attr("y", 5)
+          .text(function (d) {
+            return d[0];
+          });
     });
     }
   };
