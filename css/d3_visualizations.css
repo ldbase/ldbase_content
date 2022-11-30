@@ -27,3 +27,6 @@
 	fill: #E8F086;
 }
 
+div#block-ldbasecontributionsd3visualization #ldbase-d3-visualization-legend {
+	border-top: dashed 1px;
+}

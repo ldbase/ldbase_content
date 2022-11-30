@@ -3,15 +3,14 @@
     attach: function (context, settings) {
       $(document, context).once('d3_contributions_src').each(function () {
 
-      var height = 600;
-      var width = 800;
+      var margin = {top: 120, right: 0, bottom: 0, left: 0};
+      var height = 600 - margin.top - margin.bottom;
+      var width = 800 - margin.left - margin.right;
 
       var svg = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-container')
         .append('svg')
         .attr("class","contributionChart")
         .attr("viewBox", [-width / 2, -height /2 , width, height])
-        .attr("width", width)
-        .attr("height", height)
         .call(d3.zoom().on("zoom", function () {
           svg.attr("transform", d3.event.transform)
         }))
@@ -114,7 +113,7 @@
         var legend = d3.select('div#block-ldbasecontributionsd3visualization div#ldbase-d3-visualization-legend')
         .append("svg")
         .attr("class", "legendOrdinal")
-        .attr("height", 150)
+        .attr("height", 120)
         .attr("width", 150)
 
         var legendRect = legend
