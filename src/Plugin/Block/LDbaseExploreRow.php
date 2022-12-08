@@ -45,8 +45,8 @@ class LDbaseExploreRow extends BlockBase {
 <a class="link-div" href="/add-project">
   <div class="link-block" id="block-4">
   <img src="/modules/custom/ldbase_content/images/layout-text-window-reverse.svg" alt="form page icon">
-  <h3 class="link-block-header">Add Data</h3>
-  <p>Add your project to LDbase</p>
+  <h3 class="link-block-header">Start a Project</h3>
+  <p>Add my data to LDbase</p>
   </div>
 </a><a class="link-div" href="/resources/first-time-storing-data">
   <div class="link-block" id="block-5">
