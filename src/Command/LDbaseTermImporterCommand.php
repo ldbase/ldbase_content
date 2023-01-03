@@ -45,15 +45,16 @@ class LDbaseTermImporterCommand extends ContainerAwareCommand {
    */
 
   protected function execute(InputInterface $input, OutputInterface $output) {
+    $extensionPathResolver = \Drupal::service('extension.path.resolver');
     $this->getIo()->info("Beginning taxonomy term import...");
-    $ldbase_content_path = DRUPAL_ROOT . "/" . drupal_get_path('module', 'ldbase_content');
+    $ldbase_content_path = DRUPAL_ROOT . "/" . $extensionPathResolver->getPath('module', 'ldbase_content');
     $ldbase_content_taxonomies_path = $ldbase_content_path . "/taxonomies/";
     $ldbase_taxonomy_terms_lists = scandir($ldbase_content_taxonomies_path);
     $dot_dir_filter = ['.', '..'];
     $taxonomies_filtered = array_diff($ldbase_taxonomy_terms_lists, $dot_dir_filter);
     foreach ($taxonomies_filtered as $file_name) {
       $this->getIo()->info("Importing terms from {$file_name}...");
-      $ldbase_content_path = DRUPAL_ROOT . "/" . drupal_get_path('module', 'ldbase_content');
+      $ldbase_content_path = DRUPAL_ROOT . "/" . $extensionPathResolver->getPath('module', 'ldbase_content');
       $taxonomy_name = str_replace('.txt', '', $file_name);
       $file_path = $ldbase_content_taxonomies_path . $file_name;
       $file = fopen($file_path, 'r');

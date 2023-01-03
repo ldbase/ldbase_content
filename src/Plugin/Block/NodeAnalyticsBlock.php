@@ -69,7 +69,7 @@ EOS;
 EOS;
           }
         }
-
+        $file_url_generator = \Drupal::service('file_url_generator');
         $downloadable_ctypes = ['dataset', 'code', 'document'];
         if (in_array($ctype, $downloadable_ctypes)) {
           $download_file_urls = array();
@@ -81,7 +81,7 @@ EOS;
                 $file_id = $p->field_file_upload->entity->id();
                 $file = File::load($file_id);
                 $file_uri = $file->getFileUri();
-                $file_url = file_create_url($file_uri);
+                $file_url = $file_url_generator->generateAbsoluteString($file_uri);
                 $download_file_urls[] = $file_url;
               }
               break;
@@ -91,7 +91,7 @@ EOS;
               if (!is_null($code_file_id)) {
                 $file = File::load($code_file_id);
                 $file_uri = $file->getFileUri();
-                $file_url = file_create_url($file_uri);
+                $file_url = $file_url_generator->generateAbsoluteString($file_uri);
                 $download_file_urls[] = $file_url;
               }
               break;
@@ -101,7 +101,7 @@ EOS;
               if (!is_null($document_file_id)) {
                 $file = File::load($document_file_id);
                 $file_uri = $file->getFileUri();
-                $file_url = file_create_url($file_uri);
+                $file_url = $file_url_generator->generateAbsoluteString($file_uri);
                 $download_file_urls[] = $file_url;
               }
               break;
