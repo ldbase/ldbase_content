@@ -48,7 +48,11 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
   }
 
   public function getLdbaseObjectFromUuid($uuid) {
-    $query = $this->entityTypeManager->getStorage('node')->getQuery()->condition('uuid', $uuid)->execute();
+    $query = $this->entityTypeManager->getStorage('node')
+      ->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('uuid', $uuid)
+      ->execute();
     $results = reset($query);
     if (!empty($results)) {
       $node = Node::load($results);

@@ -119,7 +119,9 @@ class LDbaseProjectLatestItemsBlock extends BlockBase implements ContainerFactor
           }
         }
         $nids_to_get = empty($nids_to_get) ? 0 : $nids_to_get;
-        $items_query = $this->entityManager->getStorage('node')->getQuery()
+        $items_query = $this->entityManager->getStorage('node')
+          ->getQuery()
+          ->accessCheck(TRUE)
           ->condition('nid', $nids_to_get, 'IN');
         $items_results = $items_query->execute();
         foreach ($items_results as $result) {

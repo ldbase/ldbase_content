@@ -44,6 +44,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $list = "";
 
     $datasets_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','dataset')
       ->condition('field_affiliated_parents', $parent_project_id);
     $datasets_result = $datasets_query->execute();
@@ -57,6 +58,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     }
 
     $code_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','code')
       ->condition('field_affiliated_parents', $parent_project_id);
     $code_result = $code_query->execute();
@@ -71,6 +73,7 @@ class LDbaseProjectTreeController extends ControllerBase {
 
 
     $documents_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','document')
       ->condition('field_affiliated_parents', $parent_project_id);
     $documents_result = $documents_query->execute();
@@ -109,6 +112,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     $option_prefix = empty($option_prefix) ? '--' : $option_prefix . '--';
 
     $datasets_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','dataset')
       ->condition('field_affiliated_parents', $parent_project_id);
     $datasets_result = $datasets_query->execute();
@@ -125,6 +129,7 @@ class LDbaseProjectTreeController extends ControllerBase {
     }
 
     $code_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','code')
       ->condition('field_affiliated_parents', $parent_project_id);
     $code_result = $code_query->execute();
@@ -142,6 +147,7 @@ class LDbaseProjectTreeController extends ControllerBase {
 
 
     $documents_query = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type','document')
       ->condition('field_affiliated_parents', $parent_project_id);
     $documents_result = $documents_query->execute();

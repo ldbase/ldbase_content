@@ -95,6 +95,7 @@ use Drupal\user_email_verification\UserEmailVerification;
     $email_verification_route = 'user_email_verification.request';
     $uid = $this->currentUser->id();
     $ldbase_person_id = \Drupal::entityQuery('node')
+      ->accessCheck(TRUE)
       ->condition('type', 'person')
       ->condition('field_drupal_account_id', $uid)
       ->execute();

@@ -110,6 +110,7 @@ class LDbaseItemSubTreeBlock extends BlockBase implements ContainerFactoryPlugin
     $subtree_items = [];
 
     $datasets_query = $this->entityManager->getStorage('node')->getQuery()
+      ->accessCheck(TRUE)
       ->condition('type','dataset')
       ->condition('field_affiliated_parents', $parent_item_id);
     $datasets_result = $datasets_query->execute();
@@ -126,6 +127,7 @@ class LDbaseItemSubTreeBlock extends BlockBase implements ContainerFactoryPlugin
     }
 
     $code_query = $this->entityManager->getStorage('node')->getQuery()
+      ->accessCheck(TRUE)
       ->condition('type','code')
       ->condition('field_affiliated_parents', $parent_item_id);
     $code_result = $code_query->execute();
@@ -142,6 +144,7 @@ class LDbaseItemSubTreeBlock extends BlockBase implements ContainerFactoryPlugin
     }
 
     $document_query = $this->entityManager->getStorage('node')->getQuery()
+      ->accessCheck(TRUE)
       ->condition('type','document')
       ->condition('field_affiliated_parents', $parent_item_id);
     $document_result = $document_query->execute();
