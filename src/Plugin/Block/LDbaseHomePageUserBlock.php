@@ -129,7 +129,7 @@ use Drupal\user_email_verification\UserEmailVerification;
       $contributions_url = Url::fromRoute($contributions_route, ['node' => $ldbase_person->id()]);
       $contributions_link = Link::fromTextAndUrl(t('View Contributions'), $contributions_url)->toRenderable();
       $profile_edit_url = Url::fromRoute($profile_edit_route, ['node' => $ldbase_person->uuid()]);
-      $profile_edit_link = Link::fromTextAndUrl(t('Edit your Profle'), $profile_edit_url)->toRenderable();
+      $profile_edit_link = Link::fromTextAndUrl(t('Edit your Profile'), $profile_edit_url)->toRenderable();
       $taxonomy_review_url = Url::fromRoute($taxonomy_review_route);
       if ($taxonomy_review_url->access($this->currentUser)) {
         $taxonomy_review_link = Link::fromTextAndUrl(t('Review Taxonomy Terms'), $taxonomy_review_url)->toRenderable();
