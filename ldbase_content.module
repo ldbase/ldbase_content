@@ -22,9 +22,11 @@ function ldbase_content_node_view(array &$build, \Drupal\Core\Entity\EntityInter
   }
   if ($ctype = 'dataset') {
     $file = [];
-    foreach ($entity->field_dataset_version as $delta => $file_metadata_paragraph) {
-      $p = $file_metadata_paragraph->entity;
-      $file[$delta]['dataset_version_id'] = $p->field_file_version_id->value;
+    if (!empty($entity->field_dataset_version)) {
+      foreach ($entity->field_dataset_version as $delta => $file_metadata_paragraph) {
+        $p = $file_metadata_paragraph->entity;
+        $file[$delta]['dataset_version_id'] = $p->field_file_version_id->value;
+      }
     }
     if (!empty($file)) {
       $latest_version = array_pop($file);
