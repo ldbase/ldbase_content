@@ -20,3 +20,19 @@ ldbase.all_project_documents:
     _title: 'All Documents for Project'
   requirements:
     _permission: 'access content'
+
+ldbase.all_data_exports:
+  path: '/data-exports'
+  defaults:
+    _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::dataExports'
+    _title: 'All Data Exports'
+  requirements:
+    _role: 'fcrr_admin+administrator'
+
+ldbase.browse_data:
+    path: '/browse-data'
+    defaults:
+      _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::browseData'
+      _title: 'Browse Data'
+    requirements:
+      _permission: 'access content'

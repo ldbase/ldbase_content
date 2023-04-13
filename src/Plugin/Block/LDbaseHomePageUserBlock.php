@@ -93,6 +93,7 @@ use Drupal\user_email_verification\UserEmailVerification;
     $profile_edit_route = 'ldbase_handlers.edit_person';
     $taxonomy_review_route = 'ldbase_handlers.review_taxonomy_terms';
     $email_verification_route = 'user_email_verification.request';
+    $data_exports_route = 'ldbase.all_data_exports';
     $uid = $this->currentUser->id();
     $ldbase_person_id = \Drupal::entityQuery('node')
       ->accessCheck(TRUE)
@@ -137,6 +138,13 @@ use Drupal\user_email_verification\UserEmailVerification;
       else {
         $taxonomy_review_link = NULL;
       }
+      $data_exports_url = Url::fromRoute($data_exports_route);
+      if ($data_exports_url->access($this->currentUser)){
+        $data_exports_link = Link::fromTextAndUrl(t('Go to Data Exports'), $data_exports_url)->toRenderable();
+      }
+      else {
+        $data_exports_link = NULL;
+      }
       $email_needs_verification = $this->userEmailVerification->isVerificationNeeded($uid);
       $verification_url = Url::fromRoute($email_verification_route);
       $verification_link = Link::fromTextAndUrl(t('Verify Email'), $verification_url)->toRenderable();
@@ -161,6 +169,7 @@ use Drupal\user_email_verification\UserEmailVerification;
         '#taxonomy_review_link' => $taxonomy_review_link,
         '#email_needs_verification' => $email_needs_verification,
         '#verification_link' => $verification_link,
+        '#data_exports_link' => $data_exports_link,
         '#cache' => [
           'tags' => $cache_tags,
           'contexts' => ['user','user_email_verification_needed'],

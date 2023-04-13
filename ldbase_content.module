@@ -113,6 +113,7 @@ function ldbase_content_theme($existing, $type, $theme, $path) {
         'taxonomy_review_link' => NULL,
         'email_needs_verification' => NULL,
         'verification_link' => NULL,
+        'data_exports_link' => NULL,
       ],
     ],
     'ldbase_d3_contributions_block' => [

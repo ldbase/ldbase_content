@@ -20,4 +20,28 @@ class LDbasePageController extends ControllerBase {
     ];
   }
 
+  public function dataExports() {
+    return [
+      '#markup' => '',
+    ];
+  }
+
+  public function browseData() {
+    $browse_page = $this->entityTypeManager()
+      ->getStorage('node')
+      ->loadByProperties(['title' => 'Browse Data']);
+    if (!empty($browse_page)) {
+      $node = $this->entityTypeManager()
+        ->getViewBuilder('node')
+        ->view($browse_page[1]);
+      return $node;
+    }
+    else {
+      return [
+        '#markup' => '',
+      ];
+    }
+
+  }
+
 }

@@ -4,6 +4,12 @@ ldbase.search:
   url: internal:/search?search_api_fulltext=&search_api_full_text_1
   weight: 6
 
+ldbase.browse:
+  title: Browse
+  menu_name: main
+  route_name: ldbase.browse_data
+  weight: 5
+
 # Links Associated with Project Navigation Menu
 
 ldbase.all_project_datasets:
