@@ -23,3 +23,31 @@ ldbase.all_project_documents:
   menu_name: project-navigation
   route_name: ldbase.all_project_documents
   weight: 0
+
+# Links for Data Exports Menu
+# when you add a data export view, add the link to this menu
+ldbase.user_related_exports:
+  title: Users
+  menu_name: data-exports
+  route_name: '<nolink>'
+  weight: 0
+
+ldbase.user_email_verification_export:
+  title: 'User Email Verification'
+  menu_name: data-exports
+  parent: ldbase.user_related_exports
+  route_name: view.user_email_verification.data_export_1
+  weight: 0
+
+ldbase.taxonomy_related_exports:
+  title: Taxonomies
+  menu_name: data-exports
+  route_name: '<nolink>'
+  weight: 1
+
+ldbase.all_terms_by_taxonomy:
+  title: "All Terms by Taxonomy"
+  menu_name: data-exports
+  parent: ldbase.taxonomy_related_exports
+  route_name: view.vocabulary_lists.data_export_1
+  weight: 0
