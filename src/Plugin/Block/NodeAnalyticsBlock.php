@@ -56,7 +56,7 @@ class NodeAnalyticsBlock extends BlockBase {
 EOS;
         }
         else {
-          if ($response['result'] == 'error') {
+          if (array_key_exists('result', $response) && $response['result'] == 'error') {
             $pageviews_row = "Error: Can't authenticate to Matomo server";
           }
           else {
