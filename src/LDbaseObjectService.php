@@ -32,13 +32,18 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     $ldbase_objects_plural = array('projects', 'datasets', 'code', 'documents');
     $url_bits = explode('/', $url);
     if (in_array($url_bits[1], $ldbase_objects_plural)) {
-      $uuid = $url_bits[2];
-      $object = $this->getLdbaseObjectFromUuid($uuid);
-      if (is_null($object) || !in_array($object->bundle(), $ldbase_objects_singular)) {
-        $answer = FALSE;
+      if (array_key_exists("2", $url_bits)) {
+        $uuid = $url_bits[2];
+        $object = $this->getLdbaseObjectFromUuid($uuid);
+        if (is_null($object) || !in_array($object->bundle(), $ldbase_objects_singular)) {
+          $answer = FALSE;
+        }
+        else {
+          $answer = $uuid;
+        }
       }
       else {
-        $answer = $uuid;
+        $answer = FALSE;
       }
     }
     else {
