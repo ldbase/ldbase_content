@@ -25,11 +25,16 @@ class BrowseByVocabularyBlock extends BlockBase {
   public function build() {
     $vocabularies = Vocabulary::loadMultiple();
     $vocabularies_count = count($vocabularies);
-    $view_route = 'view.vocabulary_lists.page_1';
     $vocabulary_links = [];
 
     foreach ($vocabularies as $machine_name => $vocabulary) {
       if ($machine_name != 'tags') {
+        if ($machine_name == 'funding_agencies') {
+          $view_route = 'view.vocabulary_lists.page_2';
+        }
+        else {
+          $view_route = 'view.vocabulary_lists.page_1';
+        }
         $url = Url::fromRoute($view_route, ['vocabulary' => $vocabulary->id()]);
         $link_text = $vocabulary->get('name');
         $link = Link::fromTextAndUrl(t($link_text), $url)->toRenderable();
