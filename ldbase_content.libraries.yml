@@ -4,7 +4,7 @@ breadcrumb-current-page-prefixer:
     js/breadcrumb-current-page-prefixer.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
 
 d3:
   version: 4.x
@@ -23,7 +23,7 @@ d3_contributions_src:
     js/d3_contributions_src.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
     - core/drupal
     - core/drupalSettings
     - ldbase_content/d3
@@ -34,7 +34,7 @@ d3_content_count_src:
     js/d3_content_count_src.js: {}
   dependencies:
     - core/jquery
-    - core/jquery.once
+    - core/once
     - core/drupal
     - core/drupalSettings
     - ldbase_content/d3
