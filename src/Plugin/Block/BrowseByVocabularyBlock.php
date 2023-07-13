@@ -30,10 +30,10 @@ class BrowseByVocabularyBlock extends BlockBase {
     foreach ($vocabularies as $machine_name => $vocabulary) {
       if ($machine_name != 'tags') {
         if ($machine_name == 'funding_agencies') {
-          $view_route = 'view.vocabulary_lists.page_2';
+          $view_route = 'view.vocabulary_lists.page_4';
         }
         else {
-          $view_route = 'view.vocabulary_lists.page_1';
+          $view_route = 'view.vocabulary_lists.page_3';
         }
         $url = Url::fromRoute($view_route, ['vocabulary' => $vocabulary->id()]);
         $link_text = $vocabulary->get('name');

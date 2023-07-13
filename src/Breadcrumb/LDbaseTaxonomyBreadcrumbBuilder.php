@@ -62,10 +62,10 @@ class LDbaseTaxonomyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       $vocabulary = Vocabulary::load($vid);
       $vocabulary_name = $vocabulary->label();
       if ($vid == 'funding_agencies') {
-        $view_route = 'view.vocabulary_lists.page_2';
+        $view_route = 'view.vocabulary_lists.page_4';
       }
         else {
-        $view_route = 'view.vocabulary_lists.page_1';
+        $view_route = 'view.vocabulary_lists.page_3';
       }
       $breadcrumb->addLink(Link::createFromRoute($vocabulary_name, $view_route, ['vocabulary' => $vid]));
     }
