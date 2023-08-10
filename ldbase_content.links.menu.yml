@@ -51,3 +51,18 @@ ldbase.all_terms_by_taxonomy:
   parent: ldbase.taxonomy_related_exports
   route_name: view.vocabulary_lists.data_export_1
   weight: 0
+
+# FCRR Admin Menu
+ldbase_content.review_taxonomy_terms:
+  title: 'Review Taxonomy Terms'
+  menu_name: fcrr-admin-tasks
+  route_name: ldbase_handlers.review_taxonomy_terms
+  weight: 0
+
+ldbase_content.view_all_data_exports:
+  title: 'View All Data Exports'
+  menu_name: fcrr-admin-tasks
+  route_name: ldbase.all_data_exports
+  weight: 1
+
+

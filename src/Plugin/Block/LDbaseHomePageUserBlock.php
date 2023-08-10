@@ -91,9 +91,7 @@ use Drupal\user_email_verification\UserEmailVerification;
     $favorites_route = 'view.my_favorites.page_1';
     $contributions_route = 'entity.node.canonical';
     $profile_edit_route = 'ldbase_handlers.edit_person';
-    $taxonomy_review_route = 'ldbase_handlers.review_taxonomy_terms';
     $email_verification_route = 'user_email_verification.request';
-    $data_exports_route = 'ldbase.all_data_exports';
     $uid = $this->currentUser->id();
     $ldbase_person_id = \Drupal::entityQuery('node')
       ->accessCheck(TRUE)
@@ -131,20 +129,6 @@ use Drupal\user_email_verification\UserEmailVerification;
       $contributions_link = Link::fromTextAndUrl(t('View Contributions'), $contributions_url)->toRenderable();
       $profile_edit_url = Url::fromRoute($profile_edit_route, ['node' => $ldbase_person->uuid()]);
       $profile_edit_link = Link::fromTextAndUrl(t('Edit your Profile'), $profile_edit_url)->toRenderable();
-      $taxonomy_review_url = Url::fromRoute($taxonomy_review_route);
-      if ($taxonomy_review_url->access($this->currentUser)) {
-        $taxonomy_review_link = Link::fromTextAndUrl(t('Review Taxonomy Terms'), $taxonomy_review_url)->toRenderable();
-      }
-      else {
-        $taxonomy_review_link = NULL;
-      }
-      $data_exports_url = Url::fromRoute($data_exports_route);
-      if ($data_exports_url->access($this->currentUser)){
-        $data_exports_link = Link::fromTextAndUrl(t('Go to Data Exports'), $data_exports_url)->toRenderable();
-      }
-      else {
-        $data_exports_link = NULL;
-      }
       $email_needs_verification = $this->userEmailVerification->isVerificationNeeded($uid);
       $verification_url = Url::fromRoute($email_verification_route);
       $verification_link = Link::fromTextAndUrl(t('Verify Email'), $verification_url)->toRenderable();
@@ -166,10 +150,8 @@ use Drupal\user_email_verification\UserEmailVerification;
         '#favorites_link' => $favorites_link,
         '#contributions_link' => $contributions_link,
         '#profile_edit_link' => $profile_edit_link,
-        '#taxonomy_review_link' => $taxonomy_review_link,
         '#email_needs_verification' => $email_needs_verification,
         '#verification_link' => $verification_link,
-        '#data_exports_link' => $data_exports_link,
         '#cache' => [
           'tags' => $cache_tags,
           'contexts' => ['user','user_email_verification_needed'],
