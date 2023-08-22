@@ -21,38 +21,39 @@ class LDbaseExploreRow extends BlockBase {
   public function build() {
     $content = <<<EOM
 <div class="browse-link-row d-flex flex-row justify-content-around flex-wrap">
+<a class="link-div" href="/help">
+  <div class="link-block" id="block-5">
+  <img src="/modules/custom/ldbase_content/images/life-preserver.svg" alt="life preserver icon">
+  <p class="link-block-header">New to LDbase?</p>
+  <p>Find help and support here</p>
+  </div>
+</a>
 <a class="link-div" href="/browse-data">
  <div class="link-block" id="block-1">
   <img src="/modules/custom/ldbase_content/images/bookshelf.svg" alt="bookshelf icon">
-  <h3 class="link-block-header">Browse Data</h3>
+  <p class="link-block-header">Browse Data</p>
   <p>See what's in LDbase</p>
   </div>
 </a>
-<a class="link-div" href="/resources">
+<a class="link-div" href="/data-sharing-resources">
   <div class="link-block" id="block-2">
   <img src="/modules/custom/ldbase_content/images/signpost-2.svg" alt="signpost icon">
-  <h3 class="link-block-header">Resources</h3>
+  <p class="link-block-header">Data Sharing Resources</p>
   <p>Learn about good data practices</p>
   </div>
 </a>
-<a class="link-div" href="/search?search_api_fulltext=">
+<a class="link-div" href="/search">
   <div class="link-block" id="block-3">
   <img src="/modules/custom/ldbase_content/images/binoculars-fill.svg" alt="binoculars icon">
-  <h3 class="link-block-header">Search</h3>
+  <p class="link-block-header">Search</p>
   <p>Find projects and data</p>
   </div>
 </a>
 <a class="link-div" href="/add-project">
   <div class="link-block" id="block-4">
   <img src="/modules/custom/ldbase_content/images/layout-text-window-reverse.svg" alt="form page icon">
-  <h3 class="link-block-header">Start a Project</h3>
+  <p class="link-block-header">Start a Project</p>
   <p>Add my data to LDbase</p>
-  </div>
-</a><a class="link-div" href="/resources/first-time-storing-data">
-  <div class="link-block" id="block-5">
-  <img src="/modules/custom/ldbase_content/images/life-preserver.svg" alt="life preserver icon">
-  <h3 class="link-block-header">New to LDbase?</h3>
-  <p>Find help and support here</p>
   </div>
 </a>
 </div>
@@ -60,7 +61,7 @@ EOM;
 
     return [
       '#markup' => $content,
-      '#allowed_tags' => ['div','a','p','h3','img'],
+      '#allowed_tags' => ['div','a','p','img'],
     ];
   }
 }
