@@ -5,7 +5,7 @@ ldbase.search:
   weight: 6
 
 ldbase.browse:
-  title: Browse
+  title: 'Browse our Data'
   menu_name: main
   route_name: ldbase.browse_data
   weight: 5

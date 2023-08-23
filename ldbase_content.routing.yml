@@ -33,6 +33,6 @@ ldbase.browse_data:
     path: '/browse-data'
     defaults:
       _controller: '\Drupal\ldbase_content\Controller\LDbasePageController::browseData'
-      _title: 'Browse Data'
+      _title: 'Browse our Data'
     requirements:
       _permission: 'access content'

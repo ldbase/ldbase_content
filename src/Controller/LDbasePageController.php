@@ -29,7 +29,7 @@ class LDbasePageController extends ControllerBase {
   public function browseData() {
     $browse_page = $this->entityTypeManager()
       ->getStorage('node')
-      ->loadByProperties(['title' => 'Browse Data']);
+      ->loadByProperties(['title' => 'Browse our Data']);
     if (!empty($browse_page)) {
       $node = $this->entityTypeManager()
         ->getViewBuilder('node')
