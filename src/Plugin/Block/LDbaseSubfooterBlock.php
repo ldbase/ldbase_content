@@ -24,7 +24,7 @@ class LDbaseSubfooterBlock extends BlockBase {
 <div id="ldbase-subfooter-block-wrapper">
   <p id="subfooter-disclaimer">This repository is a collaboration between the <a href="https://psy.fsu.edu/">FSU Department of Psychology</a>, the <a href="https://fcrr.org">Florida Center for Reading Research</a>,
   and the <a href="https://www.lib.fsu.edu/">FSU Libraries</a>. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.<br /><br />
-  <strong>Questions or Comments?</strong> <a href="/report-a-problem">Report a problem</a> or contact us at <a href="mailto:LDbase@fcrr.org">LDbase@fcrr.org</a>.</p>
+  <strong>Questions or Comments?</strong> <a href="/contact-us">Contact us or report a problem</a>.</p>
 </div>
 EOM;
 
