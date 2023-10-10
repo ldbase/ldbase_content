@@ -33,9 +33,10 @@ class LDbaseTaxonomyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
    * @inheritDoc
    */
   public function applies(RouteMatchInterface $route_match) {
+    $applies_to = ['taxonomy','funding_agencies','participants','code_or_data_format'];
     $url = \Drupal::request()->getRequestUri();
     $url_bits = explode('/', $url);
-    if (array_key_exists('1', $url_bits) && $url_bits[1] == 'taxonomy') {
+    if (array_key_exists('1', $url_bits) && in_array($url_bits[1],$applies_to)) {
       $answer = TRUE;
     }
     else {
@@ -61,11 +62,18 @@ class LDbaseTaxonomyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
       $vid = $term->bundle();
       $vocabulary = Vocabulary::load($vid);
       $vocabulary_name = $vocabulary->label();
-      if ($vid == 'funding_agencies') {
-        $view_route = 'view.vocabulary_lists.page_4';
-      }
-        else {
-        $view_route = 'view.vocabulary_lists.page_3';
+      switch ($vid) {
+        case 'funding_agencies':
+          $view_route = 'view.vocabulary_lists.funding_agencies';
+          break;
+        case 'participants':
+          $view_route = 'view.vocabulary_lists.participants';
+          break;
+        case 'code_or_data_format':
+          $view_route = 'view.vocabulary_lists.code_or_data_format';
+          break;
+        default:
+          $view_route = 'view.vocabulary_lists.page_3';
       }
       $breadcrumb->addLink(Link::createFromRoute($vocabulary_name, $view_route, ['vocabulary' => $vid]));
     }
