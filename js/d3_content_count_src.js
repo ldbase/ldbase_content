@@ -45,7 +45,7 @@
             .data(data)
             .enter().append('svg:a')
             .attr("class", "link")
-            .attr("xlink:href", function (d) { return "/" + d.formatted_name.toLowerCase() })
+            .attr("xlink:href", function (d) { return "/browse-data/" + d.formatted_name.toLowerCase() })
             .append("rect")
             .attr("class", function (d) { return d.name + "-fill"; })
             .attr("width", function (d) { return x(d.value); })
@@ -66,7 +66,7 @@
             .attr("fill", "#671e30")
             .attr("text-decoration", "underline")
             .style("cursor","pointer")
-            .on("click", function (d) { window.location.href = "/" + d.toLowerCase();});
+            .on("click", function (d) { window.location.href = "/browse-data/" + d.toLowerCase();});
 
         // end d3.json
         });
