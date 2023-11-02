@@ -1,7 +1,8 @@
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   Drupal.behaviors.d3_contributions_src = {
     attach: function (context, settings) {
-      $(document, context).once('d3_contributions_src').each(function () {
+      //$(document, context).once('d3_contributions_src').each(function () {
+      $(once('d3_contributions_src', 'body', context)).each(function () {
 
       var margin = {top: 120, right: 0, bottom: 0, left: 0};
       var height = 600 - margin.top - margin.bottom;
@@ -156,4 +157,4 @@
     });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);

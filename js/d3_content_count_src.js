@@ -1,7 +1,8 @@
-(function ($, Drupal) {
+(function ($, Drupal, once) {
   Drupal.behaviors.d3_content_count_src = {
     attach: function (context, settings) {
-      $(document, context).once('d3_content_count_src').each(function () {
+      //$(document, context).once('d3_content_count_src').each(function () {
+      $(once('d3_content_count_src', 'body', context)).each(function () {
 
         // set the dimensions and margins of the graph
         var margin = { top: 10, right: 20, bottom: 50, left: 90 },
@@ -75,4 +76,4 @@
       });
     }
   };
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
