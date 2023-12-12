@@ -15,8 +15,3 @@ services:
     arguments: [ '@entity_type.manager']
     tags:
       - { name: breadcrumb_builder, priority: 1003 }
-  ldbase_content.commands:
-    class: Drupal\ldbase_content\Commands\LDbaseContentCommands
-    arguments: ['@extension.path.resolver']
-    tags:
-      - { name: drush.command }
