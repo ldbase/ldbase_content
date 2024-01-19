@@ -67,7 +67,10 @@
             .attr("fill", "#671e30")
             .attr("text-decoration", "underline")
             .style("cursor","pointer")
-            .on("click", function (d) { window.location.href = "/search?search_api_fulltext=&f%5B0%5D=search_facet_content_type%3A" + d.formatted_name.toLowerCase();});
+            .on("click", function (d) {
+              var urlPart = d.replace(/s$/,"");
+              window.location.href = "/search?search_api_fulltext=&f%5B0%5D=search_facet_content_type%3A" + urlPart.toLowerCase();
+            });
 
         // end d3.json
         });
