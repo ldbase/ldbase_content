@@ -53,6 +53,9 @@ class ProjectNavDocumentsMenuLink extends MenuLinkDefault {
       $parent_project_node = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
       return ['project_uuid' => $parent_project_node->uuid(), 'node' => $parent_project_node->id()];
     }
+    else {
+      return ['project_uuid' => 'not_a_project', 'node' => 'not_a_node'];
+    }
   }
 }
 
