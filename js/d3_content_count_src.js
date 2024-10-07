@@ -46,7 +46,7 @@
             .data(data)
             .enter().append('svg:a')
             .attr("class", "link")
-            .attr("xlink:href", function (d) { return "/search?search_api_fulltext=&f%5B0%5D=search_facet_content_type%3A" + d.name.toLowerCase() })
+            .attr("xlink:href", function (d) { return "/search?search_api_fulltext=&sort_by=changed&sort_order=DESC&f%5B0%5D=search_facet_content_type%3A" + d.name.toLowerCase() })
             .append("rect")
             .attr("class", function (d) { return d.name + "-fill"; })
             .attr("width", function (d) { return x(d.value); })
@@ -69,7 +69,7 @@
             .style("cursor","pointer")
             .on("click", function (d) {
               var urlPart = d.replace(/s$/,"");
-              window.location.href = "/search?search_api_fulltext=&f%5B0%5D=search_facet_content_type%3A" + urlPart.toLowerCase();
+              window.location.href = "/search?search_api_fulltext=&sort_by=changed&sort_order=DESC&f%5B0%5D=search_facet_content_type%3A" + urlPart.toLowerCase();
             });
 
         // end d3.json
