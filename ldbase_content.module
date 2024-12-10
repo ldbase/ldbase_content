@@ -52,6 +52,11 @@ function ldbase_content_form_alter(&$form, Drupal\Core\Form\FormStateInterface $
 
   if ($form_id == 'user_pass') {
     $form['name']['#title'] = t('Email Address');
+    $form['mail'] = [
+      '#prefix' => '<p>',
+      '#markup' => t('Password reset instructions will be sent to your registered email address. If you cannot access your registered email (e.g., you have moved institutions), then please do not start a new account and instead email <a href="mailto:ldbase@fcrr.org">LDbase@fcrr.org</a> for assistance'),
+      '#suffix' => '</p>',
+    ];
   }
 }
 
