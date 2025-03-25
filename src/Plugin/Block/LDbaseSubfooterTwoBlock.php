@@ -23,7 +23,7 @@ class LDbaseSubfooterTwoBlock extends BlockBase {
     $content = <<<EOM
 <div id="ldbase-subfooter-two-block-wrapper">
   <p id="subfooter-sponsor"><img src="/modules/custom/ldbase_content/images/nih-logo.png" alt="NIH logo">
-  <span> <a href="https://projectreporter.nih.gov/project_info_description.cfm?aid=9849784&icde=52792319&ddparam=&ddvalue=&ddsub=&cr=3&csb=default&cs=ASC&pball="> Grant #R01HD095193</a></span></p>
+  <span> <a href="https://reporter.nih.gov/search/WlJaDdpsl0uxVI9jK5SQ2g/project-details/10543102"> Grant #R01HD095193</a></span></p>
 </div>
 EOM;
 
