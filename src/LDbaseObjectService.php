@@ -33,7 +33,9 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     $url_bits = explode('/', $url);
     if (in_array($url_bits[1], $ldbase_objects_plural)) {
       if (array_key_exists("2", $url_bits)) {
-        $uuid = $url_bits[2];
+        // separate uuid from any query string
+        $parts_array = explode('?', $url_bits[2]);
+        $uuid = $parts_array[0];
         $object = $this->getLdbaseObjectFromUuid($uuid);
         if (is_null($object) || !in_array($object->bundle(), $ldbase_objects_singular)) {
           $answer = FALSE;
