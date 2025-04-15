@@ -36,3 +36,15 @@ ldbase.browse_data:
       _title: 'Browse our Data'
     requirements:
       _permission: 'access content'
+
+ldbase.sort_project_hierarchy:
+  path: '/projects/{node}/sort-hierarchy'
+  defaults:
+    _form: '\Drupal\ldbase_content\Form\ProjectHierarchyOrderForm'
+    _title: 'Change Project Hierarchy'
+  requirements:
+    _group_update_node_access_check: 'TRUE'
+  options:
+    parameters:
+      node:
+        type: ldbase_uuid

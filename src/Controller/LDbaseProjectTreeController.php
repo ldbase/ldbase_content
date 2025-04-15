@@ -32,9 +32,7 @@ class LDbaseProjectTreeController extends ControllerBase {
 
     $tree .= "</li></ul></div>";
 
-    return [
-      '#markup' => Markup::create($tree)
-    ];
+    return $tree;
   }
 
   public static function getAffiliatedChildrenAsHtmlList($parent_project_id, $current_object_id = NULL) {
@@ -43,46 +41,25 @@ class LDbaseProjectTreeController extends ControllerBase {
 
     $list = "";
 
-    $datasets_query = \Drupal::entityQuery('node')
+    $children_query = \Drupal::entityQuery('node')
       ->accessCheck(TRUE)
-      ->condition('type','dataset')
-      ->condition('field_affiliated_parents', $parent_project_id);
-    $datasets_result = $datasets_query->execute();
-    foreach ($datasets_result as $result) {
+      ->condition('field_affiliated_parents', $parent_project_id)
+      ->sort('field_hierarchy_weight');
+    $children_results = $children_query->execute();
+
+    foreach ($children_results as $result) {
       $add_ul = true;
       $node = Node::load($result);
       $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/datasets/{$node->uuid()}'>Dataset: {$node->getTitle()}</a>";
-      $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
-      $list .= "</li>";
-    }
+      $bundle_for_link = \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getBundleForLink($node->bundle());
+      if ($node->bundle() == 'document') {
+        $formatted_bundle = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
+      }
+      else {
+        $formatted_bundle = ucfirst($node->bundle());
+      }
 
-    $code_query = \Drupal::entityQuery('node')
-      ->accessCheck(TRUE)
-      ->condition('type','code')
-      ->condition('field_affiliated_parents', $parent_project_id);
-    $code_result = $code_query->execute();
-    foreach ($code_result as $result) {
-      $add_ul = true;
-      $node = Node::load($result);
-      $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/code/{$node->uuid()}'>Code: {$node->getTitle()}</a>";
-      $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
-      $list .= "</li>";
-    }
-
-
-    $documents_query = \Drupal::entityQuery('node')
-      ->accessCheck(TRUE)
-      ->condition('type','document')
-      ->condition('field_affiliated_parents', $parent_project_id);
-    $documents_result = $documents_query->execute();
-    foreach ($documents_result as $result) {
-      $add_ul = true;
-      $node = Node::load($result);
-      $current_object_class = ($node->id() == $current_object_id ? ' project-tree-view-item-current' : '');
-      $doc_type = \Drupal::service('ldbase.object_service')->isLdbaseCodebook($node->uuid()) ? 'Codebook' : 'Document';
-      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/documents/{$node->uuid()}'>{$doc_type}: {$node->getTitle()}</a>";
+      $list .= "<li class='project-tree-view project-tree-view-item project-tree-view-item-link{$current_object_class}'><a href='/{$bundle_for_link}/{$node->uuid()}'>{$formatted_bundle}: {$node->getTitle()}</a>";
       $list .= \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::getAffiliatedChildrenAsHtmlList($node->id(), $current_object_id);
       $list .= "</li>";
     }
@@ -165,6 +142,22 @@ class LDbaseProjectTreeController extends ControllerBase {
     }
 
     return $options;
+  }
+
+  public static function getBundleForLink($bundle) {
+
+    switch ($bundle) {
+      case 'dataset':
+        $return_text = 'datasets';
+        break;
+      case 'document':
+        $return_text = 'documents';
+        break;
+      case 'code':
+        $return_text = 'code';
+        break;
+    }
+    return $return_text;
   }
 
 }

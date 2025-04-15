@@ -3,7 +3,9 @@
 namespace Drupal\ldbase_content\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use \Drupal\Core\Link;
 use Drupal\Core\Render\Markup;
+use Drupal\Core\Url;
 
 /**
  * Provides a "Project Tree" block.
@@ -27,12 +29,22 @@ class LDbaseProjectTreeBlock extends BlockBase {
       $node = \Drupal::service('ldbase.object_service')->getLdbaseObjectFromUuid($ldbase_object_uuid);
       $parent_project_node = \Drupal::service('ldbase.object_service')->getLdbaseRootProjectNodeFromLdbaseObjectNid($node->id());
       $tree_view = \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::output_tree($parent_project_node->uuid(), $node->uuid());
-      return $tree_view;
+      $parent_project_uuid = $parent_project_node->uuid();
+
+      $url = Url::fromRoute('ldbase.sort_project_hierarchy', ['node' => $parent_project_uuid]);
+      if ($url->access()) {
+        $link = Link::createFromRoute(t('Change Hierarchy'), 'ldbase.sort_project_hierarchy',['node' => $parent_project_uuid]);
+        $tree_view .= "<div id='change-hierarchy-link'>{$link->toString()}</div>";
+      }
+
+      return [
+        '#markup' => Markup::create($tree_view)
+      ];
     }
     else {
       return NULL;
     }
- 
+
 
   }
 
