@@ -122,4 +122,19 @@ class LDbaseObjectService implements LDbaseObjectServiceInterface {
     }
   }
 
+  public function getLDbaseContentType($uuid) {
+    $object = $this->getLdbaseObjectFromUuid($uuid);
+    if (is_null($object)) {
+      return '';
+    }
+    else {
+        if ($this->isLdbaseCodebook($uuid)) {
+          return 'Codebook';
+        }
+        else {
+          return ucfirst($object->bundle());
+        }
+      }
+    }
+
 }

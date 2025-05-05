@@ -8,6 +8,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\ldbase_content\LDbaseObjectService;
+use Drupal\ldbase_handlers\PublishStatusService;
 
 class ProjectHierarchyOrderForm extends FormBase {
 
@@ -26,9 +27,15 @@ class ProjectHierarchyOrderForm extends FormBase {
 
   /**
    * The renderer.
-   * @var \Drupal\Core\|RendererInterface;
+   * @var \Drupal\Core\RendererInterface;
    */
   protected $renderer;
+
+  /**
+   * The LDbase Handlers Publish Status Service.
+   * @var \Drupal\ldbase_handlers\PublishStatusService
+   */
+  protected $publish_status_service;
 
   /**
    * @inerhitDoc
@@ -37,17 +44,19 @@ class ProjectHierarchyOrderForm extends FormBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('ldbase.object_service'),
-      $container->get('renderer')
+      $container->get('renderer'),
+      $container->get('ldbase_handlers.publish_status_service')
     );
   }
 
   /**
    * Construct a Form.
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, LDbaseObjectService $ldbase_service, RendererInterface $renderer) {
+  public function __construct(EntityTypeManagerInterface $entityTypeManager, LDbaseObjectService $ldbase_service, RendererInterface $renderer, PublishStatusService $publish_status_service) {
     $this->entityTypeManager = $entityTypeManager;
     $this->ldbase_service = $ldbase_service;
     $this->renderer = $renderer;
+    $this->publish_status_service = $publish_status_service;
   }
 
   /**
@@ -76,7 +85,9 @@ class ProjectHierarchyOrderForm extends FormBase {
     $form['info'] = [
       '#markup' => '<ul>
         <li>' . $this->t("Your project title is displayed but cannot be nested under other content.") . '</li>
-        <li>' . $this->t("Drag-and-drop items to change their positions.") . '</li></ul>',
+        <li>' . $this->t("Drag-and-drop items to change their positions.") . '</li>
+        <li>' . $this->t("Indentations indicate that the content is nested. If all of your content is lined up on the left, then everything is stored under the project.") . '</li>
+        <li>' . $this->t("Nesting <span class='unpublished'>Unpublished</span> items under a <span class='published'>Published</span> item will automatically <strong>unpublish</strong> those nested items when you save your changes.") . '</li></ul>',
     ];
 
     $form['project-nid'] = [
@@ -91,7 +102,7 @@ class ProjectHierarchyOrderForm extends FormBase {
         $this->t('Weight'),
         $this->t('Parent'),
       ],
-      '#empty' => $this->t('Sorry, There are no items!'),
+      '#empty' => $this->t('Once you add Datasets, Documents, and Code to this project, you will be able to sort them here.'),
       // TableDrag: Each array value is a list of callback arguments for
       // drupal_add_tabledrag(). The #id of the table is automatically
       // prepended; if there is none, an HTML ID is auto-generated.
@@ -130,26 +141,15 @@ class ProjectHierarchyOrderForm extends FormBase {
           '#size' => $row['depth'],
         ];
       }
-      // Some table columns containing raw markup.
-      $form['table-row'][$row['id']]['name'] = [
-        '#markup' => $row->name,
-        '#prefix' => !empty($indentation) ? $this->renderer->render($indentation) : '',
-      ];
-      // TableDrag: Sort the table row according to its existing/configured
-      // weight.
-      $form['table-row'][$row['id']]['#weight'] = $row->weight;
 
-      // Indent item on load.
-      if (isset($row['depth']) && $row['depth'] > 0) {
-        $indentation = [
-          '#theme' => 'indentation',
-          '#size' => $row['depth'],
-        ];
-      }
       // Some table columns containing raw markup.
+
       $form['table-row'][$row['id']]['name'] = [
-        '#markup' => $row['name'],
+        '#markup' => '<span class=' . $row['status'] .'>' . ucfirst($row['status']) . '</span>' . ' ' .  $row['bundle'] . ' ' .  $row['name'],
         '#prefix' => !empty($indentation) ? $this->renderer->render($indentation) : '',
+        '#attributes' => [
+          'class' => ['row-weight'],
+        ],
       ];
 
       // This is hidden from #tabledrag array (above).
@@ -183,14 +183,13 @@ class ProjectHierarchyOrderForm extends FormBase {
           'class' => ['row-pid'],
         ],
       ];
-
     }
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Save All Changes'),
     ];
-
+//dd($form);
     return $form;
   }
 
@@ -207,6 +206,20 @@ class ProjectHierarchyOrderForm extends FormBase {
       $node->set('field_affiliated_parents', $item['pid']);
       $node->save();
     }
+    // now that the hierarchy is saved, loop over it again to check for published items nested underunpublished ones
+    foreach ($submissions as $id =>$item) {
+      $node = $this->entityTypeManager->getStorage('node')->load($id);
+      // unpublish all children of unpublished nodes to be safe
+      if (!$node->isPublished()) {
+        $unpublished_children = $this->publish_status_service->unpublishChildNodes($node->id());
+        if ($unpublished_children) {
+          $text = count($unpublished_children) > 1 ? 'nodes' : 'node';
+          $this->messenger()
+            ->addStatus($this->t('%count child %text also unpublished.', ['%count' => count($unpublished_children), '%text' => $text]));
+        }
+      }
+    }
+
     $project_nid = $form_state->getValue('project-nid');
     $route_name = 'entity.node.canonical';
     $route_parameters = ['node' => $project_nid];
@@ -254,6 +267,8 @@ class ProjectHierarchyOrderForm extends FormBase {
 
     $item_array = [
       'id' => $item->id(),
+      'status' => $item->isPublished() ? 'published' : 'unpublished',
+      'bundle' => $this->ldbase_service->getLDbaseContentType($item->uuid()),
       'name' => $item->getTitle(),
       'weight' => $item->hasField('field_hierarchy_weight') ? $item->get('field_hierarchy_weight')->value : 0,
       'pid' => $item->hasField('field_affiliated_parents') ?$item->get('field_affiliated_parents')->target_id : 0,
