@@ -33,7 +33,7 @@ class LDbaseProjectTreeBlock extends BlockBase {
 
       $child_nids = \Drupal::service('ldbase_handlers.publish_status_service')->getChildNids($parent_project_node->id());
 
-      if (!empty($child_nids)) {
+      if (!empty($child_nids) && count($child_nids) > 1) {
         $url = Url::fromRoute('ldbase.sort_project_hierarchy', ['node' => $parent_project_uuid]);
         if ($url->access()) {
           $link = Link::createFromRoute(t('Change Hierarchy'), 'ldbase.sort_project_hierarchy',['node' => $parent_project_uuid]);
