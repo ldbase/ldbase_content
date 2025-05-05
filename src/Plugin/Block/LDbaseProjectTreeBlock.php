@@ -31,7 +31,7 @@ class LDbaseProjectTreeBlock extends BlockBase {
       $tree_view = \Drupal\ldbase_content\Controller\LDbaseProjectTreeController::output_tree($parent_project_node->uuid(), $node->uuid());
       $parent_project_uuid = $parent_project_node->uuid();
 
-      $child_nids = \Drupal::service('ldbase_handlers.publish_status_service')->getChildNids($node->id());
+      $child_nids = \Drupal::service('ldbase_handlers.publish_status_service')->getChildNids($parent_project_node->id());
 
       if (!empty($child_nids)) {
         $url = Url::fromRoute('ldbase.sort_project_hierarchy', ['node' => $parent_project_uuid]);
@@ -40,7 +40,7 @@ class LDbaseProjectTreeBlock extends BlockBase {
           $tree_view .= "<div id='change-hierarchy-link'>{$link->toString()}</div>";
         }
       }
-      
+
       return [
         '#markup' => Markup::create($tree_view)
       ];
