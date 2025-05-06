@@ -145,7 +145,7 @@ class ProjectHierarchyOrderForm extends FormBase {
       // Some table columns containing raw markup.
 
       $form['table-row'][$row['id']]['name'] = [
-        '#markup' => '<span class=' . $row['status'] .'>' . ucfirst($row['status']) . '</span>' . ' ' .  $row['bundle'] . ' ' .  $row['name'],
+        '#markup' => '<span class=' . $row['status'] .'>' . ucfirst($row['status']) . '</span>' . ' ' .  $row['bundle'] . ': ' .  $row['name'],
         '#prefix' => !empty($indentation) ? $this->renderer->render($indentation) : '',
         '#attributes' => [
           'class' => ['row-weight'],
