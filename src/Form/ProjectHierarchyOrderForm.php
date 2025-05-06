@@ -87,7 +87,7 @@ class ProjectHierarchyOrderForm extends FormBase {
         <li>' . $this->t("Your project title is displayed but cannot be nested under other content.") . '</li>
         <li>' . $this->t("Drag-and-drop items to change their positions.") . '</li>
         <li>' . $this->t("Indentations indicate that the content is nested. If all of your content is lined up on the left, then everything is stored under the project.") . '</li>
-        <li>' . $this->t("Nesting <span class='unpublished'>Unpublished</span> items under a <span class='published'>Published</span> item will automatically <strong>unpublish</strong> those nested items when you save your changes.") . '</li></ul>',
+        <li>' . $this->t("Nesting <span class='published'>Published</span> items under an <span class='unpublished'>Unpublished</span> item will automatically <strong>unpublish</strong> those nested items when you save your changes.") . '</li></ul>',
     ];
 
     $form['project-nid'] = [
