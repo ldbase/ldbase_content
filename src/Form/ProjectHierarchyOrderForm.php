@@ -9,6 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\ldbase_content\LDbaseObjectService;
 use Drupal\ldbase_handlers\PublishStatusService;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 class ProjectHierarchyOrderForm extends FormBase {
 
@@ -184,12 +186,17 @@ class ProjectHierarchyOrderForm extends FormBase {
         ],
       ];
     }
+
+    $project_nid = $project_node->id();
+    $project_link = Link::createFromRoute('Return to Project','entity.node.canonical',['node' => $project_nid]);
+    $project_return = $project_link->toRenderable();
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Save All Changes'),
+      '#suffix' => '<span class="hierarchy-form-return-link">' . $this->renderer->render($project_return) . '</span>',
     ];
-//dd($form);
+
     return $form;
   }
 
@@ -206,6 +213,7 @@ class ProjectHierarchyOrderForm extends FormBase {
       $node->set('field_affiliated_parents', $item['pid']);
       $node->save();
     }
+    $this->messenger()->addStatus($this->t('Your changes have been saved.'));
     // now that the hierarchy is saved, loop over it again to check for published items nested underunpublished ones
     foreach ($submissions as $id =>$item) {
       $node = $this->entityTypeManager->getStorage('node')->load($id);
@@ -220,10 +228,6 @@ class ProjectHierarchyOrderForm extends FormBase {
       }
     }
 
-    $project_nid = $form_state->getValue('project-nid');
-    $route_name = 'entity.node.canonical';
-    $route_parameters = ['node' => $project_nid];
-    $form_state->setRedirect($route_name, $route_parameters);
   }
 
   /**
@@ -275,7 +279,6 @@ class ProjectHierarchyOrderForm extends FormBase {
       'depth' => $item->depth,
     ];
     // Add the item to the tree.
-    //$tree[$item->id()] = $item_array;
     if ($item_array['pid'] != 0) {
       $tree[$item->id()] = $item_array;
     }
