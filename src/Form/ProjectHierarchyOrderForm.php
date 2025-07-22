@@ -116,6 +116,7 @@ class ProjectHierarchyOrderForm extends FormBase {
           'source' => 'row-id',
           'hidden' => TRUE, /* hides the WEIGHT & PARENT tree columns below */
           'limit' => FALSE,
+          'animation' => 150,
         ],
         [
           'action' => 'order',
@@ -134,7 +135,7 @@ class ProjectHierarchyOrderForm extends FormBase {
       }
       // TableDrag: Sort the table row according to its existing/configured
       // weight.
-      $form['table-row'][$row['id']]['#weight'] = $row->weight;
+      $form['table-row'][$row['id']]['#weight'] = $row['weight'];
 
       // Indent item on load.
       if (isset($row['depth']) && $row['depth'] > 0) {
